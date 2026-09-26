@@ -429,7 +429,9 @@ build_kernels.py 仍完整实现 Trim/Fade 语义（含 VA 证据注释），供
 
 `tools/build_kernels.py`：收集语料 id2 引用 → .enc（缓存/CDN `dldir1.qq.com/music/clntupate/ss2/irs/`）
 → `decrypt_ir` 解密 → Trim/Fade（按 §2.4 语义）→ 通道归一（4ch true-stereo 取对角）→
-重采样归一 44100Hz（加窗 sinc，近似 SoundTouch 路径）→ float32/2ch WAV → `kernels\<sha1>.wav`。
+重采样归一 44100Hz（加窗 sinc，近似 SoundTouch 路径）→ float32/2ch WAV →
+`kernels/441/<名>_441.wav` 与 `kernels/48k/<名>_48k.wav`（双速率可读命名，hash↔名字对照见
+`kernels/kernel_index.json`；原为扁平 `kernels\<sha1>.wav`）。
 
 | hash | 源格式 | Trim/Fade | 输出 |
 |---|---|---|---|
@@ -447,8 +449,8 @@ build_kernels.py 仍完整实现 Trim/Fade 语义（含 VA 证据注释），供
 | fae6b7a7 | 2ch/**48k**/0.044s | Trim=-100→不生效 | **重采样 44.1k** 0.044s |
 
 校验：12/12 全部 float32 全有限、峰值 |x|≤1.19、首尾 RMS 形态合理；74215679 保留 ch0 直通尖峰（max=1.0）。
-`kernels/679a81d9*.wav`、`de36ef18*.wav` 为 id7 Sampler 音乐素材（对应效果 skipped），不属于卷积核，
-不归本流水线，仅保留作参考。
+`kernels/441|48k/采样素材_黑胶_留声机_*.wav`（原 `679a81d9*`）、`采样素材_黑胶_留声机_2_*.wav`
+（原 `de36ef18*`）为 id7 Sampler 音乐素材（对应效果 skipped），不属于卷积核，不归本流水线，仅保留作参考。
 
 ---
 

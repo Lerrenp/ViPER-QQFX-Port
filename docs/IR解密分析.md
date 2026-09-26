@@ -127,6 +127,8 @@ f1 40 19 60 0e ed 68 09 06 5f 4d cf 3d 1a fe 20 77 e4 d9 da f9 a4 2b 76
 
 输入：`QQMusic去exe版/resae/irs/742156792c2f7c863b9d5cec1cd0622546a1f877.enc`（1,570,744 B）
 输出：`kernels/742156792c2f7c863b9d5cec1cd0622546a1f877.wav`（1,570,744 B）
+（注：现经 `tools/build_kernels.py` 构建为双速率可读名 `kernels/441/现场律动_441.wav`、
+`kernels/48k/现场律动_48k.wav`，见 §7.1 与 `kernels/kernel_index.json`。）
 
 | 判据 | 结果 |
 |---|---|
@@ -181,7 +183,8 @@ python tools/batch_convert.py
 
 ### 7.1 补齐结果（已完成：14/14 下载并解密，0 失败）
 
-14 个 `.enc` 直链全部可下载（无 404）。每个解密后按硬判据校验，全部通过并写入 `kernels/`：
+14 个 `.enc` 直链全部可下载（无 404）。每个解密后按硬判据校验，全部通过并写入 `kernels/`
+（现为 `kernels/441/` 与 `kernels/48k/` 双速率、可读命名，hash↔名字对照见 `kernels/kernel_index.json`）：
 
 | hash（.wav） | 调用方 | 格式 | 时长 | 校验 |
 |---|---|---|---|---|
@@ -203,9 +206,11 @@ python tools/batch_convert.py
 校验口径：解密输出为合法 RIFF/WAVE 且 `data` 长度可解析不越界；float32 全部有限、`|x|≤8`；
 无 RMS 满幅段（分段 >0.9）。所有文件均满足，**0 失败**，故全部产出 kernel、无跳过。
 
-> 说明：`679a…`/`de36ef…` 是 id7 `Sampler`（采样器）的音乐素材，不是卷积 IR，但同属 `.enc`
-> 加密封装，解密校验通过后一并保留；`b7c9156c…` 是 012 的第二条 IR，`convert_aep` 取先命中的一条
-> 作为 `convolver.kernelFile`。`.enc` 原文件仅存系统临时目录，未纳入仓库。
+> 说明：`采样素材_黑胶_留声机`（`679a…`）/`采样素材_黑胶_留声机_2`（`de36ef…`）是 id7
+> `Sampler`（采样器）的音乐素材，不是卷积 IR，但同属 `.enc` 加密封装，解密校验通过后一并保留；
+> `b7c9156c…`（`复合低音_备选`）是 012 的第二条 IR，V4A 单级 convolver 下**后者覆盖前者**，
+> 012 实际生效的是 `d8d31861…`（`复合低音_超高保真`），`b7c9156c…` 仅作备选。
+> `.enc` 原文件仅存系统临时目录，未纳入仓库。
 
 ### 7.2 最终结果
 
@@ -213,6 +218,7 @@ python tools/batch_convert.py
 - `convolver` 启用预设数：**12**（001/007/008/009/010/011/012/013/015/017/018/504）。
 - 批量转码：`presets` **36** 个，`validate_preset.py` 全量 **37/37 pass**（36 生成 + 1 手工），
   `manifest.json` 校验 `pass 36 / fail 0`。
+  （注：为当时快照；当前为 `presets` **35** 个、校验 35/35 pass、`manifest` pass 35 / fail 0 / skipped 16。）
 
 > 注：元数据中另有 4 个 `.irs` 链接（`dlied5sdk.myapp.com/...t_sound_recommendEffectBase/`），
 > 是另一类未加密 IR 资产，不在 `.enc` 范畴。
