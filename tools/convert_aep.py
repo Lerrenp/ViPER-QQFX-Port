@@ -392,13 +392,18 @@ def build(aep_path, schema, registry, now_ms=None, dump_path=None, kernels_dir=D
             ir_file = params.get("IR File", "")
             kernel = _ir_kernel_name(ir_file, kernels_dir)
             if kernel:
+                # V4A convolver 单级：同文件多个 id2 时后者覆盖前者（如 012 的两个 IR）
+                if "convolver" in decisions:
+                    warnings.append("id2 StudioIr 出现多次，V4A convolver 仅单级，后者覆盖前者"
+                                    "（前一个 kernel=%s 被弃用，未做串联/混合）" % preset["convolver"]["kernelFile"])
                 preset["convolver"].update({
                     "enable": True,
                     "kernelFile": kernel,
                     "crossChannel": 0.0,
                 })
                 note("convolver", CONF_APPROX,
-                     "id2 StudioIr -> convolver: kernelFile=%s（QQ .enc 为真立体声 IR，已降为立体声）" % kernel)
+                     "id2 StudioIr -> convolver: kernelFile=%s（kernel 由 tools/build_kernels.py 按 SS2 加载器语义构建："
+                     "解密+Trim/Fade（本语料均不激活）+4ch 对角降混+44.1kHz 归一，见 docs/SS2引擎分析.md）" % kernel)
                 for k in ("Trim", "Fade"):
                     if k in params:
                         warnings.append("id2 StudioIr: %s=%g 未映射（convolver 无对应项）" % (k, float(params[k])))

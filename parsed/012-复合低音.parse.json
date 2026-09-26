@@ -47,8 +47,8 @@
     },
     "decisions": {
       "convolver": [
-        "id2 StudioIr -> convolver: kernelFile=b7c9156c947c4af96e2edde9abf58b3a1a29e932.wav（QQ .enc 为真立体声 IR，已降为立体声）",
-        "id2 StudioIr -> convolver: kernelFile=d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.wav（QQ .enc 为真立体声 IR，已降为立体声）"
+        "id2 StudioIr -> convolver: kernelFile=b7c9156c947c4af96e2edde9abf58b3a1a29e932.wav（kernel 由 tools/build_kernels.py 按 SS2 加载器语义构建：解密+Trim/Fade（本语料均不激活）+4ch 对角降混+44.1kHz 归一，见 docs/SS2引擎分析.md）",
+        "id2 StudioIr -> convolver: kernelFile=d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.wav（kernel 由 tools/build_kernels.py 按 SS2 加载器语义构建：解密+Trim/Fade（本语料均不激活）+4ch 对角降混+44.1kHz 归一，见 docs/SS2引擎分析.md）"
       ],
       "masterLimiter": [
         "id4 Amplifier: Gain=-5.8978 dB"
@@ -68,6 +68,7 @@
     ]
   },
   "warnings": [
+    "id2 StudioIr 出现多次，V4A convolver 仅单级，后者覆盖前者（前一个 kernel=b7c9156c947c4af96e2edde9abf58b3a1a29e932.wav 被弃用，未做串联/混合）",
     "未映射节点 id=22(HyperBassEffect) 参数={\"Selectivity\": 120.0, \"Gain\": 1.2000000476837158, \"Ratio\": 1.5}：HyperBass（Selectivity/Gain/Ratio），算法结构无对应"
   ],
   "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\012-复合低音.parse.json"

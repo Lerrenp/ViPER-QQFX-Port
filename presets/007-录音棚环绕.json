@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "录音棚环绕",
-  "createdAt": 1790438576632,
+  "createdAt": 1790440951701,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 0.7498942093324559,

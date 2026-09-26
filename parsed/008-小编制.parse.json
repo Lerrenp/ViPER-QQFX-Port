@@ -53,7 +53,7 @@
     },
     "decisions": {
       "convolver": [
-        "id2 StudioIr -> convolver: kernelFile=36af30f920f0e3f00232ff24b1b7847b2c006198.wav（QQ .enc 为真立体声 IR，已降为立体声）"
+        "id2 StudioIr -> convolver: kernelFile=36af30f920f0e3f00232ff24b1b7847b2c006198.wav（kernel 由 tools/build_kernels.py 按 SS2 加载器语义构建：解密+Trim/Fade（本语料均不激活）+4ch 对角降混+44.1kHz 归一，见 docs/SS2引擎分析.md）"
       ],
       "dynamicEq": [
         "id24 SuperEQ: FFT 图形 EQ -> dynamicEq 峰值频段（Q 取 1.0 近似，start_f/octave/window_bits 未映射）",

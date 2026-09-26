@@ -31,7 +31,7 @@
     },
     "decisions": {
       "convolver": [
-        "id2 StudioIr -> convolver: kernelFile=2f823376fa7e63ef5a9b70f7443c19793811bb0e.wav（QQ .enc 为真立体声 IR，已降为立体声）"
+        "id2 StudioIr -> convolver: kernelFile=2f823376fa7e63ef5a9b70f7443c19793811bb0e.wav（kernel 由 tools/build_kernels.py 按 SS2 加载器语义构建：解密+Trim/Fade（本语料均不激活）+4ch 对角降混+44.1kHz 归一，见 docs/SS2引擎分析.md）"
       ],
       "masterLimiter": [
         "id4 Amplifier: Gain=-2.5000 dB"

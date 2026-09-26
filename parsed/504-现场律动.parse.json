@@ -94,7 +94,7 @@
         "id63 Mverb -> reverb: roomSize=DECAY=0.5, damp=1-DAMPINGFREQ=1, wet=MIX=0.2, dry=1-MIX=0.8, width=1.0(立体声湿声)"
       ],
       "convolver": [
-        "id2 StudioIr -> convolver: kernelFile=742156792c2f7c863b9d5cec1cd0622546a1f877.wav（QQ .enc 为真立体声 IR，已降为立体声）"
+        "id2 StudioIr -> convolver: kernelFile=742156792c2f7c863b9d5cec1cd0622546a1f877.wav（kernel 由 tools/build_kernels.py 按 SS2 加载器语义构建：解密+Trim/Fade（本语料均不激活）+4ch 对角降混+44.1kHz 归一，见 docs/SS2引擎分析.md）"
       ],
       "masterLimiter": [
         "id4 Amplifier: Gain=-4.6576 dB"
