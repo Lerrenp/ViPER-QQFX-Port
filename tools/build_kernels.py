@@ -231,6 +231,13 @@ def collect_refs():
     for au, effects in id7_use.items():
         refs[au] = {"trim": None, "fade": 0.0, "roles": ["sampler"]}
         naming[au] = "采样素材_" + "_".join(dict.fromkeys(effects))
+    # 同名冲突消解（如两个 id7 素材被同两个效果引用）：按 hash 排序，重名追加 _2/_3…
+    counts = {}
+    for sha in sorted(naming):
+        base = naming[sha]
+        counts[base] = counts.get(base, 0) + 1
+        if counts[base] > 1:
+            naming[sha] = "%s_%d" % (base, counts[base])
     return refs, naming
 
 
