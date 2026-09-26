@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "极重低音",
-  "createdAt": 1790440951723,
+  "createdAt": 1790443125370,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 1.5848931924611136,
@@ -233,7 +233,7 @@
   },
   "convolver": {
     "enable": true,
-    "kernelFile": "fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.wav",
+    "kernelFile": "极重低音_441.wav",
     "crossChannel": 0.0
   },
   "fieldSurround": {

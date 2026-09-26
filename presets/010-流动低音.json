@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "流动低音",
-  "createdAt": 1790440951707,
+  "createdAt": 1790443125355,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 1.0,
@@ -233,7 +233,7 @@
   },
   "convolver": {
     "enable": true,
-    "kernelFile": "4d11b1cd25bd08e131e79b2b1736b71c6f18828b.wav",
+    "kernelFile": "流动低音_441.wav",
     "crossChannel": 0.0
   },
   "fieldSurround": {

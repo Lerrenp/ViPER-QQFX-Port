@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1790440951771,
+  "generatedAt": 1790443125415,
   "schema": "tools/v4a_schema.json",
   "aep_dir": "aep",
   "count": 51,
@@ -336,7 +336,7 @@
         "convolver"
       ],
       "approximation_warnings": [
-        "id2 StudioIr 出现多次，V4A convolver 仅单级，后者覆盖前者（前一个 kernel=b7c9156c947c4af96e2edde9abf58b3a1a29e932.wav 被弃用，未做串联/混合）"
+        "id2 StudioIr 出现多次，V4A convolver 仅单级，后者覆盖前者（前一个 kernel=复合低音_备选_441.wav 被弃用，未做串联/混合）"
       ],
       "unmapped": [
         {

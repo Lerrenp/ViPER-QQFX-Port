@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "现场律动",
-  "createdAt": 1790440951760,
+  "createdAt": 1790443125405,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 0.584951759150882,
@@ -233,7 +233,7 @@
   },
   "convolver": {
     "enable": true,
-    "kernelFile": "742156792c2f7c863b9d5cec1cd0622546a1f877.wav",
+    "kernelFile": "现场律动_441.wav",
     "crossChannel": 0.0
   },
   "fieldSurround": {

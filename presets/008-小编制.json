@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "小编制",
-  "createdAt": 1790440951703,
+  "createdAt": 1790443125351,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 0.7160305974923157,
@@ -282,7 +282,7 @@
   },
   "convolver": {
     "enable": true,
-    "kernelFile": "36af30f920f0e3f00232ff24b1b7847b2c006198.wav",
+    "kernelFile": "小编制_441.wav",
     "crossChannel": 0.0
   },
   "fieldSurround": {

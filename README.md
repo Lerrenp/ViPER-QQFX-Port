@@ -69,7 +69,7 @@ schema 遍历。逐字节验证与 hex 证据见 [docs/分析报告.md](docs/分
 | id11 `StereoEnhancer` `Width`(%) | `stereoImager` 三频段 `width` | `W/100`，clamp 0..2；`Center≠100` 记 warning | **verified**（`Center=100` 时） |
 | id12 `Delay` 单边 Time>0 且 Feedback=0 | `diffSurround` | `delay=clamp(t,1,20)`、`reverse=(Left>0)`、`wetDryMix=1.0` | **verified**（26.12 ms 被钳到 20 ms） |
 | id63 `Mverb` | `reverb` | `roomSize=DECAY`、`damp=1−DAMPINGFREQ`、`wet=MIX`、`dry=1−MIX` | **approx**（Freeverb↔MVerb 结构不同） |
-| id2 `StudioIr` | `convolver{kernelFile}` | 仅当 `kernels/<hash>.wav` 存在（.enc 解密成功）时启用；4ch IR 在 V4A 卷积器中降为立体声 | **approx**（算法已完全解密，见 1.7；四声道 IR 降为立体声） |
+| id2 `StudioIr` | `convolver{kernelFile}` | 仅当对应 kernel 存在（`build_kernels.py` 解密构建）时启用；4ch IR 取对角降为立体声；kernelFile 指向 441 版可读名 | **approx**（算法已完全解密，见 1.7；流水线见 SS2 分析 §6） |
 | id51/50 `Peaking/HighShelfFilterQ`、id33/34 `LS/HSFilter`、id35 `PKFilter`、id24 `SuperEQ` | `dynamicEq` | 频段按文件顺序合并：`freqs` clamp 20..20000、`qs` clamp 0.5..8、`gains` clamp −12..12、`filterTypes` 0=peak/1=low shelf/2=high shelf；`thresholds` 恒设 −80（恒生效） | **approx**（动态 EQ 近似静态滤波器；id35 f0=√(lo·hi)/Q=f0/(hi−lo)；id24 Q 取 1.0） |
 | id57 `SuperBass` | `bass` | `frequency` clamp 15..150、`gain` clamp 0.5..10 | **approx**（V4A bass 为动态低音/次谐波结构） |
 | 其余节点 | 不映射 | dump 节点 id/类名/参数 + 具体原因入 warning | **skipped** |
@@ -160,8 +160,20 @@ id15:3、id18:3、id21:3、id28:2，其余 id5/22/31/40/55/56/58/59/60/62/69/70/
 
 - **convolver 已启用 12 个预设**：001/007/008/009/010/011/012/013/015/017/018/504。
 
-> **convolver kernel 安装**：把 `kernels/<sha1>.wav` 放入 V4A app 的 Kernel 目录后，预设内
-> `convolver.kernelFile` 即可引用同名文件。当前 IR 为 4 声道，V4A 卷积器按立体声处理（下混）。
+> **convolver kernel 安装（双速率 + 可读命名）**：kernel 按 `tools/build_kernels.py` 统一构建，
+> 输出两套采样率版本（`kernels/441/`、`kernels/48k/`），文件名为可读的效果名（hash↔名字对照见
+> `kernels/kernel_index.json`）：
+>
+> | 版本 | 适用 | 文件 |
+> |---|---|---|
+> | `441/`（44.1 kHz） | 设备音频会话为 44.1k，或按 V4A DSP 默认（44100）使用 | `<效果名>_441.wav` |
+> | `48k/`（48 kHz） | 设备音频会话为 48k（多数手机）——避免 44.1k 核被按 48k 消费导致混响时长缩短约 8% | `<效果名>_48k.wav` |
+>
+> **选一套**拷入 V4A app 的 Kernel 目录（`Android/data/com.llsl.viper4android/files/Kernel/`）。
+> 预设内 `convolver.kernelFile` 默认指向 `_441` 版；若装的是 48k 版，把预设里的 `_441` 后缀改成
+> `_48k` 即可（或导入后在 app 内重选内核）。命名规则：多效果共享的核用 `_` 连接效果名
+> （如 `复合低音_超高保真`）；同效果多个 IR 时被覆盖的前者加 `_备选`；id7 采样素材加
+> `采样素材_` 前缀（对应效果本就被 skipped，仅供参考）。
 
 
 ---
@@ -197,7 +209,7 @@ ViPER-QQFX-Port/
 │   ├── 001-差分环绕.json ... 998-设备音效.json
 │   └── QQ音乐-全景环绕.json   # 手工验证版（对照 build_preset.py，已通过新校验器）
 ├── parsed/                  # 解析 dump（34 个 <名>.parse.json + 历史 parsed_500-全景环绕.json）
-└── kernels/                 # 14 个解密后的卷积/采样 IR WAV（见 1.7）
+└── kernels/                 # 双速率 kernel（441/ 与 48k/ 两套，可读命名）+ kernel_index.json
 ```
 
 > `500-全景环绕` 的两个版本：`aep/500-全景环绕.aep` 是语料中的**旧版**（1276B，节点 11/12/13，

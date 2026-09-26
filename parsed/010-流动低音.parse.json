@@ -22,7 +22,7 @@
     },
     "decisions": {
       "convolver": [
-        "id2 StudioIr -> convolver: kernelFile=4d11b1cd25bd08e131e79b2b1736b71c6f18828b.wav（kernel 由 tools/build_kernels.py 按 SS2 加载器语义构建：解密+Trim/Fade（本语料均不激活）+4ch 对角降混+44.1kHz 归一，见 docs/SS2引擎分析.md）"
+        "id2 StudioIr -> convolver: kernelFile=流动低音_441.wav（kernel 由 tools/build_kernels.py 按 SS2 加载器语义构建：解密+Trim/Fade（本语料均不激活）+4ch 对角降混+44.1kHz 归一，见 docs/SS2引擎分析.md）"
       ]
     },
     "unmapped": []

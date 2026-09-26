@@ -1,0 +1,142 @@
+{
+  "2f823376fa7e63ef5a9b70f7443c19793811bb0e": {
+    "name": "录音棚环绕",
+    "files": {
+      "441": "录音棚环绕_441.wav",
+      "48k": "录音棚环绕_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  },
+  "36af30f920f0e3f00232ff24b1b7847b2c006198": {
+    "name": "小编制",
+    "files": {
+      "441": "小编制_441.wav",
+      "48k": "小编制_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  },
+  "43e714f5c19994239908b83b3c494225079b7605": {
+    "name": "民谣",
+    "files": {
+      "441": "民谣_441.wav",
+      "48k": "民谣_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  },
+  "4d11b1cd25bd08e131e79b2b1736b71c6f18828b": {
+    "name": "流动低音",
+    "files": {
+      "441": "流动低音_441.wav",
+      "48k": "流动低音_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  },
+  "679a81d912ae4cb5c9d208fd03061aa4b4a622fa": {
+    "name": "采样素材_黑胶_留声机",
+    "files": {
+      "441": "采样素材_黑胶_留声机_441.wav",
+      "48k": "采样素材_黑胶_留声机_48k.wav"
+    },
+    "roles": [
+      "sampler"
+    ]
+  },
+  "6f7ed6744ad0f47c6bf73d001b65c1531b47a388": {
+    "name": "现场环绕",
+    "files": {
+      "441": "现场环绕_441.wav",
+      "48k": "现场环绕_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  },
+  "742156792c2f7c863b9d5cec1cd0622546a1f877": {
+    "name": "现场律动",
+    "files": {
+      "441": "现场律动_441.wav",
+      "48k": "现场律动_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  },
+  "8da782aafdc5174e9b8e838c57e2a31d2db9f6a3": {
+    "name": "差分环绕",
+    "files": {
+      "441": "差分环绕_441.wav",
+      "48k": "差分环绕_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  },
+  "b7c9156c947c4af96e2edde9abf58b3a1a29e932": {
+    "name": "复合低音_备选",
+    "files": {
+      "441": "复合低音_备选_441.wav",
+      "48k": "复合低音_备选_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  },
+  "c2e6f77802083d99658e46126b64fd0eeb2a12f2": {
+    "name": "震撼低音",
+    "files": {
+      "441": "震撼低音_441.wav",
+      "48k": "震撼低音_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  },
+  "d8d31861ef720e7ebe5d30fad4ba2dea68bbee41": {
+    "name": "复合低音_超高保真",
+    "files": {
+      "441": "复合低音_超高保真_441.wav",
+      "48k": "复合低音_超高保真_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  },
+  "de36ef18f951b510b071f0c1b696327eeccfc5f7": {
+    "name": "采样素材_黑胶_留声机",
+    "files": {
+      "441": "采样素材_黑胶_留声机_441.wav",
+      "48k": "采样素材_黑胶_留声机_48k.wav"
+    },
+    "roles": [
+      "sampler"
+    ]
+  },
+  "f11a9f4cf5aacc0ee807a14427ac63cd65841767": {
+    "name": "清澈旋律",
+    "files": {
+      "441": "清澈旋律_441.wav",
+      "48k": "清澈旋律_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  },
+  "fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0": {
+    "name": "极重低音",
+    "files": {
+      "441": "极重低音_441.wav",
+      "48k": "极重低音_48k.wav"
+    },
+    "roles": [
+      "convolver"
+    ]
+  }
+}

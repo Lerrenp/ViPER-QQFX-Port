@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "超高保真",
-  "createdAt": 1790440951713,
+  "createdAt": 1790443125361,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 1.0,
@@ -233,7 +233,7 @@
   },
   "convolver": {
     "enable": true,
-    "kernelFile": "d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.wav",
+    "kernelFile": "复合低音_超高保真_441.wav",
     "crossChannel": 0.0
   },
   "fieldSurround": {

@@ -160,11 +160,25 @@ def _freq_of(name):
 
 
 def _ir_kernel_name(ir_file, kernels_dir):
-    """'irs\\7421....enc' -> kernels/<stem>.wav 若存在，返回 wav 文件名；否则 None。"""
+    """'irs\\7421....enc' -> 预设可用的 kernel 文件名（441 版）；不存在则 None。
+
+    命名经 tools/build_kernels.py 转为可读名（hash↔名字对照见 kernels/kernel_index.json），
+    产物在 kernels/441/<名>_441.wav 与 kernels/48k/<名>_48k.wav；预设默认引用 441 版
+    （V4A DSP 常量采样率 44100），48k 会话的设备可换用 48k 版（见 README）。
+    """
     if not ir_file:
         return None
     base = os.path.basename(str(ir_file).replace("\\", "/"))
     stem = os.path.splitext(base)[0]
+    idx_path = os.path.join(kernels_dir, "kernel_index.json") if kernels_dir else None
+    if idx_path and os.path.exists(idx_path):
+        idx = json.load(open(idx_path, encoding="utf-8"))
+        entry = idx.get(stem)
+        if entry and "files" in entry:
+            fname = entry["files"]["441"]
+            if os.path.exists(os.path.join(kernels_dir, "441", fname)):
+                return fname
+    # 回退：无 index 时按旧布局（<hash>.wav）兼容
     kernel = stem + ".wav"
     if kernels_dir and os.path.exists(os.path.join(kernels_dir, kernel)):
         return kernel

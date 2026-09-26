@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "现场环绕",
-  "createdAt": 1790440951709,
+  "createdAt": 1790443125357,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 0.5011872336272722,
@@ -233,7 +233,7 @@
   },
   "convolver": {
     "enable": true,
-    "kernelFile": "6f7ed6744ad0f47c6bf73d001b65c1531b47a388.wav",
+    "kernelFile": "现场环绕_441.wav",
     "crossChannel": 0.0
   },
   "fieldSurround": {

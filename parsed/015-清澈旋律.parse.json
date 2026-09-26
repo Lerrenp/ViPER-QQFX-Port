@@ -31,7 +31,7 @@
     },
     "decisions": {
       "convolver": [
-        "id2 StudioIr -> convolver: kernelFile=f11a9f4cf5aacc0ee807a14427ac63cd65841767.wav（kernel 由 tools/build_kernels.py 按 SS2 加载器语义构建：解密+Trim/Fade（本语料均不激活）+4ch 对角降混+44.1kHz 归一，见 docs/SS2引擎分析.md）"
+        "id2 StudioIr -> convolver: kernelFile=清澈旋律_441.wav（kernel 由 tools/build_kernels.py 按 SS2 加载器语义构建：解密+Trim/Fade（本语料均不激活）+4ch 对角降混+44.1kHz 归一，见 docs/SS2引擎分析.md）"
       ],
       "masterLimiter": [
         "id4 Amplifier: Gain=-6.0000 dB"
