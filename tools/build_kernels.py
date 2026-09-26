@@ -54,7 +54,6 @@ import decrypt_ir  # noqa: E402
 from aep_parser import parse  # noqa: E402
 
 AEPS = os.path.join(ROOT, "aep")
-MANIFEST_JSON = os.path.join(AEPS, "recommendbase.json")
 KERNELS = os.path.join(ROOT, "kernels")
 INDEX_JSON = os.path.join(KERNELS, "kernel_index.json")
 ENC_CACHE = os.path.join(tempfile.gettempdir(), "qqfx_enc")
@@ -75,14 +74,18 @@ def enc_path(sha1):
     url = CDN + sha1 + ".enc"
     with urllib.request.urlopen(url, timeout=60) as r:
         data = r.read()
-    with open(p, "wb") as f:
+    # 先写临时文件再原子替换，避免下载中断留下半截缓存被当成有效文件
+    tmp = p + ".part"
+    with open(tmp, "wb") as f:
         f.write(data)
+    os.replace(tmp, p)
     return p, True
 
 
 # ---------- WAV 读/写（容忍 pcm16/24/32、float32、EXTENSIBLE） ----------
 def read_wav(data):
-    assert data[:4] == b"RIFF" and data[8:12] == b"WAVE", "not a RIFF/WAVE"
+    if data[:4] != b"RIFF" or data[8:12] != b"WAVE":
+        raise ValueError("not a RIFF/WAVE stream")
     pos, fmt, chunks = 12, None, {}
     while pos + 8 <= len(data):
         cid = data[pos:pos + 4]
@@ -157,6 +160,9 @@ def apply_trim_fade(chans, rate, trim_db, fade_ms):
 
 
 # ---------- 重采样（加窗 sinc，近似 SS2 的 SoundTouch 路径） ----------
+# 注意：降采样（48k→44.1k）时本实现未加低通截止，>Nyquist/2 的成分会混叠；
+# 对音频 IR 实测影响可忽略（能量集中在低频），作为对 SoundTouch 的近似已在
+# docs/SS2引擎分析.md 声明。若需广播级质量可换 soxr/scipy.resample_poly。
 def resample(chans, rate_in, rate_out):
     if rate_in == rate_out:
         return chans
@@ -193,14 +199,14 @@ def _clean(name):
 
 
 def collect_refs():
-    """遍历语料，返回 (refs, naming)。
+    """遍历语料（单次解析全部 .aep），返回 (refs, naming)。
 
-    refs:  sha1 -> {"trim": float|None, "fade": float, "roles": set}
+    refs:  sha1 -> {"trim": float|None, "fade": float, "roles": [..]}
     naming: sha1 -> base 名（可读命名，见文件头说明）
     """
-    order = []                       # 语料文件顺序（用于共享名连接与冲突消解）
     id2_use = {}                     # sha1 -> [(effect, active?), ...]
     id7_use = {}                     # sha1 -> [effect, ...]
+    tf = {}                          # sha1 -> [trim|None, fade]
     for f in sorted(os.listdir(AEPS)):
         if not f.endswith(".aep"):
             continue
@@ -209,7 +215,6 @@ def collect_refs():
         except Exception:
             continue
         effect = _clean(d.get("name") or os.path.basename(f)[:-4])
-        order.append(effect)
         id2_nodes = [n for n in d["nodes"] if n["id"] == 2]
         for i, n in enumerate(id2_nodes):
             ir = os.path.basename(str(n["params"].get("IR File", ""))).rsplit(".", 1)[0]
@@ -218,18 +223,27 @@ def collect_refs():
             # 同效果多个 id2：后者覆盖前者（V4A convolver 单级），前者为"备选"
             id2_use.setdefault(ir, []).append((effect, i == len(id2_nodes) - 1))
         for n in d["nodes"]:
+            pname = {2: "IR File", 7: "Audio File"}.get(n["id"])
+            if pname is None:
+                continue
+            sha = os.path.basename(str(n["params"].get(pname, ""))).rsplit(".", 1)[0]
+            if sha:
+                tr, fd = n["params"].get("Trim"), n["params"].get("Fade", 0.0)
+                cur = tf.setdefault(sha, [None, 0.0])
+                if tr is not None and cur[0] is None:
+                    cur[0], cur[1] = float(tr), float(fd)
             if n["id"] == 7:
-                au = os.path.basename(str(n["params"].get("Audio File", ""))).rsplit(".", 1)[0]
-                if au:
-                    id7_use.setdefault(au, []).append(effect)
+                id7_use.setdefault(sha, []).append(effect)
 
     refs, naming = {}, {}
     for ir, uses in id2_use.items():
-        refs[ir] = {"trim": None, "fade": 0.0, "roles": ["convolver"]}
+        refs[ir] = {"trim": tf.get(ir, [None, 0.0])[0],
+                    "fade": tf.get(ir, [None, 0.0])[1], "roles": ["convolver"]}
         names = [effect if active else effect + "_备选" for effect, active in uses]
         naming[ir] = "_".join(dict.fromkeys(names))    # 去重保序
     for au, effects in id7_use.items():
-        refs[au] = {"trim": None, "fade": 0.0, "roles": ["sampler"]}
+        refs[au] = {"trim": tf.get(au, [None, 0.0])[0],
+                    "fade": tf.get(au, [None, 0.0])[1], "roles": ["sampler"]}
         naming[au] = "采样素材_" + "_".join(dict.fromkeys(effects))
     # 同名冲突消解（如两个 id7 素材被同两个效果引用）：按 hash 排序，重名追加 _2/_3…
     counts = {}
@@ -239,31 +253,6 @@ def collect_refs():
         if counts[base] > 1:
             naming[sha] = "%s_%d" % (base, counts[base])
     return refs, naming
-
-
-def _trim_fade_from_corpus(refs):
-    """从 .aep 参数补 Trim/Fade（refs 只带 role；这里按 hash 重扫取值）。"""
-    out = {}
-    for f in sorted(os.listdir(AEPS)):
-        if not f.endswith(".aep"):
-            continue
-        try:
-            d = parse(os.path.join(AEPS, f))
-        except Exception:
-            continue
-        for n in d["nodes"]:
-            for key, dst in ((2, "ir"), (7, "au")):
-                if n["id"] != key:
-                    continue
-                pname = "IR File" if key == 2 else "Audio File"
-                sha = os.path.basename(str(n["params"].get(pname, ""))).rsplit(".", 1)[0]
-                if not sha:
-                    continue
-                tr, fd = n["params"].get("Trim"), n["params"].get("Fade", 0.0)
-                cur = out.setdefault(sha, [None, 0.0])
-                if tr is not None and cur[0] is None:
-                    cur[0], cur[1] = float(tr), float(fd)
-    return out
 
 
 # ---------- 主流程 ----------
@@ -278,36 +267,50 @@ def build_one(sha1, trim_db, fade_ms, base_name, log):
                                           len(chans[0]) / float(native_rate))
     chans, act_tf = apply_trim_fade(chans, native_rate, trim_db, fade_ms)
     chans, act_ch = to_2ch(chans)
-    files = {}
+    files, durs = {}, {}
     for tag, rate in RATES.items():
         out_chans = resample(chans, native_rate, rate)   # 原生匹配时透传
         out = os.path.join(KERNELS, tag, "%s_%s.wav" % (base_name, tag))
         write_wav_f32(out, out_chans, rate)
         files[tag] = "%s_%s.wav" % (base_name, tag)
+        durs[tag] = "%.3fs" % (len(out_chans[0]) / float(rate))
     log.append({
         "hash": sha1, "name": base_name, "src": src_desc,
         "trim_fade": act_tf, "channels": act_ch or "1/2ch 原样",
-        "out": {t: "%.3fs" % (len(chans[0]) * (RATES[t] / native_rate if RATES[t] != native_rate else 1) / RATES[t]) if RATES[t] != native_rate else "%.3fs" % (len(chans[0]) / float(native_rate)) for t in RATES},
-        "downloaded": downloaded,
+        "out": durs, "downloaded": downloaded,
     })
     return files
 
 
 def main():
     ap = argparse.ArgumentParser(description="构建 QQ 音效卷积核/采样素材（解密+SS2 后处理+双速率+可读命名）")
-    ap.add_argument("--hash", help="只构建指定 sha1")
+    ap.add_argument("--hash", help="只构建指定 sha1（增量：合并进已有 kernel_index.json）")
     args = ap.parse_args()
 
+    try:
+        import numpy  # noqa: F401  （重采样依赖）
+    except ImportError:
+        print("[X] 缺少依赖 numpy：请先 pip install -r requirements.txt")
+        return 2
+
     refs, naming = collect_refs()
-    tf = _trim_fade_from_corpus(refs)
     if args.hash:
-        refs = {args.hash: refs.get(args.hash, {"roles": ["convolver"]})}
+        refs = {args.hash: refs.get(args.hash, {"trim": None, "fade": 0.0, "roles": ["convolver"]})}
         naming.setdefault(args.hash, args.hash)
 
     log, index = [], {}
+    if args.hash and os.path.exists(INDEX_JSON):
+        # --hash 增量模式：读入完整 index 只更新对应条目，避免单条覆盖整表
+        try:
+            with open(INDEX_JSON, encoding="utf-8") as f:
+                index = json.load(f)
+        except (ValueError, OSError):
+            index = {}
+
+    fails = 0
     for sha1 in sorted(refs):
         base = naming.get(sha1, sha1)
-        tr, fd = tf.get(sha1, [None, 0.0])
+        tr, fd = refs[sha1]["trim"], refs[sha1]["fade"]
         try:
             files = build_one(sha1, tr, fd, base, log)
             print("[OK] %-14s %s  trim=%s fade=%s" % (sha1[:12], base, tr, fd))
@@ -317,6 +320,7 @@ def main():
             print("[FAIL] %-14s %s: %s" % (sha1[:12], base, e))
             index[sha1] = {"name": base, "error": str(e),
                            "roles": refs[sha1]["roles"]}
+            fails += 1
     for e in log:
         print("    %-14s | %s | %s | %s → %s" % (
             e["hash"][:12], e["src"], e["trim_fade"], e["channels"],
@@ -326,7 +330,7 @@ def main():
         json.dump(index, f, ensure_ascii=False, indent=2)
         f.write("\n")
     print("[i] index → %s" % INDEX_JSON)
-    return 0
+    return 1 if fails else 0
 
 
 if __name__ == "__main__":

@@ -17,20 +17,23 @@ parse_aep.py
       field1 -> vector<Param>
   Param table (3 fields):
       field0 -> string name            (参数名)
-      field1 -> struct{ u32 typeTag; float32 value }
+      field1 -> 带长度前缀的 value blob（长度==4 视为 float32，否则为 UTF-8 字符串；
+                早期描述"typeTag+float32"是长度恰好为 4 的特例）
       field2 -> string unit / 备用字符串 (本文件恒为空串)
   string:  u32 长度 + UTF-8 内容 + '\0'
+
+历史脚本说明：本文件是针对"全景环绕"(500) 的自检版解析器（含关键值断言）；
+通用无断言解析请用 aep_parser.py。
 """
+import argparse
 import json
 import os
 import struct
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-# 脚本可放在 workspace 或 workspace/output 下，均能定位到源文件
-ROOT = os.path.dirname(HERE) if os.path.basename(HERE) == "output" else HERE
-AEP_PATH = os.path.join(ROOT, "500-全景环绕.aep")
-OUT_PATH = os.path.join(ROOT, "output", "parsed_全景环绕.json")
+ROOT = os.path.dirname(HERE)
+DEFAULT_AEP = os.path.join(ROOT, "aep", "500-全景环绕.new.aep")
 
 
 class Reader:
@@ -190,7 +193,7 @@ WIDENER_REF = {
 }
 
 
-def build_report(parsed, size):
+def build_report(parsed, size, src_path):
     # collect every param with its node id
     flat = []
     for node in parsed["nodes"]:
@@ -254,7 +257,7 @@ def build_report(parsed, size):
         }
 
     report = {
-        "file": AEP_PATH,
+        "file": src_path,
         "file_size": size,
         "magic": parsed["magic"],
         "magic_offset_hex": parsed["magic_offset_hex"],
@@ -335,17 +338,25 @@ def self_check(report):
     return errors
 
 
-def main():
-    with open(AEP_PATH, "rb") as f:
+def main(argv=None):
+    ap = argparse.ArgumentParser(description="解析 .aep（历史自检版，断言全景环绕关键值；通用解析用 aep_parser.py）")
+    ap.add_argument("input", nargs="?", default=DEFAULT_AEP,
+                    help="输入 .aep（默认：语料中的新版全景环绕）")
+    ap.add_argument("-o", "--output", default=None,
+                    help="解析结果 JSON 输出路径（缺省仅打印不写文件）")
+    args = ap.parse_args(argv)
+
+    with open(args.input, "rb") as f:
         data = f.read()
-    print("[i] file: %s (%d bytes)" % (AEP_PATH, len(data)))
+    print("[i] file: %s (%d bytes)" % (args.input, len(data)))
 
     parsed = parse(data)
-    report = build_report(parsed, len(data))
+    report = build_report(parsed, len(data), args.input)
 
-    os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(report, f, ensure_ascii=False, indent=2)
+    if args.output:
+        os.makedirs(os.path.dirname(os.path.abspath(args.output)), exist_ok=True)
+        with open(args.output, "w", encoding="utf-8") as f:
+            json.dump(report, f, ensure_ascii=False, indent=2)
 
     print("[i] magic = %s (offset %s)" % (report["magic"], report["magic_offset_hex"]))
     print("[i] name  = %s (offset %s)" % (report["name"], report["name_offset_hex"]))
@@ -358,7 +369,8 @@ def main():
     for k in ["Left Time", "Right Time", "Left Feedback", "Right Feedback", "Center", "Width", "Gain"]:
         if k in report["widener"]:
             print("      %-15s : %.4f (value @ %s)" % (k, report["widener"][k], report["widener_offsets"][k]["value_offset_hex"]))
-    print("[i] wrote %s" % OUT_PATH)
+    if args.output:
+        print("[i] wrote %s" % args.output)
 
     errors = self_check(report)
     if errors:
