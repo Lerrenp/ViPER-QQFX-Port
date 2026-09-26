@@ -1,0 +1,227 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\002-3D人声.aep",
+  "file_size": 2996,
+  "magic": "QMAEP",
+  "name": "3D人声",
+  "nodes": [
+    {
+      "id": 3,
+      "class": "ChaosEffect",
+      "params": {
+        "Input Multiplier": 0.7356317639350891,
+        "Output Multiplier": 1.7930994033813477,
+        "Shift": 1.9999990463256836,
+        "Wrap": 1.9999990463256836,
+        "Mixing Type": 0.0
+      }
+    },
+    {
+      "id": 3,
+      "class": "ChaosEffect",
+      "params": {
+        "Input Multiplier": 0.0,
+        "Output Multiplier": -0.724139928817749,
+        "Shift": 0.0,
+        "Wrap": 0.0,
+        "Mixing Type": 0.0
+      }
+    },
+    {
+      "id": 11,
+      "class": "StereoEnhancerEffect",
+      "params": {
+        "Width": 29.885009765625
+      }
+    },
+    {
+      "id": 5,
+      "class": "RotatorEffect",
+      "params": {
+        "Speed": 45.0,
+        "Offset": 0.0
+      }
+    },
+    {
+      "id": 3,
+      "class": "ChaosEffect",
+      "params": {
+        "Input Multiplier": 1.4712635278701782,
+        "Output Multiplier": 1.5632158517837524,
+        "Shift": 1.9999990463256836,
+        "Wrap": 1.9999990463256836,
+        "Mixing Type": 0.0
+      }
+    },
+    {
+      "id": 3,
+      "class": "ChaosEffect",
+      "params": {
+        "Input Multiplier": 0.0,
+        "Output Multiplier": -0.7586220502853394,
+        "Shift": 0.0,
+        "Wrap": 0.0,
+        "Mixing Type": 0.0
+      }
+    },
+    {
+      "id": 9,
+      "class": "ExciterEffect",
+      "params": {
+        "MixBack": -14.181381225585938,
+        "Frequency": 614.400390625,
+        "ClipBoost": 0.0,
+        "Harmonics": 5.0
+      }
+    },
+    {
+      "id": 11,
+      "class": "StereoEnhancerEffect",
+      "params": {
+        "Width": 195.40219116210938
+      }
+    },
+    {
+      "id": 3,
+      "class": "ChaosEffect",
+      "params": {
+        "Input Multiplier": 1.8850555419921875,
+        "Output Multiplier": 1.7011476755142212,
+        "Shift": 0.0,
+        "Wrap": 0.0,
+        "Mixing Type": 0.0
+      }
+    },
+    {
+      "id": 3,
+      "class": "ChaosEffect",
+      "params": {
+        "Input Multiplier": 0.7816079258918762,
+        "Output Multiplier": -0.48276007175445557,
+        "Shift": 1.9999990463256836,
+        "Wrap": 1.9999990463256836,
+        "Mixing Type": 1.3965506553649902
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "stereoImager"
+    ],
+    "group_confidence": {
+      "stereoImager": "verified"
+    },
+    "decisions": {
+      "stereoImager": [
+        "id11 StereoEnhancer: Width=29.885% -> width=0.2989",
+        "id11 StereoEnhancer: Width=195.402% -> width=1.9540"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 3,
+        "class": "ChaosEffect",
+        "params": {
+          "Input Multiplier": 0.7356317639350891,
+          "Output Multiplier": 1.7930994033813477,
+          "Shift": 1.9999990463256836,
+          "Wrap": 1.9999990463256836,
+          "Mixing Type": 0.0
+        },
+        "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+      },
+      {
+        "id": 3,
+        "class": "ChaosEffect",
+        "params": {
+          "Input Multiplier": 0.0,
+          "Output Multiplier": -0.724139928817749,
+          "Shift": 0.0,
+          "Wrap": 0.0,
+          "Mixing Type": 0.0
+        },
+        "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+      },
+      {
+        "id": 5,
+        "class": "RotatorEffect",
+        "params": {
+          "Speed": 45.0,
+          "Offset": 0.0
+        },
+        "reason": "Rotator 旋转/变速（Speed、Offset），无对应"
+      },
+      {
+        "id": 3,
+        "class": "ChaosEffect",
+        "params": {
+          "Input Multiplier": 1.4712635278701782,
+          "Output Multiplier": 1.5632158517837524,
+          "Shift": 1.9999990463256836,
+          "Wrap": 1.9999990463256836,
+          "Mixing Type": 0.0
+        },
+        "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+      },
+      {
+        "id": 3,
+        "class": "ChaosEffect",
+        "params": {
+          "Input Multiplier": 0.0,
+          "Output Multiplier": -0.7586220502853394,
+          "Shift": 0.0,
+          "Wrap": 0.0,
+          "Mixing Type": 0.0
+        },
+        "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+      },
+      {
+        "id": 9,
+        "class": "ExciterEffect",
+        "params": {
+          "MixBack": -14.181381225585938,
+          "Frequency": 614.400390625,
+          "ClipBoost": 0.0,
+          "Harmonics": 5.0
+        },
+        "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+      },
+      {
+        "id": 3,
+        "class": "ChaosEffect",
+        "params": {
+          "Input Multiplier": 1.8850555419921875,
+          "Output Multiplier": 1.7011476755142212,
+          "Shift": 0.0,
+          "Wrap": 0.0,
+          "Mixing Type": 0.0
+        },
+        "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+      },
+      {
+        "id": 3,
+        "class": "ChaosEffect",
+        "params": {
+          "Input Multiplier": 0.7816079258918762,
+          "Output Multiplier": -0.48276007175445557,
+          "Shift": 1.9999990463256836,
+          "Wrap": 1.9999990463256836,
+          "Mixing Type": 1.3965506553649902
+        },
+        "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+      }
+    ]
+  },
+  "warnings": [
+    "id11 StereoEnhancer 出现多次（串联），V4A stereoImager 仅单级，后者覆盖前者",
+    "未映射节点 id=3(ChaosEffect) 参数={\"Input Multiplier\": 0.7356317639350891, \"Output Multiplier\": 1.7930994033813477, \"Shift\": 1.9999990463256836, \"Wrap\": 1.9999990463256836, \"Mixing Type\": 0.0}：Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义",
+    "未映射节点 id=3(ChaosEffect) 参数={\"Input Multiplier\": 0.0, \"Output Multiplier\": -0.724139928817749, \"Shift\": 0.0, \"Wrap\": 0.0, \"Mixing Type\": 0.0}：Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义",
+    "未映射节点 id=5(RotatorEffect) 参数={\"Speed\": 45.0, \"Offset\": 0.0}：Rotator 旋转/变速（Speed、Offset），无对应",
+    "未映射节点 id=3(ChaosEffect) 参数={\"Input Multiplier\": 1.4712635278701782, \"Output Multiplier\": 1.5632158517837524, \"Shift\": 1.9999990463256836, \"Wrap\": 1.9999990463256836, \"Mixing Type\": 0.0}：Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义",
+    "未映射节点 id=3(ChaosEffect) 参数={\"Input Multiplier\": 0.0, \"Output Multiplier\": -0.7586220502853394, \"Shift\": 0.0, \"Wrap\": 0.0, \"Mixing Type\": 0.0}：Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义",
+    "未映射节点 id=9(ExciterEffect) 参数={\"MixBack\": -14.181381225585938, \"Frequency\": 614.400390625, \"ClipBoost\": 0.0, \"Harmonics\": 5.0}：Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应",
+    "未映射节点 id=3(ChaosEffect) 参数={\"Input Multiplier\": 1.8850555419921875, \"Output Multiplier\": 1.7011476755142212, \"Shift\": 0.0, \"Wrap\": 0.0, \"Mixing Type\": 0.0}：Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义",
+    "未映射节点 id=3(ChaosEffect) 参数={\"Input Multiplier\": 0.7816079258918762, \"Output Multiplier\": -0.48276007175445557, \"Shift\": 1.9999990463256836, \"Wrap\": 1.9999990463256836, \"Mixing Type\": 1.3965506553649902}：Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\002-3D人声.parse.json"
+}

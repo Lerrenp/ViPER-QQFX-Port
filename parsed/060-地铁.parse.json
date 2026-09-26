@@ -1,0 +1,42 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\060-地铁.aep",
+  "file_size": 680,
+  "magic": "QMAEP",
+  "name": "060-地铁",
+  "nodes": [
+    {
+      "id": 63,
+      "class": "MverbEffect",
+      "params": {
+        "DAMPINGFREQ": 0.0,
+        "DENSITY": 0.5,
+        "BANDWIDTHFREQ": 1.0,
+        "DECAY": 0.5849999785423279,
+        "PREDELAY": 0.0,
+        "SIZE": 1.0,
+        "MIX": 0.3700000047683716,
+        "EARLYMIX": 0.5799999833106995,
+        "GAIN": 1.0
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "approx",
+    "groups": [
+      "reverb"
+    ],
+    "group_confidence": {
+      "reverb": "approx"
+    },
+    "decisions": {
+      "reverb": [
+        "id63 Mverb -> reverb: roomSize=DECAY=0.585, damp=1-DAMPINGFREQ=1, wet=MIX=0.37, dry=1-MIX=0.63"
+      ]
+    },
+    "unmapped": []
+  },
+  "warnings": [
+    "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\060-地铁.parse.json"
+}

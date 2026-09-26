@@ -1,0 +1,60 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\016-3D音效.aep",
+  "file_size": 600,
+  "magic": "QMAEP",
+  "name": "手绘3D旋转",
+  "nodes": [
+    {
+      "id": 4,
+      "class": "AmplifierEffect",
+      "params": {
+        "Gain": -3.0
+      }
+    },
+    {
+      "id": 58,
+      "class": "HandDraw3DEffect",
+      "params": {
+        "Distance": 1.0,
+        "HeadRadius": 0.07999999821186066,
+        "SourceAngle": 90.0,
+        "Source": 5.0,
+        "EnabledCircular": 1.0,
+        "Speed": 45.0
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "masterLimiter"
+    ],
+    "group_confidence": {
+      "masterLimiter": "verified"
+    },
+    "decisions": {
+      "masterLimiter": [
+        "id4 Amplifier: Gain=-3.0000 dB"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 58,
+        "class": "HandDraw3DEffect",
+        "params": {
+          "Distance": 1.0,
+          "HeadRadius": 0.07999999821186066,
+          "SourceAngle": 90.0,
+          "Source": 5.0,
+          "EnabledCircular": 1.0,
+          "Speed": 45.0
+        },
+        "reason": "HandDraw3D 手绘 3D 声场（HRTF），无对应"
+      }
+    ]
+  },
+  "warnings": [
+    "未映射节点 id=58(HandDraw3DEffect) 参数={\"Distance\": 1.0, \"HeadRadius\": 0.07999999821186066, \"SourceAngle\": 90.0, \"Source\": 5.0, \"EnabledCircular\": 1.0, \"Speed\": 45.0}：HandDraw3D 手绘 3D 声场（HRTF），无对应"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\016-3D音效.parse.json"
+}

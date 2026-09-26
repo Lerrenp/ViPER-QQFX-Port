@@ -1,0 +1,101 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\997-明星音效.aep",
+  "file_size": 1288,
+  "magic": "QMAEP",
+  "name": "明星音效",
+  "nodes": [
+    {
+      "id": 28,
+      "class": "PitchShifterEffect",
+      "params": {
+        "Key": 0.0
+      }
+    },
+    {
+      "id": 4,
+      "class": "AmplifierEffect",
+      "params": {
+        "Gain": -7.0
+      }
+    },
+    {
+      "id": 11,
+      "class": "StereoEnhancerEffect",
+      "params": {
+        "Width": 121.2825927734375,
+        "Center": 100.0
+      }
+    },
+    {
+      "id": 21,
+      "class": "VocalEffect",
+      "params": {
+        "Vocal": 15.0
+      }
+    },
+    {
+      "id": 9,
+      "class": "ExciterEffect",
+      "params": {
+        "MixBack": -7.513263702392578,
+        "Frequency": 1916.912109375,
+        "ClipBoost": 0.0,
+        "Harmonics": 7.781944274902344
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "masterLimiter",
+      "stereoImager"
+    ],
+    "group_confidence": {
+      "masterLimiter": "verified",
+      "stereoImager": "verified"
+    },
+    "decisions": {
+      "masterLimiter": [
+        "id4 Amplifier: Gain=-7.0000 dB"
+      ],
+      "stereoImager": [
+        "id11 StereoEnhancer: Width=121.283% -> width=1.2128"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 28,
+        "class": "PitchShifterEffect",
+        "params": {
+          "Key": 0.0
+        },
+        "reason": "PitchShifter 变调（Key），无对应"
+      },
+      {
+        "id": 21,
+        "class": "VocalEffect",
+        "params": {
+          "Vocal": 15.0
+        },
+        "reason": "Vocal 人声增强，无对应（归入 skipped 人声类）"
+      },
+      {
+        "id": 9,
+        "class": "ExciterEffect",
+        "params": {
+          "MixBack": -7.513263702392578,
+          "Frequency": 1916.912109375,
+          "ClipBoost": 0.0,
+          "Harmonics": 7.781944274902344
+        },
+        "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+      }
+    ]
+  },
+  "warnings": [
+    "未映射节点 id=28(PitchShifterEffect) 参数={\"Key\": 0.0}：PitchShifter 变调（Key），无对应",
+    "未映射节点 id=21(VocalEffect) 参数={\"Vocal\": 15.0}：Vocal 人声增强，无对应（归入 skipped 人声类）",
+    "未映射节点 id=9(ExciterEffect) 参数={\"MixBack\": -7.513263702392578, \"Frequency\": 1916.912109375, \"ClipBoost\": 0.0, \"Harmonics\": 7.781944274902344}：Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\997-明星音效.parse.json"
+}

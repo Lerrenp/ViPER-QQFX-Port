@@ -1,0 +1,33 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\501-超重低音.aep",
+  "file_size": 232,
+  "magic": "QMAEP",
+  "name": "超重低音",
+  "nodes": [
+    {
+      "id": 57,
+      "class": "SuperBassEffect",
+      "params": {
+        "Frequency": 120.0,
+        "Gain": 1.600000023841858
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "approx",
+    "groups": [
+      "bass"
+    ],
+    "group_confidence": {
+      "bass": "approx"
+    },
+    "decisions": {
+      "bass": [
+        "id57 SuperBass -> bass: frequency=120, gain=1.6（V4A bass 为动态低音/次谐波结构，非同一算法）"
+      ]
+    },
+    "unmapped": []
+  },
+  "warnings": [],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\501-超重低音.parse.json"
+}

@@ -1,0 +1,98 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\020-中国风.aep",
+  "file_size": 1336,
+  "magic": "QMAEP",
+  "name": "中国风",
+  "nodes": [
+    {
+      "id": 16,
+      "class": "Dfx3DSurroundEffect",
+      "params": {
+        "3DSurround": 25.0
+      }
+    },
+    {
+      "id": 19,
+      "class": "DynamicboostEffect",
+      "params": {
+        "Dynamicboost": 37.0
+      }
+    },
+    {
+      "id": 51,
+      "class": "PeakingFilterQEffect",
+      "params": {
+        "Frequency_cut": 200.0,
+        "dBgain": 3.0,
+        "Q": 1.0,
+        "NN_Num": 2.331386089324951,
+        "Channel": 0.0
+      }
+    },
+    {
+      "id": 50,
+      "class": "HighShelfFilterQEffect",
+      "params": {
+        "Frequency_cut": 4000.0,
+        "dBgain": 2.0,
+        "Q": 2.0,
+        "NN_Num": 2.0,
+        "Channel": 0.0
+      }
+    },
+    {
+      "id": 51,
+      "class": "PeakingFilterQEffect",
+      "params": {
+        "Frequency_cut": 7000.0,
+        "dBgain": -6.0,
+        "Q": 6.0,
+        "NN_Num": 2.094512939453125,
+        "Channel": 0.0
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "dynamicEq"
+    ],
+    "group_confidence": {
+      "dynamicEq": "approx"
+    },
+    "decisions": {
+      "dynamicEq": [
+        "id51 PeakingFilterQ -> dynamicEq 峰值",
+        "id50 HighShelfFilterQ -> dynamicEq high shelf",
+        "id51 PeakingFilterQ -> dynamicEq 峰值",
+        "dynamicEq: 3 频段（threshold=-80 恒生效，type 0=peak/1=low shelf/2=high shelf）"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 16,
+        "class": "Dfx3DSurroundEffect",
+        "params": {
+          "3DSurround": 25.0
+        },
+        "reason": "DFX 3D Surround 3D 环绕，无对应"
+      },
+      {
+        "id": 19,
+        "class": "DynamicboostEffect",
+        "params": {
+          "Dynamicboost": 37.0
+        },
+        "reason": "DFX Dynamic Boost 动态增强（单一 0..100 量），无对应"
+      }
+    ]
+  },
+  "warnings": [
+    "id51 PeakingFilterQEffect: NN_Num=2.33139/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射",
+    "id50 HighShelfFilterQEffect: NN_Num=2/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射",
+    "id51 PeakingFilterQEffect: NN_Num=2.09451/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射",
+    "未映射节点 id=16(Dfx3DSurroundEffect) 参数={\"3DSurround\": 25.0}：DFX 3D Surround 3D 环绕，无对应",
+    "未映射节点 id=19(DynamicboostEffect) 参数={\"Dynamicboost\": 37.0}：DFX Dynamic Boost 动态增强（单一 0..100 量），无对应"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\020-中国风.parse.json"
+}

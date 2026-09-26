@@ -1,0 +1,42 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\054-小巷子.aep",
+  "file_size": 680,
+  "magic": "QMAEP",
+  "name": "054-小巷子",
+  "nodes": [
+    {
+      "id": 63,
+      "class": "MverbEffect",
+      "params": {
+        "DAMPINGFREQ": 0.0,
+        "DENSITY": 0.5,
+        "BANDWIDTHFREQ": 1.0,
+        "DECAY": 0.5,
+        "PREDELAY": 0.0,
+        "SIZE": 0.5,
+        "MIX": 0.30000001192092896,
+        "EARLYMIX": 0.5,
+        "GAIN": 1.0
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "approx",
+    "groups": [
+      "reverb"
+    ],
+    "group_confidence": {
+      "reverb": "approx"
+    },
+    "decisions": {
+      "reverb": [
+        "id63 Mverb -> reverb: roomSize=DECAY=0.5, damp=1-DAMPINGFREQ=1, wet=MIX=0.3, dry=1-MIX=0.7"
+      ]
+    },
+    "unmapped": []
+  },
+  "warnings": [
+    "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\054-小巷子.parse.json"
+}

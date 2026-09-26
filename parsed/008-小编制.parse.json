@@ -1,0 +1,77 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\008-小编制.aep",
+  "file_size": 1244,
+  "magic": "QMAEP",
+  "name": "小编制",
+  "nodes": [
+    {
+      "id": 2,
+      "class": "StudioIrEffect",
+      "params": {
+        "IR File": "irs\\36af30f920f0e3f00232ff24b1b7847b2c006198.enc"
+      }
+    },
+    {
+      "id": 24,
+      "class": "SuperEQEffect",
+      "params": {
+        "gain_len": 10.0,
+        "start_f": 38.89099884033203,
+        "octave": 1.0,
+        "window_bits": 12.0,
+        "16 Hz": 0.0,
+        "33 Hz": -0.5904807448387146,
+        "68 Hz": -0.7757523655891418,
+        "140 Hz": 0.0,
+        "288 Hz": 0.0,
+        "594 Hz": 0.0,
+        "1224 Hz": 0.0,
+        "2521 Hz": 0.0,
+        "5195 Hz": 0.0,
+        "10702 Hz": 0.0
+      }
+    },
+    {
+      "id": 4,
+      "class": "AmplifierEffect",
+      "params": {
+        "Gain": -2.9013683795928955
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "dynamicEq",
+      "masterLimiter"
+    ],
+    "group_confidence": {
+      "dynamicEq": "approx",
+      "masterLimiter": "verified"
+    },
+    "decisions": {
+      "dynamicEq": [
+        "id24 SuperEQ: FFT 图形 EQ -> dynamicEq 峰值频段（Q 取 1.0 近似，start_f/octave/window_bits 未映射）",
+        "dynamicEq: 10 频段（threshold=-80 恒生效，type 0=peak/1=low shelf/2=high shelf）"
+      ],
+      "masterLimiter": [
+        "id4 Amplifier: Gain=-2.9014 dB"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 2,
+        "class": "StudioIrEffect",
+        "params": {
+          "IR File": "irs\\36af30f920f0e3f00232ff24b1b7847b2c006198.enc"
+        },
+        "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/36af30f920f0e3f00232ff24b1b7847b2c006198.enc 不存在或未解密，convolver 无法启用"
+      }
+    ]
+  },
+  "warnings": [
+    "id24 SuperEQ freq = 16 低于下限 20，已钳到 20",
+    "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\36af30f920f0e3f00232ff24b1b7847b2c006198.enc\"}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/36af30f920f0e3f00232ff24b1b7847b2c006198.enc 不存在或未解密，convolver 无法启用"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\008-小编制.parse.json"
+}

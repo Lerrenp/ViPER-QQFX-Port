@@ -1,0 +1,89 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\014-留声机.aep",
+  "file_size": 832,
+  "magic": "QMAEP",
+  "name": "留声机",
+  "nodes": [
+    {
+      "id": 31,
+      "class": "BPFilterEffect",
+      "params": {
+        "LowEdge": 2329.99609375,
+        "HighEdge": 6141.41796875
+      }
+    },
+    {
+      "id": 7,
+      "class": "SamplerEffect",
+      "params": {
+        "Audio File": "irs\\679a81d912ae4cb5c9d208fd03061aa4b4a622fa.enc",
+        "Gain": -28.700000762939453
+      }
+    },
+    {
+      "id": 7,
+      "class": "SamplerEffect",
+      "params": {
+        "Audio File": "irs\\de36ef18f951b510b071f0c1b696327eeccfc5f7.enc",
+        "Gain": -28.700000762939453
+      }
+    },
+    {
+      "id": 4,
+      "class": "AmplifierEffect",
+      "params": {
+        "Gain": 7.622870445251465
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "masterLimiter"
+    ],
+    "group_confidence": {
+      "masterLimiter": "verified"
+    },
+    "decisions": {
+      "masterLimiter": [
+        "id4 Amplifier: Gain=+7.6229 dB"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 31,
+        "class": "BPFilterEffect",
+        "params": {
+          "LowEdge": 2329.99609375,
+          "HighEdge": 6141.41796875
+        },
+        "reason": "BPFilter 带通（LowEdge/HighEdge，无增益），V4A dynamicEq 无带通类型"
+      },
+      {
+        "id": 7,
+        "class": "SamplerEffect",
+        "params": {
+          "Audio File": "irs\\679a81d912ae4cb5c9d208fd03061aa4b4a622fa.enc",
+          "Gain": -28.700000762939453
+        },
+        "reason": "Sampler 采样器（Audio File 回放 + Gain），V4A 无采样/音效叠加节点"
+      },
+      {
+        "id": 7,
+        "class": "SamplerEffect",
+        "params": {
+          "Audio File": "irs\\de36ef18f951b510b071f0c1b696327eeccfc5f7.enc",
+          "Gain": -28.700000762939453
+        },
+        "reason": "Sampler 采样器（Audio File 回放 + Gain），V4A 无采样/音效叠加节点"
+      }
+    ]
+  },
+  "warnings": [
+    "masterLimiter.outputVolume = 2.40516 超过上限 2，已钳到 2",
+    "未映射节点 id=31(BPFilterEffect) 参数={\"LowEdge\": 2329.99609375, \"HighEdge\": 6141.41796875}：BPFilter 带通（LowEdge/HighEdge，无增益），V4A dynamicEq 无带通类型",
+    "未映射节点 id=7(SamplerEffect) 参数={\"Audio File\": \"irs\\\\679a81d912ae4cb5c9d208fd03061aa4b4a622fa.enc\", \"Gain\": -28.700000762939453}：Sampler 采样器（Audio File 回放 + Gain），V4A 无采样/音效叠加节点",
+    "未映射节点 id=7(SamplerEffect) 参数={\"Audio File\": \"irs\\\\de36ef18f951b510b071f0c1b696327eeccfc5f7.enc\", \"Gain\": -28.700000762939453}：Sampler 采样器（Audio File 回放 + Gain），V4A 无采样/音效叠加节点"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\014-留声机.parse.json"
+}

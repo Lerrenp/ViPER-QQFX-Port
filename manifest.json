@@ -1,0 +1,1686 @@
+{
+  "generatedAt": 1790435323348,
+  "schema": "tools/v4a_schema.json",
+  "aep_dir": "aep",
+  "count": 51,
+  "presets_produced": 34,
+  "confidence": {
+    "verified": 2,
+    "approx": 13,
+    "partial": 19,
+    "skipped": 17
+  },
+  "validation": {
+    "pass": 34,
+    "fail": 0,
+    "skipped_no_preset": 17
+  },
+  "entries": [
+    {
+      "source": "aep/001-差分环绕.aep",
+      "name": "差分环绕",
+      "node_ids": [
+        2,
+        4,
+        9
+      ],
+      "node_classes": [
+        "StudioIrEffect",
+        "AmplifierEffect",
+        "ExciterEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "masterLimiter"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/8da782aafdc5174e9b8e838c57e2a31d2db9f6a3.enc 不存在或未解密，convolver 无法启用"
+        },
+        {
+          "id": 9,
+          "class": "ExciterEffect",
+          "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/001-差分环绕.json",
+      "parsed": "parsed/001-差分环绕.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/002-3D人声.aep",
+      "name": "3D人声",
+      "node_ids": [
+        3,
+        3,
+        11,
+        5,
+        3,
+        3,
+        9,
+        11,
+        3,
+        3
+      ],
+      "node_classes": [
+        "ChaosEffect",
+        "ChaosEffect",
+        "StereoEnhancerEffect",
+        "RotatorEffect",
+        "ChaosEffect",
+        "ChaosEffect",
+        "ExciterEffect",
+        "StereoEnhancerEffect",
+        "ChaosEffect",
+        "ChaosEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "stereoImager"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [
+        "id11 StereoEnhancer 出现多次（串联），V4A stereoImager 仅单级，后者覆盖前者"
+      ],
+      "unmapped": [
+        {
+          "id": 3,
+          "class": "ChaosEffect",
+          "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+        },
+        {
+          "id": 3,
+          "class": "ChaosEffect",
+          "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+        },
+        {
+          "id": 5,
+          "class": "RotatorEffect",
+          "reason": "Rotator 旋转/变速（Speed、Offset），无对应"
+        },
+        {
+          "id": 3,
+          "class": "ChaosEffect",
+          "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+        },
+        {
+          "id": 3,
+          "class": "ChaosEffect",
+          "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+        },
+        {
+          "id": 9,
+          "class": "ExciterEffect",
+          "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+        },
+        {
+          "id": 3,
+          "class": "ChaosEffect",
+          "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+        },
+        {
+          "id": 3,
+          "class": "ChaosEffect",
+          "reason": "Chaos 多重混音/移位（Input/Output Multiplier、Shift、Wrap、Mixing Type），无对应 V4A 语义"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/002-3D人声.json",
+      "parsed": "parsed/002-3D人声.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/004-黑胶.aep",
+      "name": "黑胶",
+      "node_ids": [
+        9,
+        7,
+        7
+      ],
+      "node_classes": [
+        "ExciterEffect",
+        "SamplerEffect",
+        "SamplerEffect"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 9,
+          "class": "ExciterEffect",
+          "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+        },
+        {
+          "id": 7,
+          "class": "SamplerEffect",
+          "reason": "Sampler 采样器（Audio File 回放 + Gain），V4A 无采样/音效叠加节点"
+        },
+        {
+          "id": 7,
+          "class": "SamplerEffect",
+          "reason": "Sampler 采样器（Audio File 回放 + Gain），V4A 无采样/音效叠加节点"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id9(ExciterEffect), id7(SamplerEffect), id7(SamplerEffect) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/007-录音棚环绕.aep",
+      "name": "录音棚环绕",
+      "node_ids": [
+        2,
+        4
+      ],
+      "node_classes": [
+        "StudioIrEffect",
+        "AmplifierEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "masterLimiter"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/2f823376fa7e63ef5a9b70f7443c19793811bb0e.enc 不存在或未解密，convolver 无法启用"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/007-录音棚环绕.json",
+      "parsed": "parsed/007-录音棚环绕.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/008-小编制.aep",
+      "name": "小编制",
+      "node_ids": [
+        2,
+        24,
+        4
+      ],
+      "node_classes": [
+        "StudioIrEffect",
+        "SuperEQEffect",
+        "AmplifierEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "dynamicEq",
+        "masterLimiter"
+      ],
+      "approx_groups": [
+        "dynamicEq"
+      ],
+      "approximation_warnings": [
+        "id24 SuperEQ freq = 16 低于下限 20，已钳到 20"
+      ],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/36af30f920f0e3f00232ff24b1b7847b2c006198.enc 不存在或未解密，convolver 无法启用"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/008-小编制.json",
+      "parsed": "parsed/008-小编制.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/009-民谣.aep",
+      "name": "民谣",
+      "node_ids": [
+        2,
+        9,
+        4
+      ],
+      "node_classes": [
+        "StudioIrEffect",
+        "ExciterEffect",
+        "AmplifierEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "masterLimiter"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/43e714f5c19994239908b83b3c494225079b7605.enc 不存在或未解密，convolver 无法启用"
+        },
+        {
+          "id": 9,
+          "class": "ExciterEffect",
+          "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/009-民谣.json",
+      "parsed": "parsed/009-民谣.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/010-流动低音.aep",
+      "name": "流动低音",
+      "node_ids": [
+        2
+      ],
+      "node_classes": [
+        "StudioIrEffect"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/4d11b1cd25bd08e131e79b2b1736b71c6f18828b.enc 不存在或未解密，convolver 无法启用"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id2(StudioIrEffect) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/011-现场环绕.aep",
+      "name": "现场环绕",
+      "node_ids": [
+        2,
+        4
+      ],
+      "node_classes": [
+        "StudioIrEffect",
+        "AmplifierEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "masterLimiter"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/6f7ed6744ad0f47c6bf73d001b65c1531b47a388.enc 不存在或未解密，convolver 无法启用"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/011-现场环绕.json",
+      "parsed": "parsed/011-现场环绕.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/012-复合低音.aep",
+      "name": "复合低音",
+      "node_ids": [
+        2,
+        2,
+        22,
+        4
+      ],
+      "node_classes": [
+        "StudioIrEffect",
+        "StudioIrEffect",
+        "HyperBassEffect",
+        "AmplifierEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "masterLimiter"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/b7c9156c947c4af96e2edde9abf58b3a1a29e932.enc 不存在或未解密，convolver 无法启用"
+        },
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.enc 不存在或未解密，convolver 无法启用"
+        },
+        {
+          "id": 22,
+          "class": "HyperBassEffect",
+          "reason": "HyperBass（Selectivity/Gain/Ratio），算法结构无对应"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/012-复合低音.json",
+      "parsed": "parsed/012-复合低音.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/013-超高保真.aep",
+      "name": "超高保真",
+      "node_ids": [
+        2,
+        9
+      ],
+      "node_classes": [
+        "StudioIrEffect",
+        "ExciterEffect"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.enc 不存在或未解密，convolver 无法启用"
+        },
+        {
+          "id": 9,
+          "class": "ExciterEffect",
+          "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id2(StudioIrEffect), id9(ExciterEffect) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/014-留声机.aep",
+      "name": "留声机",
+      "node_ids": [
+        31,
+        7,
+        7,
+        4
+      ],
+      "node_classes": [
+        "BPFilterEffect",
+        "SamplerEffect",
+        "SamplerEffect",
+        "AmplifierEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "masterLimiter"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [
+        "masterLimiter.outputVolume = 2.40516 超过上限 2，已钳到 2"
+      ],
+      "unmapped": [
+        {
+          "id": 31,
+          "class": "BPFilterEffect",
+          "reason": "BPFilter 带通（LowEdge/HighEdge，无增益），V4A dynamicEq 无带通类型"
+        },
+        {
+          "id": 7,
+          "class": "SamplerEffect",
+          "reason": "Sampler 采样器（Audio File 回放 + Gain），V4A 无采样/音效叠加节点"
+        },
+        {
+          "id": 7,
+          "class": "SamplerEffect",
+          "reason": "Sampler 采样器（Audio File 回放 + Gain），V4A 无采样/音效叠加节点"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/014-留声机.json",
+      "parsed": "parsed/014-留声机.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/015-清澈旋律.aep",
+      "name": "清澈旋律",
+      "node_ids": [
+        2,
+        4
+      ],
+      "node_classes": [
+        "StudioIrEffect",
+        "AmplifierEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "masterLimiter"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/f11a9f4cf5aacc0ee807a14427ac63cd65841767.enc 不存在或未解密，convolver 无法启用"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/015-清澈旋律.json",
+      "parsed": "parsed/015-清澈旋律.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/016-3D音效.aep",
+      "name": "手绘3D旋转",
+      "node_ids": [
+        4,
+        58
+      ],
+      "node_classes": [
+        "AmplifierEffect",
+        "HandDraw3DEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "masterLimiter"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 58,
+          "class": "HandDraw3DEffect",
+          "reason": "HandDraw3D 手绘 3D 声场（HRTF），无对应"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/016-3D音效.json",
+      "parsed": "parsed/016-3D音效.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/017-震撼低音.aep",
+      "name": "震撼低音",
+      "node_ids": [
+        2,
+        4
+      ],
+      "node_classes": [
+        "StudioIrEffect",
+        "AmplifierEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "masterLimiter"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/c2e6f77802083d99658e46126b64fd0eeb2a12f2.enc 不存在或未解密，convolver 无法启用"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/017-震撼低音.json",
+      "parsed": "parsed/017-震撼低音.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/018-极重低音.aep",
+      "name": "极重低音",
+      "node_ids": [
+        2,
+        4
+      ],
+      "node_classes": [
+        "StudioIrEffect",
+        "AmplifierEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "masterLimiter"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.enc 不存在或未解密，convolver 无法启用"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/018-极重低音.json",
+      "parsed": "parsed/018-极重低音.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/019-摇滚.aep",
+      "name": "摇滚",
+      "node_ids": [
+        9,
+        51,
+        51,
+        34,
+        33
+      ],
+      "node_classes": [
+        "ExciterEffect",
+        "PeakingFilterQEffect",
+        "PeakingFilterQEffect",
+        "HSFilterEffect",
+        "LSFilterEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "dynamicEq"
+      ],
+      "approx_groups": [
+        "dynamicEq"
+      ],
+      "approximation_warnings": [
+        "id51 PeakingFilterQEffect: NN_Num=2.09451/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射",
+        "id51 PeakingFilterQEffect: NN_Num=2.09451/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射"
+      ],
+      "unmapped": [
+        {
+          "id": 9,
+          "class": "ExciterEffect",
+          "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/019-摇滚.json",
+      "parsed": "parsed/019-摇滚.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/020-中国风.aep",
+      "name": "中国风",
+      "node_ids": [
+        16,
+        19,
+        51,
+        50,
+        51
+      ],
+      "node_classes": [
+        "Dfx3DSurroundEffect",
+        "DynamicboostEffect",
+        "PeakingFilterQEffect",
+        "HighShelfFilterQEffect",
+        "PeakingFilterQEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "dynamicEq"
+      ],
+      "approx_groups": [
+        "dynamicEq"
+      ],
+      "approximation_warnings": [
+        "id51 PeakingFilterQEffect: NN_Num=2.33139/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射",
+        "id50 HighShelfFilterQEffect: NN_Num=2/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射",
+        "id51 PeakingFilterQEffect: NN_Num=2.09451/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射"
+      ],
+      "unmapped": [
+        {
+          "id": 16,
+          "class": "Dfx3DSurroundEffect",
+          "reason": "DFX 3D Surround 3D 环绕，无对应"
+        },
+        {
+          "id": 19,
+          "class": "DynamicboostEffect",
+          "reason": "DFX Dynamic Boost 动态增强（单一 0..100 量），无对应"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/020-中国风.json",
+      "parsed": "parsed/020-中国风.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/050-KTV房间.aep",
+      "name": "050-KTV房间",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/050-KTV房间.json",
+      "parsed": "parsed/050-KTV房间.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/051-浴室.aep",
+      "name": "051-浴室",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/051-浴室.json",
+      "parsed": "parsed/051-浴室.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/052-起居室.aep",
+      "name": "052-起居室",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/052-起居室.json",
+      "parsed": "parsed/052-起居室.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/053-音乐厅.aep",
+      "name": "053-音乐厅",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/053-音乐厅.json",
+      "parsed": "parsed/053-音乐厅.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/054-小巷子.aep",
+      "name": "054-小巷子",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/054-小巷子.json",
+      "parsed": "parsed/054-小巷子.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/055-停车场.aep",
+      "name": "055-停车场",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/055-停车场.json",
+      "parsed": "parsed/055-停车场.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/056-厨房.aep",
+      "name": "056-厨房",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/056-厨房.json",
+      "parsed": "parsed/056-厨房.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/057-健身房.aep",
+      "name": "057-健身房",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/057-健身房.json",
+      "parsed": "parsed/057-健身房.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/058-工作室.aep",
+      "name": "058-工作室",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/058-工作室.json",
+      "parsed": "parsed/058-工作室.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/059-自习室.aep",
+      "name": "059-自习室",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/059-自习室.json",
+      "parsed": "parsed/059-自习室.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/060-地铁.aep",
+      "name": "060-地铁",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/060-地铁.json",
+      "parsed": "parsed/060-地铁.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/061-图书馆.aep",
+      "name": "061-图书馆",
+      "node_ids": [
+        63
+      ],
+      "node_classes": [
+        "MverbEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "reverb"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/061-图书馆.json",
+      "parsed": "parsed/061-图书馆.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/062-外放环绕.aep",
+      "name": "062-外放环绕",
+      "node_ids": [
+        62
+      ],
+      "node_classes": [
+        "WideSoundField"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 62,
+          "class": "WideSoundField",
+          "reason": "WideSoundField HRTF 宽声场（HRIRDataFile），无对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id62(WideSoundField) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/064-5.1外放环绕.aep",
+      "name": "064-5.1外放环绕",
+      "node_ids": [
+        71,
+        69
+      ],
+      "node_classes": [
+        "twotosix_music_separation_based",
+        "six2two_virtual_surround"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 71,
+          "class": "twotosix_music_separation_based",
+          "reason": "2→6 人声分离扩展，无对应"
+        },
+        {
+          "id": 69,
+          "class": "six2two_virtual_surround",
+          "reason": "6→2 虚拟环绕（扬声器权重），无对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id71(twotosix_music_separation_based), id69(six2two_virtual_surround) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/065-智能伴奏.aep",
+      "name": "065-智能伴奏",
+      "node_ids": [
+        70,
+        51,
+        51
+      ],
+      "node_classes": [
+        "MusicSeparation",
+        "PeakingFilterQEffect",
+        "PeakingFilterQEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "dynamicEq"
+      ],
+      "approx_groups": [
+        "dynamicEq"
+      ],
+      "approximation_warnings": [
+        "id51 PeakingFilterQ gain = -19 低于下限 -12，已钳到 -12",
+        "id51 PeakingFilterQEffect: NN_Num=6/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射",
+        "id51 PeakingFilterQ gain = -19 低于下限 -12，已钳到 -12",
+        "id51 PeakingFilterQEffect: NN_Num=6/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射"
+      ],
+      "unmapped": [
+        {
+          "id": 70,
+          "class": "MusicSeparation",
+          "reason": "MusicSeparation 人声/伴奏分离，无对应"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/065-智能伴奏.json",
+      "parsed": "parsed/065-智能伴奏.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/500-全景环绕.aep",
+      "name": "全景环绕",
+      "node_ids": [
+        11,
+        12,
+        13
+      ],
+      "node_classes": [
+        "StereoEnhancerEffect",
+        "DelayEffect",
+        "IirEQ10Effect"
+      ],
+      "confidence": "verified",
+      "mapped_groups": [
+        "diffSurround",
+        "equalizer",
+        "stereoImager"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [
+        "diffSurround delay(ms) = 26.1224 超过上限 20，已钳到 20"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/500-全景环绕.json",
+      "parsed": "parsed/500-全景环绕.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/500-全景环绕.new.aep",
+      "name": "全景环绕",
+      "node_ids": [
+        4,
+        11,
+        12,
+        13
+      ],
+      "node_classes": [
+        "AmplifierEffect",
+        "StereoEnhancerEffect",
+        "DelayEffect",
+        "IirEQ10Effect"
+      ],
+      "confidence": "verified",
+      "mapped_groups": [
+        "diffSurround",
+        "equalizer",
+        "masterLimiter",
+        "stereoImager"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [
+        "diffSurround delay(ms) = 26.1224 超过上限 20，已钳到 20"
+      ],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/500-全景环绕.new.json",
+      "parsed": "parsed/500-全景环绕.new.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/501-超重低音.aep",
+      "name": "超重低音",
+      "node_ids": [
+        57
+      ],
+      "node_classes": [
+        "SuperBassEffect"
+      ],
+      "confidence": "approx",
+      "mapped_groups": [
+        "bass"
+      ],
+      "approx_groups": [
+        "bass"
+      ],
+      "approximation_warnings": [],
+      "unmapped": [],
+      "validation": "pass",
+      "preset": "presets/501-超重低音.json",
+      "parsed": "parsed/501-超重低音.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/502-清澈人声.aep",
+      "name": "新清澈人声",
+      "node_ids": [
+        59
+      ],
+      "node_classes": [
+        "VocalEffectNew"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 59,
+          "class": "VocalEffectNew",
+          "reason": "VocalEffectNew 人声效果，无对应（归入 skipped 人声类）"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id59(VocalEffectNew) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/503-温暖轻柔.aep",
+      "name": "温暖轻柔",
+      "node_ids": [
+        14,
+        18,
+        16,
+        15,
+        19
+      ],
+      "node_classes": [
+        "FidelityEffect",
+        "AmbienceEffect",
+        "Dfx3DSurroundEffect",
+        "DfxHyperbassEffect",
+        "DynamicboostEffect"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 14,
+          "class": "FidelityEffect",
+          "reason": "DFX Fidelity 保真度（单一 0..100 量），V4A 无对应单旋钮保真模块"
+        },
+        {
+          "id": 18,
+          "class": "AmbienceEffect",
+          "reason": "DFX Ambience 环境声（单一 0..100 量），无对应"
+        },
+        {
+          "id": 16,
+          "class": "Dfx3DSurroundEffect",
+          "reason": "DFX 3D Surround 3D 环绕，无对应"
+        },
+        {
+          "id": 15,
+          "class": "DfxHyperbassEffect",
+          "reason": "DFX HyperBass（单一量），V4A bass/psychoacousticBass 均需 cutoff+gain 双参数，结构不匹配"
+        },
+        {
+          "id": 19,
+          "class": "DynamicboostEffect",
+          "reason": "DFX Dynamic Boost 动态增强（单一 0..100 量），无对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id14(FidelityEffect), id18(AmbienceEffect), id16(Dfx3DSurroundEffect), id15(DfxHyperbassEffect), id19(DynamicboostEffect) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/504-现场律动.aep",
+      "name": "现场律动",
+      "node_ids": [
+        63,
+        2,
+        4,
+        11,
+        12,
+        13
+      ],
+      "node_classes": [
+        "MverbEffect",
+        "StudioIrEffect",
+        "AmplifierEffect",
+        "StereoEnhancerEffect",
+        "DelayEffect",
+        "IirEQ10Effect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "diffSurround",
+        "equalizer",
+        "masterLimiter",
+        "reverb",
+        "stereoImager"
+      ],
+      "approx_groups": [
+        "reverb"
+      ],
+      "approximation_warnings": [
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）",
+        "diffSurround delay(ms) = 26.1224 超过上限 20，已钳到 20"
+      ],
+      "unmapped": [
+        {
+          "id": 2,
+          "class": "StudioIrEffect",
+          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/742156792c2f7c863b9d5cec1cd0622546a1f877.enc 不存在或未解密，convolver 无法启用"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/504-现场律动.json",
+      "parsed": "parsed/504-现场律动.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/505-华丽复古.aep",
+      "name": "华丽复古",
+      "node_ids": [
+        14,
+        18,
+        16,
+        15,
+        19
+      ],
+      "node_classes": [
+        "FidelityEffect",
+        "AmbienceEffect",
+        "Dfx3DSurroundEffect",
+        "DfxHyperbassEffect",
+        "DynamicboostEffect"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 14,
+          "class": "FidelityEffect",
+          "reason": "DFX Fidelity 保真度（单一 0..100 量），V4A 无对应单旋钮保真模块"
+        },
+        {
+          "id": 18,
+          "class": "AmbienceEffect",
+          "reason": "DFX Ambience 环境声（单一 0..100 量），无对应"
+        },
+        {
+          "id": 16,
+          "class": "Dfx3DSurroundEffect",
+          "reason": "DFX 3D Surround 3D 环绕，无对应"
+        },
+        {
+          "id": 15,
+          "class": "DfxHyperbassEffect",
+          "reason": "DFX HyperBass（单一量），V4A bass/psychoacousticBass 均需 cutoff+gain 双参数，结构不匹配"
+        },
+        {
+          "id": 19,
+          "class": "DynamicboostEffect",
+          "reason": "DFX Dynamic Boost 动态增强（单一 0..100 量），无对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id14(FidelityEffect), id18(AmbienceEffect), id16(Dfx3DSurroundEffect), id15(DfxHyperbassEffect), id19(DynamicboostEffect) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/506-开阔宽音.aep",
+      "name": "开阔宽音",
+      "node_ids": [
+        14,
+        18,
+        16,
+        15,
+        19
+      ],
+      "node_classes": [
+        "FidelityEffect",
+        "AmbienceEffect",
+        "Dfx3DSurroundEffect",
+        "DfxHyperbassEffect",
+        "DynamicboostEffect"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 14,
+          "class": "FidelityEffect",
+          "reason": "DFX Fidelity 保真度（单一 0..100 量），V4A 无对应单旋钮保真模块"
+        },
+        {
+          "id": 18,
+          "class": "AmbienceEffect",
+          "reason": "DFX Ambience 环境声（单一 0..100 量），无对应"
+        },
+        {
+          "id": 16,
+          "class": "Dfx3DSurroundEffect",
+          "reason": "DFX 3D Surround 3D 环绕，无对应"
+        },
+        {
+          "id": 15,
+          "class": "DfxHyperbassEffect",
+          "reason": "DFX HyperBass（单一量），V4A bass/psychoacousticBass 均需 cutoff+gain 双参数，结构不匹配"
+        },
+        {
+          "id": 19,
+          "class": "DynamicboostEffect",
+          "reason": "DFX Dynamic Boost 动态增强（单一 0..100 量），无对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id14(FidelityEffect), id18(AmbienceEffect), id16(Dfx3DSurroundEffect), id15(DfxHyperbassEffect), id19(DynamicboostEffect) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/600-近场环绕.aep",
+      "name": "600-近场环绕",
+      "node_ids": [
+        73
+      ],
+      "node_classes": [
+        "QTSEffectNear"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 73,
+          "class": "QTSEffectNear",
+          "reason": "QTSEffect Near 近场 FIR（.irs），无对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id73(QTSEffectNear) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/601-宽广环绕.aep",
+      "name": "601-宽广环绕",
+      "node_ids": [
+        74
+      ],
+      "node_classes": [
+        "QTSEffectWide"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 74,
+          "class": "QTSEffectWide",
+          "reason": "QTSEffect Wide 宽场 FIR（.irs），无对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id74(QTSEffectWide) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/602-前置环绕.aep",
+      "name": "602-前置环绕",
+      "node_ids": [
+        75
+      ],
+      "node_classes": [
+        "QTSEffectFront"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 75,
+          "class": "QTSEffectFront",
+          "reason": "QTSEffect Front 前场 FIR（.irs），无对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id75(QTSEffectFront) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/807-5.1立体环绕声.aep",
+      "name": "807-5.1立体环绕声",
+      "node_ids": [
+        40,
+        60
+      ],
+      "node_classes": [
+        "TwotoSix",
+        "Panoramic51EffectIRBased"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 40,
+          "class": "TwotoSix",
+          "reason": "TwotoSix 2→6 声道扩展（Enabled），无对应"
+        },
+        {
+          "id": 60,
+          "class": "Panoramic51EffectIRBased",
+          "reason": "Panoramic51IRBased 5.1 IR 全景（HRTFDataFile），无对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id40(TwotoSix), id60(Panoramic51EffectIRBased) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/808-睡眠音效.aep",
+      "name": "睡眠音效",
+      "node_ids": [
+        56,
+        55
+      ],
+      "node_classes": [
+        "SleepEffect",
+        "MultiFuncSamplerEffect"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 56,
+          "class": "SleepEffect",
+          "reason": "SleepEffect 睡眠音效（FreqBase/FreqDiff/DelayTime），无对应"
+        },
+        {
+          "id": 55,
+          "class": "MultiFuncSamplerEffect",
+          "reason": "MultiFuncSampler 多功能采样器，无对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id56(SleepEffect), id55(MultiFuncSamplerEffect) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/809-超嗨DJ.aep",
+      "name": "编辑音效",
+      "node_ids": [],
+      "node_classes": [],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：无任何节点 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/995-明星音效Lite.aep",
+      "name": "明星音效(Lite版)",
+      "node_ids": [
+        28,
+        9
+      ],
+      "node_classes": [
+        "PitchShifterEffect",
+        "ExciterEffect"
+      ],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 28,
+          "class": "PitchShifterEffect",
+          "reason": "PitchShifter 变调（Key），无对应"
+        },
+        {
+          "id": 9,
+          "class": "ExciterEffect",
+          "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+        }
+      ],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：id28(PitchShifterEffect), id9(ExciterEffect) 均无可对应 V4A 语义，未产出预设"
+    },
+    {
+      "source": "aep/996-智能音效.aep",
+      "name": "智能音效(Lite)",
+      "node_ids": [
+        4,
+        11,
+        21,
+        33
+      ],
+      "node_classes": [
+        "AmplifierEffect",
+        "StereoEnhancerEffect",
+        "VocalEffect",
+        "LSFilterEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "dynamicEq",
+        "masterLimiter",
+        "stereoImager"
+      ],
+      "approx_groups": [
+        "dynamicEq"
+      ],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 21,
+          "class": "VocalEffect",
+          "reason": "Vocal 人声增强，无对应（归入 skipped 人声类）"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/996-智能音效.json",
+      "parsed": "parsed/996-智能音效.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/997-明星音效.aep",
+      "name": "明星音效",
+      "node_ids": [
+        28,
+        4,
+        11,
+        21,
+        9
+      ],
+      "node_classes": [
+        "PitchShifterEffect",
+        "AmplifierEffect",
+        "StereoEnhancerEffect",
+        "VocalEffect",
+        "ExciterEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "masterLimiter",
+        "stereoImager"
+      ],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 28,
+          "class": "PitchShifterEffect",
+          "reason": "PitchShifter 变调（Key），无对应"
+        },
+        {
+          "id": 21,
+          "class": "VocalEffect",
+          "reason": "Vocal 人声增强，无对应（归入 skipped 人声类）"
+        },
+        {
+          "id": 9,
+          "class": "ExciterEffect",
+          "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/997-明星音效.json",
+      "parsed": "parsed/997-明星音效.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/998-设备音效.aep",
+      "name": "设备音效(车载)",
+      "node_ids": [
+        4,
+        11,
+        21,
+        35,
+        33
+      ],
+      "node_classes": [
+        "AmplifierEffect",
+        "StereoEnhancerEffect",
+        "VocalEffect",
+        "PKFilterEffect",
+        "LSFilterEffect"
+      ],
+      "confidence": "partial",
+      "mapped_groups": [
+        "dynamicEq",
+        "masterLimiter",
+        "stereoImager"
+      ],
+      "approx_groups": [
+        "dynamicEq"
+      ],
+      "approximation_warnings": [],
+      "unmapped": [
+        {
+          "id": 21,
+          "class": "VocalEffect",
+          "reason": "Vocal 人声增强，无对应（归入 skipped 人声类）"
+        }
+      ],
+      "validation": "pass",
+      "preset": "presets/998-设备音效.json",
+      "parsed": "parsed/998-设备音效.parse.json",
+      "validation_errors": []
+    },
+    {
+      "source": "aep/999-编辑音效.aep",
+      "name": "编辑音效",
+      "node_ids": [],
+      "node_classes": [],
+      "confidence": "skipped",
+      "mapped_groups": [],
+      "approx_groups": [],
+      "approximation_warnings": [],
+      "unmapped": [],
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "零映射：无任何节点 均无可对应 V4A 语义，未产出预设"
+    }
+  ]
+}

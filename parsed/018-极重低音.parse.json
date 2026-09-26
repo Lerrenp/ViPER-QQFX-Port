@@ -1,0 +1,54 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\018-极重低音.aep",
+  "file_size": 436,
+  "magic": "QMAEP",
+  "name": "极重低音",
+  "nodes": [
+    {
+      "id": 2,
+      "class": "StudioIrEffect",
+      "params": {
+        "IR File": "irs\\fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.enc",
+        "Trim": -100.0,
+        "Fade": 0.0
+      }
+    },
+    {
+      "id": 4,
+      "class": "AmplifierEffect",
+      "params": {
+        "Gain": 4.0
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "masterLimiter"
+    ],
+    "group_confidence": {
+      "masterLimiter": "verified"
+    },
+    "decisions": {
+      "masterLimiter": [
+        "id4 Amplifier: Gain=+4.0000 dB"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 2,
+        "class": "StudioIrEffect",
+        "params": {
+          "IR File": "irs\\fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.enc",
+          "Trim": -100.0,
+          "Fade": 0.0
+        },
+        "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.enc 不存在或未解密，convolver 无法启用"
+      }
+    ]
+  },
+  "warnings": [
+    "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.enc\", \"Trim\": -100.0, \"Fade\": 0.0}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.enc 不存在或未解密，convolver 无法启用"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\018-极重低音.parse.json"
+}

@@ -1,0 +1,95 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\019-摇滚.aep",
+  "file_size": 1520,
+  "magic": "QMAEP",
+  "name": "摇滚",
+  "nodes": [
+    {
+      "id": 9,
+      "class": "ExciterEffect",
+      "params": {
+        "MixBack": -9.682823181152344,
+        "Frequency": 778.419921875,
+        "ClipBoost": 4.759727954864502,
+        "Harmonics": 10.364395141601562
+      }
+    },
+    {
+      "id": 51,
+      "class": "PeakingFilterQEffect",
+      "params": {
+        "Frequency_cut": 110.0,
+        "dBgain": 6.0,
+        "Q": 3.0,
+        "NN_Num": 2.094512939453125,
+        "Channel": 0.0
+      }
+    },
+    {
+      "id": 51,
+      "class": "PeakingFilterQEffect",
+      "params": {
+        "Frequency_cut": 962.0,
+        "dBgain": 4.0,
+        "Q": 3.0,
+        "NN_Num": 2.094512939453125,
+        "Channel": 0.0
+      }
+    },
+    {
+      "id": 34,
+      "class": "HSFilterEffect",
+      "params": {
+        "Frequency": 3000.0,
+        "Q": 1.0,
+        "Gain": 6.0
+      }
+    },
+    {
+      "id": 33,
+      "class": "LSFilterEffect",
+      "params": {
+        "Frequency": 125.0,
+        "Q": 1.0,
+        "Gain": 3.0
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "dynamicEq"
+    ],
+    "group_confidence": {
+      "dynamicEq": "approx"
+    },
+    "decisions": {
+      "dynamicEq": [
+        "id51 PeakingFilterQ -> dynamicEq 峰值",
+        "id51 PeakingFilterQ -> dynamicEq 峰值",
+        "id34 HSFilter -> dynamicEq high shelf",
+        "id33 LSFilter -> dynamicEq low shelf",
+        "dynamicEq: 4 频段（threshold=-80 恒生效，type 0=peak/1=low shelf/2=high shelf）"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 9,
+        "class": "ExciterEffect",
+        "params": {
+          "MixBack": -9.682823181152344,
+          "Frequency": 778.419921875,
+          "ClipBoost": 4.759727954864502,
+          "Harmonics": 10.364395141601562
+        },
+        "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+      }
+    ]
+  },
+  "warnings": [
+    "id51 PeakingFilterQEffect: NN_Num=2.09451/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射",
+    "id51 PeakingFilterQEffect: NN_Num=2.09451/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射",
+    "未映射节点 id=9(ExciterEffect) 参数={\"MixBack\": -9.682823181152344, \"Frequency\": 778.419921875, \"ClipBoost\": 4.759727954864502, \"Harmonics\": 10.364395141601562}：Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\019-摇滚.parse.json"
+}

@@ -1,0 +1,78 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\996-智能音效.aep",
+  "file_size": 1016,
+  "magic": "QMAEP",
+  "name": "智能音效(Lite)",
+  "nodes": [
+    {
+      "id": 4,
+      "class": "AmplifierEffect",
+      "params": {
+        "Gain": -6.269240379333496
+      }
+    },
+    {
+      "id": 11,
+      "class": "StereoEnhancerEffect",
+      "params": {
+        "Width": 121.2825927734375,
+        "Center": 100.0
+      }
+    },
+    {
+      "id": 21,
+      "class": "VocalEffect",
+      "params": {
+        "Vocal": 13.0
+      }
+    },
+    {
+      "id": 33,
+      "class": "LSFilterEffect",
+      "params": {
+        "Frequency": 180.0,
+        "Q": 0.800000011920929,
+        "Gain": 0.6000000238418579
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "dynamicEq",
+      "masterLimiter",
+      "stereoImager"
+    ],
+    "group_confidence": {
+      "dynamicEq": "approx",
+      "masterLimiter": "verified",
+      "stereoImager": "verified"
+    },
+    "decisions": {
+      "masterLimiter": [
+        "id4 Amplifier: Gain=-6.2692 dB"
+      ],
+      "stereoImager": [
+        "id11 StereoEnhancer: Width=121.283% -> width=1.2128"
+      ],
+      "dynamicEq": [
+        "id33 LSFilter -> dynamicEq low shelf",
+        "dynamicEq: 1 频段（threshold=-80 恒生效，type 0=peak/1=low shelf/2=high shelf）"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 21,
+        "class": "VocalEffect",
+        "params": {
+          "Vocal": 13.0
+        },
+        "reason": "Vocal 人声增强，无对应（归入 skipped 人声类）"
+      }
+    ]
+  },
+  "warnings": [
+    "未映射节点 id=21(VocalEffect) 参数={\"Vocal\": 13.0}：Vocal 人声增强，无对应（归入 skipped 人声类）"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\996-智能音效.parse.json"
+}

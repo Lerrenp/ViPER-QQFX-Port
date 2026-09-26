@@ -1,0 +1,71 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\065-智能伴奏.aep",
+  "file_size": 920,
+  "magic": "QMAEP",
+  "name": "065-智能伴奏",
+  "nodes": [
+    {
+      "id": 70,
+      "class": "MusicSeparation",
+      "params": {
+        "ModelFile": "background/101dd87efca37de19305f947fa02f06cae85066b.res"
+      }
+    },
+    {
+      "id": 51,
+      "class": "PeakingFilterQEffect",
+      "params": {
+        "Frequency_cut": 5500.0,
+        "dBgain": -19.0,
+        "Q": 6.579999923706055,
+        "NN_Num": 6.0,
+        "Channel": 0.0
+      }
+    },
+    {
+      "id": 51,
+      "class": "PeakingFilterQEffect",
+      "params": {
+        "Frequency_cut": 11000.0,
+        "dBgain": -19.0,
+        "Q": 4.760000228881836,
+        "NN_Num": 6.0,
+        "Channel": 0.0
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "dynamicEq"
+    ],
+    "group_confidence": {
+      "dynamicEq": "approx"
+    },
+    "decisions": {
+      "dynamicEq": [
+        "id51 PeakingFilterQ -> dynamicEq 峰值",
+        "id51 PeakingFilterQ -> dynamicEq 峰值",
+        "dynamicEq: 2 频段（threshold=-80 恒生效，type 0=peak/1=low shelf/2=high shelf）"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 70,
+        "class": "MusicSeparation",
+        "params": {
+          "ModelFile": "background/101dd87efca37de19305f947fa02f06cae85066b.res"
+        },
+        "reason": "MusicSeparation 人声/伴奏分离，无对应"
+      }
+    ]
+  },
+  "warnings": [
+    "id51 PeakingFilterQ gain = -19 低于下限 -12，已钳到 -12",
+    "id51 PeakingFilterQEffect: NN_Num=6/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射",
+    "id51 PeakingFilterQ gain = -19 低于下限 -12，已钳到 -12",
+    "id51 PeakingFilterQEffect: NN_Num=6/Channel=0.0 在 V4A dynamicEq 中无对应项，未映射",
+    "未映射节点 id=70(MusicSeparation) 参数={\"ModelFile\": \"background/101dd87efca37de19305f947fa02f06cae85066b.res\"}：MusicSeparation 人声/伴奏分离，无对应"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\065-智能伴奏.parse.json"
+}

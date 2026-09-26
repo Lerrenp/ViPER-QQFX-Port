@@ -1,0 +1,324 @@
+{
+  "schemaVersion": 2.1,
+  "name": "手绘3D旋转",
+  "createdAt": 1790435323304,
+  "masterLimiter": {
+    "threshold": 1.0,
+    "outputVolume": 0.7079457843841379,
+    "channelPan": 0.0
+  },
+  "playbackGainControl": {
+    "enable": false,
+    "strength": 1.0,
+    "maxGain": 1.0,
+    "outputThreshold": 1.0
+  },
+  "lufs": {
+    "enable": false,
+    "target": -14.0,
+    "maxGain": 6.0,
+    "speed": 1
+  },
+  "fetCompressor": {
+    "enable": false,
+    "threshold": -2.0723265836946414,
+    "ratio": -1.0,
+    "kneeAuto": true,
+    "knee": 0.0,
+    "kneeMulti": 0.0,
+    "gainAuto": true,
+    "gain": 0.0,
+    "attackAuto": true,
+    "attack": 0.02,
+    "maxAttack": 0.08,
+    "releaseAuto": true,
+    "release": 0.05,
+    "maxRelease": 0.1,
+    "crest": 0.1,
+    "adapt": 2.0,
+    "noClip": true
+  },
+  "multibandCompressor": {
+    "enable": false,
+    "bandEnables": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "crossovers": [
+      120,
+      500,
+      4000,
+      8000
+    ],
+    "thresholds": [
+      -2.0723265836946414,
+      -2.0723265836946414,
+      -2.0723265836946414,
+      -2.0723265836946414,
+      -2.0723265836946414
+    ],
+    "ratios": [
+      -0.5,
+      -0.5,
+      -0.5,
+      -0.5,
+      -0.5
+    ],
+    "gains": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "knees": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "kneeMultis": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "attacks": [
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001
+    ],
+    "maxAttacks": [
+      0.044,
+      0.044,
+      0.044,
+      0.044,
+      0.044
+    ],
+    "releases": [
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "maxReleases": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "crests": [
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "adapts": [
+      2.0,
+      2.0,
+      2.0,
+      2.0,
+      2.0
+    ],
+    "kneeAutos": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "gainAutos": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "attackAutos": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "releaseAutos": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "noClips": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "ddc": {
+    "enable": false,
+    "device": ""
+  },
+  "spectrumExtension": {
+    "enable": false,
+    "strength": 7600,
+    "exciter": 0.0
+  },
+  "equalizer": {
+    "enable": false,
+    "bandCount": 10,
+    "bands": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "presetId": null
+  },
+  "dynamicEq": {
+    "enable": false,
+    "bandCount": 3,
+    "freqs": [
+      60,
+      150,
+      400
+    ],
+    "qs": [
+      1.0,
+      1.0,
+      1.5
+    ],
+    "gains": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "thresholds": [
+      -20.0,
+      -20.0,
+      -20.0
+    ],
+    "attacks": [
+      10.0,
+      10.0,
+      10.0
+    ],
+    "releases": [
+      100.0,
+      100.0,
+      100.0
+    ],
+    "filterTypes": [
+      0,
+      0,
+      0
+    ]
+  },
+  "convolver": {
+    "enable": false,
+    "kernelFile": "",
+    "crossChannel": 0.0
+  },
+  "fieldSurround": {
+    "enable": false,
+    "widening": 0.0,
+    "midImage": 1.5,
+    "depth": 200
+  },
+  "diffSurround": {
+    "enable": false,
+    "delay": 5.0,
+    "reverse": false,
+    "wetDryMix": 1.0,
+    "lpCutoff": 0
+  },
+  "stereoImager": {
+    "enable": false,
+    "lowWidth": 1.0,
+    "midWidth": 1.0,
+    "highWidth": 1.0,
+    "lowCrossover": 200,
+    "highCrossover": 4000
+  },
+  "headphoneSurround": {
+    "enable": false,
+    "quality": 0
+  },
+  "reverb": {
+    "enable": false,
+    "roomSize": 0.0,
+    "width": 0.0,
+    "damp": 0.5,
+    "wet": 0.0,
+    "dry": 1.0
+  },
+  "dynamicSystem": {
+    "enable": false,
+    "presetId": null,
+    "device": 0,
+    "strength": 1.0,
+    "xLow": 100,
+    "xHigh": 5600,
+    "yLow": 40,
+    "yHigh": 80,
+    "sideGainLow": 0.5,
+    "sideGainHigh": 0.5
+  },
+  "psychoacousticBass": {
+    "enable": false,
+    "cutoff": 80,
+    "intensity": 0.5,
+    "harmonicOrder": 3,
+    "originalLevel": 1.0
+  },
+  "bass": {
+    "enable": false,
+    "mode": 0,
+    "frequency": 60,
+    "gain": 0.5,
+    "antiPop": false
+  },
+  "bassMono": {
+    "enable": false,
+    "mode": 0,
+    "frequency": 60,
+    "gain": 0.5,
+    "antiPop": false
+  },
+  "clarity": {
+    "enable": false,
+    "mode": 0,
+    "gain": 0.5
+  },
+  "cure": {
+    "enable": false,
+    "crossfeedPreset": 0
+  },
+  "tubeSimulator": {
+    "enable": false
+  },
+  "analogX": {
+    "enable": false,
+    "mode": 0
+  },
+  "speakerCorrection": {
+    "enable": false
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\504-现场律动.aep",
+  "file_size": 2436,
+  "magic": "QMAEP",
+  "name": "现场律动",
+  "nodes": [
+    {
+      "id": 63,
+      "class": "MverbEffect",
+      "params": {
+        "DAMPINGFREQ": 0.0,
+        "DENSITY": 0.5,
+        "BANDWIDTHFREQ": 1.0,
+        "DECAY": 0.5,
+        "PREDELAY": 0.0,
+        "SIZE": 0.5249999761581421,
+        "MIX": 0.20000000298023224,
+        "EARLYMIX": 0.7300000190734863,
+        "GAIN": 1.0
+      }
+    },
+    {
+      "id": 2,
+      "class": "StudioIrEffect",
+      "params": {
+        "IR File": "irs\\742156792c2f7c863b9d5cec1cd0622546a1f877.enc",
+        "Trim": -100.0,
+        "Fade": 0.0
+      }
+    },
+    {
+      "id": 4,
+      "class": "AmplifierEffect",
+      "params": {
+        "Gain": -4.657598972320557
+      }
+    },
+    {
+      "id": 11,
+      "class": "StereoEnhancerEffect",
+      "params": {
+        "Width": 130.0,
+        "Center": 100.0
+      }
+    },
+    {
+      "id": 12,
+      "class": "DelayEffect",
+      "params": {
+        "Left Time": 0.0,
+        "Right Time": 26.12244987487793,
+        "Left Feedback": 0.0,
+        "Right Feedback": 0.0
+      }
+    },
+    {
+      "id": 13,
+      "class": "IirEQ10Effect",
+      "params": {
+        "Q": 1.2247449159622192,
+        "31 Hz": 0.0,
+        "63 Hz": 1.0,
+        "125 Hz": 1.0,
+        "250 Hz": 0.0,
+        "500 Hz": 0.0,
+        "1000 Hz": 1.0,
+        "2000 Hz": 1.0,
+        "4000 Hz": 1.0,
+        "8000 Hz": 2.0,
+        "16000 Hz": 2.0
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "diffSurround",
+      "equalizer",
+      "masterLimiter",
+      "reverb",
+      "stereoImager"
+    ],
+    "group_confidence": {
+      "diffSurround": "verified",
+      "equalizer": "verified",
+      "masterLimiter": "verified",
+      "reverb": "approx",
+      "stereoImager": "verified"
+    },
+    "decisions": {
+      "reverb": [
+        "id63 Mverb -> reverb: roomSize=DECAY=0.5, damp=1-DAMPINGFREQ=1, wet=MIX=0.2, dry=1-MIX=0.8"
+      ],
+      "masterLimiter": [
+        "id4 Amplifier: Gain=-4.6576 dB"
+      ],
+      "stereoImager": [
+        "id11 StereoEnhancer: Width=130% -> width=1.3000"
+      ],
+      "diffSurround": [
+        "id12 Delay: 单边延迟 20ms(左=0,右=26.1224), Feedback=0 -> delay=20, reverse=False"
+      ],
+      "equalizer": [
+        "id13 IirEQ10: Q=1.224745 未映射（V4A 10 段 EQ 为固定 Q 最小相位 IIR）",
+        "id13 IirEQ10: 10 段增益按频率升序映射"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 2,
+        "class": "StudioIrEffect",
+        "params": {
+          "IR File": "irs\\742156792c2f7c863b9d5cec1cd0622546a1f877.enc",
+          "Trim": -100.0,
+          "Fade": 0.0
+        },
+        "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/742156792c2f7c863b9d5cec1cd0622546a1f877.enc 不存在或未解密，convolver 无法启用"
+      }
+    ]
+  },
+  "warnings": [
+    "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）",
+    "diffSurround delay(ms) = 26.1224 超过上限 20，已钳到 20",
+    "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\742156792c2f7c863b9d5cec1cd0622546a1f877.enc\", \"Trim\": -100.0, \"Fade\": 0.0}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/742156792c2f7c863b9d5cec1cd0622546a1f877.enc 不存在或未解密，convolver 无法启用"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\504-现场律动.parse.json"
+}

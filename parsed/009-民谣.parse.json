@@ -1,0 +1,72 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\009-民谣.aep",
+  "file_size": 600,
+  "magic": "QMAEP",
+  "name": "民谣",
+  "nodes": [
+    {
+      "id": 2,
+      "class": "StudioIrEffect",
+      "params": {
+        "IR File": "irs\\43e714f5c19994239908b83b3c494225079b7605.enc"
+      }
+    },
+    {
+      "id": 9,
+      "class": "ExciterEffect",
+      "params": {
+        "MixBack": -9.0,
+        "Frequency": 614.400390625,
+        "ClipBoost": 0.0,
+        "Harmonics": 5.0
+      }
+    },
+    {
+      "id": 4,
+      "class": "AmplifierEffect",
+      "params": {
+        "Gain": -2.678650140762329
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "masterLimiter"
+    ],
+    "group_confidence": {
+      "masterLimiter": "verified"
+    },
+    "decisions": {
+      "masterLimiter": [
+        "id4 Amplifier: Gain=-2.6787 dB"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 2,
+        "class": "StudioIrEffect",
+        "params": {
+          "IR File": "irs\\43e714f5c19994239908b83b3c494225079b7605.enc"
+        },
+        "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/43e714f5c19994239908b83b3c494225079b7605.enc 不存在或未解密，convolver 无法启用"
+      },
+      {
+        "id": 9,
+        "class": "ExciterEffect",
+        "params": {
+          "MixBack": -9.0,
+          "Frequency": 614.400390625,
+          "ClipBoost": 0.0,
+          "Harmonics": 5.0
+        },
+        "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+      }
+    ]
+  },
+  "warnings": [
+    "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\43e714f5c19994239908b83b3c494225079b7605.enc\"}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/43e714f5c19994239908b83b3c494225079b7605.enc 不存在或未解密，convolver 无法启用",
+    "未映射节点 id=9(ExciterEffect) 参数={\"MixBack\": -9.0, \"Frequency\": 614.400390625, \"ClipBoost\": 0.0, \"Harmonics\": 5.0}：Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\009-民谣.parse.json"
+}
