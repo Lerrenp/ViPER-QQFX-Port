@@ -1,0 +1,568 @@
+{
+  "file": "D:\\AI-Agent\\ZCode\\workspace\\500-全景环绕.aep",
+  "file_size": 1372,
+  "magic": "QMAEP",
+  "magic_offset_hex": "0x48",
+  "name": "全景环绕",
+  "name_offset_hex": "0x34",
+  "offset_index": {
+    "root_table": "0x10",
+    "root_vtable": "0x6",
+    "magic_string": "0x48",
+    "name_string": "0x34",
+    "nodes_vector": "0x20"
+  },
+  "eq": [
+    {
+      "frequency_hz": 31,
+      "frequency_label": "31 Hz",
+      "gain_db": 0.0,
+      "q": 1.2247449159622192,
+      "node_id": 13,
+      "item_offset": 716,
+      "item_offset_hex": "0x2CC",
+      "name_offset": 748,
+      "value_offset": 744,
+      "value_offset_hex": "0x2E8",
+      "type_tag": 4
+    },
+    {
+      "frequency_hz": 63,
+      "frequency_label": "63 Hz",
+      "gain_db": 1.0,
+      "q": 1.2247449159622192,
+      "node_id": 13,
+      "item_offset": 656,
+      "item_offset_hex": "0x290",
+      "name_offset": 688,
+      "value_offset": 684,
+      "value_offset_hex": "0x2AC",
+      "type_tag": 4
+    },
+    {
+      "frequency_hz": 125,
+      "frequency_label": "125 Hz",
+      "gain_db": 1.0,
+      "q": 1.2247449159622192,
+      "node_id": 13,
+      "item_offset": 596,
+      "item_offset_hex": "0x254",
+      "name_offset": 628,
+      "value_offset": 624,
+      "value_offset_hex": "0x270",
+      "type_tag": 4
+    },
+    {
+      "frequency_hz": 250,
+      "frequency_label": "250 Hz",
+      "gain_db": 0.0,
+      "q": 1.2247449159622192,
+      "node_id": 13,
+      "item_offset": 536,
+      "item_offset_hex": "0x218",
+      "name_offset": 568,
+      "value_offset": 564,
+      "value_offset_hex": "0x234",
+      "type_tag": 4
+    },
+    {
+      "frequency_hz": 500,
+      "frequency_label": "500 Hz",
+      "gain_db": 0.0,
+      "q": 1.2247449159622192,
+      "node_id": 13,
+      "item_offset": 476,
+      "item_offset_hex": "0x1DC",
+      "name_offset": 508,
+      "value_offset": 504,
+      "value_offset_hex": "0x1F8",
+      "type_tag": 4
+    },
+    {
+      "frequency_hz": 1000,
+      "frequency_label": "1000 Hz",
+      "gain_db": 1.0,
+      "q": 1.2247449159622192,
+      "node_id": 13,
+      "item_offset": 416,
+      "item_offset_hex": "0x1A0",
+      "name_offset": 448,
+      "value_offset": 444,
+      "value_offset_hex": "0x1BC",
+      "type_tag": 4
+    },
+    {
+      "frequency_hz": 2000,
+      "frequency_label": "2000 Hz",
+      "gain_db": 1.0,
+      "q": 1.2247449159622192,
+      "node_id": 13,
+      "item_offset": 356,
+      "item_offset_hex": "0x164",
+      "name_offset": 388,
+      "value_offset": 384,
+      "value_offset_hex": "0x180",
+      "type_tag": 4
+    },
+    {
+      "frequency_hz": 4000,
+      "frequency_label": "4000 Hz",
+      "gain_db": 1.0,
+      "q": 1.2247449159622192,
+      "node_id": 13,
+      "item_offset": 296,
+      "item_offset_hex": "0x128",
+      "name_offset": 328,
+      "value_offset": 324,
+      "value_offset_hex": "0x144",
+      "type_tag": 4
+    },
+    {
+      "frequency_hz": 8000,
+      "frequency_label": "8000 Hz",
+      "gain_db": 2.0,
+      "q": 1.2247449159622192,
+      "node_id": 13,
+      "item_offset": 236,
+      "item_offset_hex": "0xEC",
+      "name_offset": 268,
+      "value_offset": 264,
+      "value_offset_hex": "0x108",
+      "type_tag": 4
+    },
+    {
+      "frequency_hz": 16000,
+      "frequency_label": "16000 Hz",
+      "gain_db": 2.0,
+      "q": 1.2247449159622192,
+      "node_id": 13,
+      "item_offset": 172,
+      "item_offset_hex": "0xAC",
+      "name_offset": 204,
+      "value_offset": 200,
+      "value_offset_hex": "0xC8",
+      "type_tag": 4
+    }
+  ],
+  "eq_q": {
+    "name": "Q",
+    "value": 1.2247449159622192,
+    "node_id": 13,
+    "item_offset": 776,
+    "item_offset_hex": "0x308",
+    "name_offset": 808,
+    "value_offset": 804,
+    "value_offset_hex": "0x324",
+    "type_tag": 4
+  },
+  "widener": {
+    "Gain": 2.278866767883301,
+    "Width": 130.0,
+    "Center": 100.0,
+    "Left Time": 0.0,
+    "Right Time": 26.12244987487793,
+    "Left Feedback": 0.0,
+    "Right Feedback": 0.0
+  },
+  "widener_offsets": {
+    "Gain": {
+      "node_id": 4,
+      "item_offset": 1328,
+      "item_offset_hex": "0x530",
+      "name_offset": 1360,
+      "value_offset": 1356,
+      "value_offset_hex": "0x54C",
+      "type_tag": 4
+    },
+    "Width": {
+      "node_id": 11,
+      "item_offset": 1236,
+      "item_offset_hex": "0x4D4",
+      "name_offset": 1268,
+      "value_offset": 1264,
+      "value_offset_hex": "0x4F0",
+      "type_tag": 4
+    },
+    "Center": {
+      "node_id": 11,
+      "item_offset": 1176,
+      "item_offset_hex": "0x498",
+      "name_offset": 1208,
+      "value_offset": 1204,
+      "value_offset_hex": "0x4B4",
+      "type_tag": 4
+    },
+    "Left Time": {
+      "node_id": 12,
+      "item_offset": 1076,
+      "item_offset_hex": "0x434",
+      "name_offset": 1108,
+      "value_offset": 1104,
+      "value_offset_hex": "0x450",
+      "type_tag": 4
+    },
+    "Right Time": {
+      "node_id": 12,
+      "item_offset": 1012,
+      "item_offset_hex": "0x3F4",
+      "name_offset": 1044,
+      "value_offset": 1040,
+      "value_offset_hex": "0x410",
+      "type_tag": 4
+    },
+    "Left Feedback": {
+      "node_id": 12,
+      "item_offset": 944,
+      "item_offset_hex": "0x3B0",
+      "name_offset": 976,
+      "value_offset": 972,
+      "value_offset_hex": "0x3CC",
+      "type_tag": 4
+    },
+    "Right Feedback": {
+      "node_id": 12,
+      "item_offset": 876,
+      "item_offset_hex": "0x36C",
+      "name_offset": 908,
+      "value_offset": 904,
+      "value_offset_hex": "0x388",
+      "type_tag": 4
+    }
+  },
+  "nodes": [
+    {
+      "id": 4,
+      "table_offset": 1292,
+      "table_offset_hex": "0x50C",
+      "vtable_offset": 1284,
+      "param_count": 1,
+      "param_names": [
+        "Gain"
+      ],
+      "param_offsets": [
+        {
+          "name": "Gain",
+          "item_offset": 1328,
+          "item_offset_hex": "0x530",
+          "value_offset": 1356,
+          "value_offset_hex": "0x54C"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "table_offset": 1136,
+      "table_offset_hex": "0x470",
+      "vtable_offset": 1128,
+      "param_count": 2,
+      "param_names": [
+        "Width",
+        "Center"
+      ],
+      "param_offsets": [
+        {
+          "name": "Width",
+          "item_offset": 1236,
+          "item_offset_hex": "0x4D4",
+          "value_offset": 1264,
+          "value_offset_hex": "0x4F0"
+        },
+        {
+          "name": "Center",
+          "item_offset": 1176,
+          "item_offset_hex": "0x498",
+          "value_offset": 1204,
+          "value_offset_hex": "0x4B4"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "table_offset": 828,
+      "table_offset_hex": "0x33C",
+      "vtable_offset": 820,
+      "param_count": 4,
+      "param_names": [
+        "Left Time",
+        "Right Time",
+        "Left Feedback",
+        "Right Feedback"
+      ],
+      "param_offsets": [
+        {
+          "name": "Left Time",
+          "item_offset": 1076,
+          "item_offset_hex": "0x434",
+          "value_offset": 1104,
+          "value_offset_hex": "0x450"
+        },
+        {
+          "name": "Right Time",
+          "item_offset": 1012,
+          "item_offset_hex": "0x3F4",
+          "value_offset": 1040,
+          "value_offset_hex": "0x410"
+        },
+        {
+          "name": "Left Feedback",
+          "item_offset": 944,
+          "item_offset_hex": "0x3B0",
+          "value_offset": 972,
+          "value_offset_hex": "0x3CC"
+        },
+        {
+          "name": "Right Feedback",
+          "item_offset": 876,
+          "item_offset_hex": "0x36C",
+          "value_offset": 904,
+          "value_offset_hex": "0x388"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "table_offset": 96,
+      "table_offset_hex": "0x60",
+      "vtable_offset": 88,
+      "param_count": 11,
+      "param_names": [
+        "Q",
+        "31 Hz",
+        "63 Hz",
+        "125 Hz",
+        "250 Hz",
+        "500 Hz",
+        "1000 Hz",
+        "2000 Hz",
+        "4000 Hz",
+        "8000 Hz",
+        "16000 Hz"
+      ],
+      "param_offsets": [
+        {
+          "name": "Q",
+          "item_offset": 776,
+          "item_offset_hex": "0x308",
+          "value_offset": 804,
+          "value_offset_hex": "0x324"
+        },
+        {
+          "name": "31 Hz",
+          "item_offset": 716,
+          "item_offset_hex": "0x2CC",
+          "value_offset": 744,
+          "value_offset_hex": "0x2E8"
+        },
+        {
+          "name": "63 Hz",
+          "item_offset": 656,
+          "item_offset_hex": "0x290",
+          "value_offset": 684,
+          "value_offset_hex": "0x2AC"
+        },
+        {
+          "name": "125 Hz",
+          "item_offset": 596,
+          "item_offset_hex": "0x254",
+          "value_offset": 624,
+          "value_offset_hex": "0x270"
+        },
+        {
+          "name": "250 Hz",
+          "item_offset": 536,
+          "item_offset_hex": "0x218",
+          "value_offset": 564,
+          "value_offset_hex": "0x234"
+        },
+        {
+          "name": "500 Hz",
+          "item_offset": 476,
+          "item_offset_hex": "0x1DC",
+          "value_offset": 504,
+          "value_offset_hex": "0x1F8"
+        },
+        {
+          "name": "1000 Hz",
+          "item_offset": 416,
+          "item_offset_hex": "0x1A0",
+          "value_offset": 444,
+          "value_offset_hex": "0x1BC"
+        },
+        {
+          "name": "2000 Hz",
+          "item_offset": 356,
+          "item_offset_hex": "0x164",
+          "value_offset": 384,
+          "value_offset_hex": "0x180"
+        },
+        {
+          "name": "4000 Hz",
+          "item_offset": 296,
+          "item_offset_hex": "0x128",
+          "value_offset": 324,
+          "value_offset_hex": "0x144"
+        },
+        {
+          "name": "8000 Hz",
+          "item_offset": 236,
+          "item_offset_hex": "0xEC",
+          "value_offset": 264,
+          "value_offset_hex": "0x108"
+        },
+        {
+          "name": "16000 Hz",
+          "item_offset": 172,
+          "item_offset_hex": "0xAC",
+          "value_offset": 200,
+          "value_offset_hex": "0xC8"
+        }
+      ]
+    }
+  ],
+  "all_float_name_pairs": [
+    {
+      "name": "Gain",
+      "value": 2.278866767883301,
+      "type_tag": 4,
+      "node_id": 4,
+      "value_offset": 1356,
+      "value_offset_hex": "0x54C"
+    },
+    {
+      "name": "Width",
+      "value": 130.0,
+      "type_tag": 4,
+      "node_id": 11,
+      "value_offset": 1264,
+      "value_offset_hex": "0x4F0"
+    },
+    {
+      "name": "Center",
+      "value": 100.0,
+      "type_tag": 4,
+      "node_id": 11,
+      "value_offset": 1204,
+      "value_offset_hex": "0x4B4"
+    },
+    {
+      "name": "Left Time",
+      "value": 0.0,
+      "type_tag": 4,
+      "node_id": 12,
+      "value_offset": 1104,
+      "value_offset_hex": "0x450"
+    },
+    {
+      "name": "Right Time",
+      "value": 26.12244987487793,
+      "type_tag": 4,
+      "node_id": 12,
+      "value_offset": 1040,
+      "value_offset_hex": "0x410"
+    },
+    {
+      "name": "Left Feedback",
+      "value": 0.0,
+      "type_tag": 4,
+      "node_id": 12,
+      "value_offset": 972,
+      "value_offset_hex": "0x3CC"
+    },
+    {
+      "name": "Right Feedback",
+      "value": 0.0,
+      "type_tag": 4,
+      "node_id": 12,
+      "value_offset": 904,
+      "value_offset_hex": "0x388"
+    },
+    {
+      "name": "Q",
+      "value": 1.2247449159622192,
+      "type_tag": 4,
+      "node_id": 13,
+      "value_offset": 804,
+      "value_offset_hex": "0x324"
+    },
+    {
+      "name": "31 Hz",
+      "value": 0.0,
+      "type_tag": 4,
+      "node_id": 13,
+      "value_offset": 744,
+      "value_offset_hex": "0x2E8"
+    },
+    {
+      "name": "63 Hz",
+      "value": 1.0,
+      "type_tag": 4,
+      "node_id": 13,
+      "value_offset": 684,
+      "value_offset_hex": "0x2AC"
+    },
+    {
+      "name": "125 Hz",
+      "value": 1.0,
+      "type_tag": 4,
+      "node_id": 13,
+      "value_offset": 624,
+      "value_offset_hex": "0x270"
+    },
+    {
+      "name": "250 Hz",
+      "value": 0.0,
+      "type_tag": 4,
+      "node_id": 13,
+      "value_offset": 564,
+      "value_offset_hex": "0x234"
+    },
+    {
+      "name": "500 Hz",
+      "value": 0.0,
+      "type_tag": 4,
+      "node_id": 13,
+      "value_offset": 504,
+      "value_offset_hex": "0x1F8"
+    },
+    {
+      "name": "1000 Hz",
+      "value": 1.0,
+      "type_tag": 4,
+      "node_id": 13,
+      "value_offset": 444,
+      "value_offset_hex": "0x1BC"
+    },
+    {
+      "name": "2000 Hz",
+      "value": 1.0,
+      "type_tag": 4,
+      "node_id": 13,
+      "value_offset": 384,
+      "value_offset_hex": "0x180"
+    },
+    {
+      "name": "4000 Hz",
+      "value": 1.0,
+      "type_tag": 4,
+      "node_id": 13,
+      "value_offset": 324,
+      "value_offset_hex": "0x144"
+    },
+    {
+      "name": "8000 Hz",
+      "value": 2.0,
+      "type_tag": 4,
+      "node_id": 13,
+      "value_offset": 264,
+      "value_offset_hex": "0x108"
+    },
+    {
+      "name": "16000 Hz",
+      "value": 2.0,
+      "type_tag": 4,
+      "node_id": 13,
+      "value_offset": 200,
+      "value_offset_hex": "0xC8"
+    }
+  ]
+}

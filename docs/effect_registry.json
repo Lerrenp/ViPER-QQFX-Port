@@ -1,0 +1,616 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\QQMusic去exe版\\qmcpcomx64.dll",
+  "table_va": "0x18009ab1c",
+  "base": "0x180000000",
+  "count": 76,
+  "effects": [
+    {
+      "id": 1,
+      "case": "0x180099ef9",
+      "new_size": "0x6f8",
+      "ctor": "0x1800afee0",
+      "vtable": "0x180170a08",
+      "class": ".?AVThroughEffect@THROUGH@SUPERSOUND2@@"
+    },
+    {
+      "id": 2,
+      "case": "0x180099f23",
+      "new_size": "0x700",
+      "ctor": "0x1800af7c0",
+      "vtable": "0x180170730",
+      "class": ".?AVStudioIrEffect@STUDIO_IR@SUPERSOUND2@@"
+    },
+    {
+      "id": 3,
+      "case": "0x180099f4d",
+      "new_size": "0x828",
+      "ctor": "0x1800affb0",
+      "vtable": "0x180170d08",
+      "class": ".?AVChaosEffect@CHAOS@SUPERSOUND2@@"
+    },
+    {
+      "id": 4,
+      "case": "0x180099f77",
+      "new_size": "0x700",
+      "ctor": "0x1800b0f60",
+      "vtable": "0x180171018",
+      "class": ".?AVAmplifierEffect@AMPLIFIER@SUPERSOUND2@@"
+    },
+    {
+      "id": 5,
+      "case": "0x180099fa1",
+      "new_size": "0x700",
+      "ctor": "0x1800b11c0",
+      "vtable": "0x1801712e0",
+      "class": ".?AVRotatorEffect@ROTATOR@SUPERSOUND2@@"
+    },
+    {
+      "id": 6,
+      "case": "0x180099fcb",
+      "new_size": "0x718",
+      "ctor": "0x1800b19f0",
+      "vtable": "0x180171678",
+      "class": ".?AVLimiterEffect@LIMITER@SUPERSOUND2@@"
+    },
+    {
+      "id": 7,
+      "case": "0x180099ff5",
+      "new_size": "0x700",
+      "ctor": "0x1800b23e0",
+      "vtable": "0x180171ab8",
+      "class": ".?AVSamplerEffect@SAMPLER@SUPERSOUND2@@"
+    },
+    {
+      "id": 8,
+      "case": "0x18009a01f",
+      "new_size": "0x720",
+      "ctor": "0x1800b3da0",
+      "vtable": "0x1801723e8",
+      "class": ".?AVIirEQ30Effect@IIR_EQ_FIXED_BANDS@SUPERSOUND2@@"
+    },
+    {
+      "id": 9,
+      "case": "0x18009a049",
+      "new_size": "0x910",
+      "ctor": "0x1800b38f0",
+      "vtable": "0x180172198",
+      "class": ".?AVExciterEffect@EXCITER@SUPERSOUND2@@"
+    },
+    {
+      "id": 10,
+      "case": "0x18009a073",
+      "new_size": "0x710",
+      "ctor": "0x1800b2950",
+      "vtable": "0x180171e48",
+      "class": ".?AVResamplerEffect@RESAMPLER@SUPERSOUND2@@"
+    },
+    {
+      "id": 11,
+      "case": "0x18009a09d",
+      "new_size": "0x708",
+      "ctor": "0x1800b3e70",
+      "vtable": "0x180172688",
+      "class": ".?AVStereoEnhancerEffect@STEREO_ENHANCER@SUPERSOUND2@@"
+    },
+    {
+      "id": 12,
+      "case": "0x18009a0c7",
+      "new_size": "0x700",
+      "ctor": "0x1800b4360",
+      "vtable": "0x1801729f0",
+      "class": ".?AVDelayEffect@DELAY@SUPERSOUND2@@"
+    },
+    {
+      "id": 13,
+      "case": "0x18009a0f1",
+      "new_size": "0x720",
+      "ctor": "0x1800b48e0",
+      "vtable": "0x180172c78",
+      "class": ".?AVIirEQ10Effect@IIR_EQ_FIXED_BANDS@SUPERSOUND2@@"
+    },
+    {
+      "id": 14,
+      "case": "0x18009a11b",
+      "new_size": "0x710",
+      "ctor": "0x1800b57c0",
+      "vtable": "0x180173c30",
+      "class": ".?AVFidelityEffect@FIDELITY@SUPERSOUND2@@"
+    },
+    {
+      "id": 15,
+      "case": "0x18009a145",
+      "new_size": "0x710",
+      "ctor": "0x1800b6250",
+      "vtable": "0x180174338",
+      "class": ".?AVDfxHyperbassEffect@DFXHYPERBASS@SUPERSOUND2@@"
+    },
+    {
+      "id": 16,
+      "case": "0x18009a16f",
+      "new_size": "0x708",
+      "ctor": "0x1800b49c0",
+      "vtable": "0x1801730b8",
+      "class": ".?AVDfx3DSurroundEffect@DFX3DSURROUND@SUPERSOUND2@@"
+    },
+    {
+      "id": 17,
+      "case": "0x18009a199",
+      "new_size": "0x708",
+      "ctor": "0x1800b5db0",
+      "vtable": "0x180174090",
+      "class": ".?AVHeadphoneEffect@DFXHEADPHONE@SUPERSOUND2@@"
+    },
+    {
+      "id": 18,
+      "case": "0x18009a1c3",
+      "new_size": "0x708",
+      "ctor": "0x1800b4e50",
+      "vtable": "0x180173508",
+      "class": ".?AVAmbienceEffect@AMBIENCE@SUPERSOUND2@@"
+    },
+    {
+      "id": 19,
+      "case": "0x18009a1ed",
+      "new_size": "0x708",
+      "ctor": "0x1800b52e0",
+      "vtable": "0x180173958",
+      "class": ".?AVDynamicboostEffect@DYNAMICBOOST@SUPERSOUND2@@"
+    },
+    {
+      "id": 20,
+      "case": "0x18009ab0d",
+      "new_size": null,
+      "ctor": null,
+      "vtable": null,
+      "class": null
+    },
+    {
+      "id": 21,
+      "case": "0x18009a241",
+      "new_size": "0x718",
+      "ctor": "0x1800b6760",
+      "vtable": "0x180174600",
+      "class": ".?AVVocalEffect@VOCAL@SUPERSOUND2@@"
+    },
+    {
+      "id": 22,
+      "case": "0x18009a295",
+      "new_size": "0x718",
+      "ctor": "0x1800b7c30",
+      "vtable": "0x180174e90",
+      "class": ".?AVHyperBassEffect@HYPERBASS@SUPERSOUND2@@"
+    },
+    {
+      "id": 23,
+      "case": "0x18009a2bf",
+      "new_size": "0x758",
+      "ctor": "0x1800b8370",
+      "vtable": "0x180175100",
+      "class": ".?AVMultiBandCompressorEffect@COMPRESSOR@SUPERSOUND2@@"
+    },
+    {
+      "id": 24,
+      "case": "0x18009a2e9",
+      "new_size": "0x700",
+      "ctor": "0x1800b8ca0",
+      "vtable": "0x1801754b8",
+      "class": ".?AVSuperEQEffect@SUPEREQ@SUPERSOUND2@@"
+    },
+    {
+      "id": 25,
+      "case": "0x18009a34b",
+      "new_size": "0x730",
+      "ctor": "0x1800ba2f0",
+      "vtable": "0x180175d10",
+      "class": ".?AVHeadphoneEffect@HEADPHONE@SUPERSOUND2@@"
+    },
+    {
+      "id": 26,
+      "case": "0x18009a375",
+      "new_size": "0x718",
+      "ctor": "0x1800badd0",
+      "vtable": "0x180175fe8",
+      "class": ".?AVPannerEffect@PANNER@SUPERSOUND2@@"
+    },
+    {
+      "id": 27,
+      "case": "0x18009a39f",
+      "new_size": "0x700",
+      "ctor": "0x1800bb270",
+      "vtable": "0x180176258",
+      "class": ".?AVMono2DualEffect@MONO2DUAL@SUPERSOUND2@@"
+    },
+    {
+      "id": 28,
+      "case": "0x18009a3c9",
+      "new_size": "0x700",
+      "ctor": "0x1800bb4c0",
+      "vtable": "0x180176520",
+      "class": ".?AVPitchShifterEffect@PITCHSHIFTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 29,
+      "case": "0x18009a3f3",
+      "new_size": "0x718",
+      "ctor": "0x1800bb8a0",
+      "vtable": "0x180176828",
+      "class": ".?AVLPFilterEffect@BIQUADFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 30,
+      "case": "0x18009a41d",
+      "new_size": "0x718",
+      "ctor": "0x1800bbd90",
+      "vtable": "0x180176ae8",
+      "class": ".?AVHPFilterEffect@BIQUADFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 31,
+      "case": "0x18009a447",
+      "new_size": "0x718",
+      "ctor": "0x1800bc280",
+      "vtable": "0x180176db8",
+      "class": ".?AVBPFilterEffect@BIQUADFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 32,
+      "case": "0x18009a471",
+      "new_size": "0x718",
+      "ctor": "0x1800bc870",
+      "vtable": "0x180177078",
+      "class": ".?AVNTFilterEffect@BIQUADFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 33,
+      "case": "0x18009a49b",
+      "new_size": "0x710",
+      "ctor": "0x1800bcda0",
+      "vtable": "0x180177328",
+      "class": ".?AVLSFilterEffect@BIQUADFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 34,
+      "case": "0x18009a4c5",
+      "new_size": "0x710",
+      "ctor": "0x1800bd2d0",
+      "vtable": "0x1801775e0",
+      "class": ".?AVHSFilterEffect@BIQUADFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 35,
+      "case": "0x18009a4ef",
+      "new_size": "0x718",
+      "ctor": "0x1800bd800",
+      "vtable": "0x180177890",
+      "class": ".?AVPKFilterEffect@BIQUADFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 36,
+      "case": "0x18009a519",
+      "new_size": "0x710",
+      "ctor": "0x1800bdda0",
+      "vtable": "0x180177b38",
+      "class": ".?AVAPFilterEffect@BIQUADFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 37,
+      "case": "0x18009a543",
+      "new_size": "0x860",
+      "ctor": "0x1800be310",
+      "vtable": "0x180177de0",
+      "class": ".?AVDeEsserEffect@DEESSER_EFFECT@SUPERSOUND2@@"
+    },
+    {
+      "id": 38,
+      "case": "0x18009a56d",
+      "new_size": null,
+      "ctor": "0x1800bfb20",
+      "vtable": "0x1801780f0",
+      "class": ".?AVVBassDspWrapper@VBASS@SUPERSOUND2@@"
+    },
+    {
+      "id": 39,
+      "case": "0x18009a7f0",
+      "new_size": null,
+      "ctor": "0x1800bff30",
+      "vtable": "0x180178230",
+      "class": ".?AVGrowlDspWrapper@GROWL@SUPERSOUND2@@"
+    },
+    {
+      "id": 40,
+      "case": "0x18009a57a",
+      "new_size": "0xc48",
+      "ctor": "0x1800c0940",
+      "vtable": "0x1801783a8",
+      "class": ".?AVTwotoSix@TWOTOSIX@SUPERSOUND2@@"
+    },
+    {
+      "id": 41,
+      "case": "0x18009a5a4",
+      "new_size": "0x710",
+      "ctor": "0x1800c1b60",
+      "vtable": "0x1801786a0",
+      "class": ".?AVLPFilterEffect@BUTTERFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 42,
+      "case": "0x18009a5ce",
+      "new_size": "0x710",
+      "ctor": "0x1800c20b0",
+      "vtable": "0x180178958",
+      "class": ".?AVHPFilterEffect@BUTTERFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 43,
+      "case": "0x18009a5f8",
+      "new_size": "0x710",
+      "ctor": "0x1800c2550",
+      "vtable": "0x180178c30",
+      "class": ".?AVBPFilterEffect@BUTTERFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 44,
+      "case": "0x18009a622",
+      "new_size": "0x710",
+      "ctor": "0x1800c2b20",
+      "vtable": "0x180178ee8",
+      "class": ".?AVBSFilterEffect@BUTTERFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 45,
+      "case": "0x18009a64c",
+      "new_size": "0x718",
+      "ctor": "0x1800c3040",
+      "vtable": "0x180179178",
+      "class": ".?AVLPFilterQEffect@EQFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 46,
+      "case": "0x18009a676",
+      "new_size": "0x718",
+      "ctor": "0x1800c3450",
+      "vtable": "0x180179400",
+      "class": ".?AVHPFilterQEffect@EQFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 47,
+      "case": "0x18009a6a0",
+      "new_size": "0x718",
+      "ctor": "0x1800c3860",
+      "vtable": "0x180179688",
+      "class": ".?AVBPFilterQEffect@EQFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 48,
+      "case": "0x18009a6ca",
+      "new_size": "0x718",
+      "ctor": "0x1800c3c70",
+      "vtable": "0x180179910",
+      "class": ".?AVNotchFilterQEffect@EQFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 49,
+      "case": "0x18009a6f4",
+      "new_size": "0x718",
+      "ctor": "0x1800c4080",
+      "vtable": "0x180179b98",
+      "class": ".?AVLowShelfFilterQEffect@EQFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 50,
+      "case": "0x18009a71e",
+      "new_size": "0x718",
+      "ctor": "0x1800c4500",
+      "vtable": "0x180179e50",
+      "class": ".?AVHighShelfFilterQEffect@EQFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 51,
+      "case": "0x18009a748",
+      "new_size": "0x718",
+      "ctor": "0x1800b6de0",
+      "vtable": "0x1801748d0",
+      "class": ".?AVPeakingFilterQEffect@EQFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 52,
+      "case": "0x18009a772",
+      "new_size": "0x718",
+      "ctor": "0x1800c49a0",
+      "vtable": "0x18017a0e8",
+      "class": ".?AVPeaking2FilterQEffect@EQFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 53,
+      "case": "0x18009a79c",
+      "new_size": "0x718",
+      "ctor": "0x1800c4e20",
+      "vtable": "0x18017a378",
+      "class": ".?AVTiltFilterQEffect@EQFILTER@SUPERSOUND2@@"
+    },
+    {
+      "id": 54,
+      "case": "0x18009a7fd",
+      "new_size": "0x710",
+      "ctor": "0x1800c52a0",
+      "vtable": "0x18017a610",
+      "class": ".?AVPanoramic51Effect@Panoramic51@SUPERSOUND2@@"
+    },
+    {
+      "id": 55,
+      "case": "0x18009a8a5",
+      "new_size": "0x720",
+      "ctor": "0x1800c8b10",
+      "vtable": "0x18017b1f0",
+      "class": ".?AVMultiFuncSamplerEffect@SAMPLER@SUPERSOUND2@@"
+    },
+    {
+      "id": 56,
+      "case": "0x18009a8cf",
+      "new_size": "0x700",
+      "ctor": "0x1800c9a20",
+      "vtable": "0x18017b830",
+      "class": ".?AVSleepEffect@SLEEPEFFECT@SUPERSOUND2@@"
+    },
+    {
+      "id": 57,
+      "case": "0x18009a7c6",
+      "new_size": "0x758",
+      "ctor": "0x1800c90a0",
+      "vtable": "0x18017b568",
+      "class": ".?AVSuperBassEffect@SUPERBASS@SUPERSOUND2@@"
+    },
+    {
+      "id": 58,
+      "case": "0x18009a851",
+      "new_size": "0x7f8",
+      "ctor": "0x1800c63e0",
+      "vtable": "0x18017abf8",
+      "class": ".?AVHandDraw3DEffect@HandDraw3D@SUPERSOUND2@@"
+    },
+    {
+      "id": 59,
+      "case": "0x18009a26b",
+      "new_size": "0x720",
+      "ctor": "0x1800b7380",
+      "vtable": "0x180174b90",
+      "class": ".?AVVocalEffectNew@VOCALNEW@SUPERSOUND2@@"
+    },
+    {
+      "id": 60,
+      "case": "0x18009a827",
+      "new_size": "0x738",
+      "ctor": "0x1800c5a30",
+      "vtable": "0x18017a960",
+      "class": ".?AVPanoramic51EffectIRBased@Panoramic51IRBased@SUPERSOUND2@@"
+    },
+    {
+      "id": 61,
+      "case": "0x18009a87b",
+      "new_size": "0x8d0",
+      "ctor": "0x1800c82f0",
+      "vtable": "0x18017af28",
+      "class": ".?AVHandDraw3DEffectIRBased@HandDraw3DIRBased@SUPERSOUND2@@"
+    },
+    {
+      "id": 62,
+      "case": "0x18009a8f9",
+      "new_size": "0x990",
+      "ctor": "0x1800c9db0",
+      "vtable": "0x18017bb80",
+      "class": ".?AVWideSoundField@WIDESOUNDFIELD@SUPERSOUND2@@"
+    },
+    {
+      "id": 63,
+      "case": "0x18009a217",
+      "new_size": "0x730",
+      "ctor": "0x1800d4bd0",
+      "vtable": "0x18017cc18",
+      "class": ".?AVMverbEffect@MVERB@SUPERSOUND2@@"
+    },
+    {
+      "id": 64,
+      "case": "0x18009a923",
+      "new_size": "0x740",
+      "ctor": "0x1800ce110",
+      "vtable": "0x18017bed8",
+      "class": ".?AVRoomEQ@ROOMEQ@SUPERSOUND2@@"
+    },
+    {
+      "id": 65,
+      "case": "0x18009a31a",
+      "new_size": "0x700",
+      "ctor": "0x1800b9450",
+      "vtable": "0x1801757b0",
+      "class": ".?AVSuperEQEffect1@SUPEREQ@SUPERSOUND2@@"
+    },
+    {
+      "id": 66,
+      "case": "0x18009a9ee",
+      "new_size": "0x710",
+      "ctor": "0x1800d7580",
+      "vtable": "0x18017d170",
+      "class": ".?AVcompressor_effect@COMPRESSOR@SUPERSOUND2@@"
+    },
+    {
+      "id": 67,
+      "case": "0x18009aa18",
+      "new_size": "0x738",
+      "ctor": "0x1800d7bd0",
+      "vtable": "0x18017d540",
+      "class": ".?AVns_effect@NS_EFFECT@SUPERSOUND2@@"
+    },
+    {
+      "id": 68,
+      "case": "0x18009aa42",
+      "new_size": "0x738",
+      "ctor": "0x1800d8730",
+      "vtable": "0x18017d800",
+      "class": ".?AVagc_effect@AGC_EFFECT@SUPERSOUND2@@"
+    },
+    {
+      "id": 69,
+      "case": "0x18009aa6c",
+      "new_size": "0x30c8",
+      "ctor": "0x1800d9170",
+      "vtable": "0x18017dbc8",
+      "class": ".?AVsix2two_virtual_surround@Six2TwoVirtualSurround@SUPERSOUND2@@"
+    },
+    {
+      "id": 70,
+      "case": "0x18009aa93",
+      "new_size": "0x730",
+      "ctor": "0x1800dbb20",
+      "vtable": "0x18017de88",
+      "class": ".?AVMusicSeparation@MUSIC_SEPARATION@SUPERSOUND2@@"
+    },
+    {
+      "id": 71,
+      "case": "0x18009aaba",
+      "new_size": "0x1630",
+      "ctor": "0x1800dc2a0",
+      "vtable": "0x18017e130",
+      "class": ".?AVtwotosix_music_separation_based@TWOTOSIX_MUSIC_SEPARATION_BASED@SUPERSOUND2@@"
+    },
+    {
+      "id": 72,
+      "case": "0x18009aae1",
+      "new_size": "0x700",
+      "ctor": "0x1800b9bf0",
+      "vtable": "0x180175a38",
+      "class": ".?AVSuperEQEffectForAETool@SUPEREQ@SUPERSOUND2@@"
+    },
+    {
+      "id": 73,
+      "case": "0x18009a94d",
+      "new_size": "0x740",
+      "ctor": "0x1800cedd0",
+      "vtable": "0x18017c1e8",
+      "class": ".?AVQTSEffectNear@QTSEFFECT@SUPERSOUND2@@"
+    },
+    {
+      "id": 74,
+      "case": "0x18009a977",
+      "new_size": "0x7a0",
+      "ctor": "0x1800cfba0",
+      "vtable": "0x18017c470",
+      "class": ".?AVQTSEffectWide@QTSEFFECT@SUPERSOUND2@@"
+    },
+    {
+      "id": 75,
+      "case": "0x18009a9a1",
+      "new_size": "0x780",
+      "ctor": "0x1800d1920",
+      "vtable": "0x18017c6f0",
+      "class": ".?AVQTSEffectFront@QTSEFFECT@SUPERSOUND2@@"
+    },
+    {
+      "id": 76,
+      "case": "0x18009a9cb",
+      "new_size": "0x780",
+      "ctor": "0x1800d3040",
+      "vtable": "0x18017c970",
+      "class": ".?AVSPATIALEffect@SPATIALEFFECT@SUPERSOUND2@@"
+    }
+  ]
+}

@@ -1,0 +1,1274 @@
+{
+  "schemaVersion": 2.1,
+  "source": "EffectGroups.kt",
+  "note": "range/default 已按 CompressorUnits.kt 换算函数求值为数值",
+  "order": [
+    "masterLimiter",
+    "playbackGainControl",
+    "lufs",
+    "fetCompressor",
+    "multibandCompressor",
+    "ddc",
+    "spectrumExtension",
+    "equalizer",
+    "dynamicEq",
+    "convolver",
+    "fieldSurround",
+    "diffSurround",
+    "stereoImager",
+    "headphoneSurround",
+    "reverb",
+    "dynamicSystem",
+    "psychoacousticBass",
+    "bass",
+    "bassMono",
+    "clarity",
+    "cure",
+    "tubeSimulator",
+    "analogX",
+    "speakerCorrection"
+  ],
+  "groups": [
+    {
+      "effectKey": "masterLimiter",
+      "fields": [
+        {
+          "jsonKey": "threshold",
+          "kind": "float",
+          "range": [
+            0.3,
+            1.0
+          ],
+          "default": 1.0
+        },
+        {
+          "jsonKey": "outputVolume",
+          "kind": "float",
+          "range": [
+            0.01,
+            2.0
+          ],
+          "default": 1.0
+        },
+        {
+          "jsonKey": "channelPan",
+          "kind": "float",
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "default": 0.0
+        }
+      ]
+    },
+    {
+      "effectKey": "playbackGainControl",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "strength",
+          "kind": "float",
+          "range": [
+            0.5,
+            3.0
+          ],
+          "default": 1.0
+        },
+        {
+          "jsonKey": "maxGain",
+          "kind": "float",
+          "range": [
+            1.0,
+            10.0
+          ],
+          "default": 1.0
+        },
+        {
+          "jsonKey": "outputThreshold",
+          "kind": "float",
+          "range": [
+            0.3,
+            1.0
+          ],
+          "default": 1.0
+        }
+      ]
+    },
+    {
+      "effectKey": "lufs",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "target",
+          "kind": "float",
+          "range": [
+            -24.0,
+            -8.0
+          ],
+          "default": -14.0
+        },
+        {
+          "jsonKey": "maxGain",
+          "kind": "float",
+          "range": [
+            0.0,
+            12.0
+          ],
+          "default": 6.0
+        },
+        {
+          "jsonKey": "speed",
+          "kind": "int",
+          "range": [
+            0.0,
+            2.0
+          ],
+          "default": 1
+        }
+      ]
+    },
+    {
+      "effectKey": "fetCompressor",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "threshold",
+          "kind": "float",
+          "range": [
+            -5.52620422318571,
+            0.0
+          ],
+          "default": -2.0723265836946414
+        },
+        {
+          "jsonKey": "ratio",
+          "kind": "float",
+          "range": [
+            -2.0,
+            0.0
+          ],
+          "default": -1.0
+        },
+        {
+          "jsonKey": "kneeAuto",
+          "kind": "bool",
+          "range": null,
+          "default": true
+        },
+        {
+          "jsonKey": "knee",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.3815510557964275
+          ],
+          "default": 0.0
+        },
+        {
+          "jsonKey": "kneeMulti",
+          "kind": "float",
+          "range": [
+            0.0,
+            4.0
+          ],
+          "default": 0.0
+        },
+        {
+          "jsonKey": "gainAuto",
+          "kind": "bool",
+          "range": null,
+          "default": true
+        },
+        {
+          "jsonKey": "gain",
+          "kind": "float",
+          "range": [
+            0.0,
+            2.763102111592855
+          ],
+          "default": 0.0
+        },
+        {
+          "jsonKey": "attackAuto",
+          "kind": "bool",
+          "range": null,
+          "default": true
+        },
+        {
+          "jsonKey": "attack",
+          "kind": "float",
+          "range": [
+            0.001,
+            0.1
+          ],
+          "default": 0.02
+        },
+        {
+          "jsonKey": "maxAttack",
+          "kind": "float",
+          "range": [
+            0.001,
+            0.1
+          ],
+          "default": 0.08
+        },
+        {
+          "jsonKey": "releaseAuto",
+          "kind": "bool",
+          "range": null,
+          "default": true
+        },
+        {
+          "jsonKey": "release",
+          "kind": "float",
+          "range": [
+            0.005,
+            0.5
+          ],
+          "default": 0.05
+        },
+        {
+          "jsonKey": "maxRelease",
+          "kind": "float",
+          "range": [
+            0.005,
+            0.5
+          ],
+          "default": 0.1
+        },
+        {
+          "jsonKey": "crest",
+          "kind": "float",
+          "range": [
+            0.005,
+            0.3
+          ],
+          "default": 0.1
+        },
+        {
+          "jsonKey": "adapt",
+          "kind": "float",
+          "range": [
+            1.0,
+            16.0
+          ],
+          "default": 2.0
+        },
+        {
+          "jsonKey": "noClip",
+          "kind": "bool",
+          "range": null,
+          "default": true
+        }
+      ]
+    },
+    {
+      "effectKey": "multibandCompressor",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "bandEnables",
+          "kind": "boolList",
+          "range": null,
+          "default": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "jsonKey": "crossovers",
+          "kind": "intList",
+          "range": [
+            30.0,
+            16000.0
+          ],
+          "default": [
+            120,
+            500,
+            4000,
+            8000
+          ]
+        },
+        {
+          "jsonKey": "thresholds",
+          "kind": "floatList",
+          "range": [
+            -5.52620422318571,
+            0.0
+          ],
+          "default": [
+            -2.0723265836946414,
+            -2.0723265836946414,
+            -2.0723265836946414,
+            -2.0723265836946414,
+            -2.0723265836946414
+          ]
+        },
+        {
+          "jsonKey": "ratios",
+          "kind": "floatList",
+          "range": [
+            -2.0,
+            0.0
+          ],
+          "default": [
+            -0.5,
+            -0.5,
+            -0.5,
+            -0.5,
+            -0.5
+          ]
+        },
+        {
+          "jsonKey": "gains",
+          "kind": "floatList",
+          "range": [
+            0.0,
+            2.763102111592855
+          ],
+          "default": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "jsonKey": "knees",
+          "kind": "floatList",
+          "range": [
+            0.0,
+            1.3815510557964275
+          ],
+          "default": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "jsonKey": "kneeMultis",
+          "kind": "floatList",
+          "range": [
+            0.0,
+            4.0
+          ],
+          "default": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "jsonKey": "attacks",
+          "kind": "floatList",
+          "range": [
+            0.001,
+            0.1
+          ],
+          "default": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ]
+        },
+        {
+          "jsonKey": "maxAttacks",
+          "kind": "floatList",
+          "range": [
+            0.001,
+            0.1
+          ],
+          "default": [
+            0.044,
+            0.044,
+            0.044,
+            0.044,
+            0.044
+          ]
+        },
+        {
+          "jsonKey": "releases",
+          "kind": "floatList",
+          "range": [
+            0.005,
+            0.5
+          ],
+          "default": [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        {
+          "jsonKey": "maxReleases",
+          "kind": "floatList",
+          "range": [
+            0.005,
+            0.5
+          ],
+          "default": [
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2
+          ]
+        },
+        {
+          "jsonKey": "crests",
+          "kind": "floatList",
+          "range": [
+            0.005,
+            0.3
+          ],
+          "default": [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        {
+          "jsonKey": "adapts",
+          "kind": "floatList",
+          "range": [
+            1.0,
+            16.0
+          ],
+          "default": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "jsonKey": "kneeAutos",
+          "kind": "boolList",
+          "range": null,
+          "default": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "jsonKey": "gainAutos",
+          "kind": "boolList",
+          "range": null,
+          "default": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "jsonKey": "attackAutos",
+          "kind": "boolList",
+          "range": null,
+          "default": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "jsonKey": "releaseAutos",
+          "kind": "boolList",
+          "range": null,
+          "default": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "jsonKey": "noClips",
+          "kind": "boolList",
+          "range": null,
+          "default": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "effectKey": "ddc",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "device",
+          "kind": "string",
+          "range": null,
+          "default": ""
+        }
+      ]
+    },
+    {
+      "effectKey": "spectrumExtension",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "strength",
+          "kind": "int",
+          "range": [
+            2200.0,
+            8200.0
+          ],
+          "default": 7600
+        },
+        {
+          "jsonKey": "exciter",
+          "kind": "float",
+          "range": [
+            0.0,
+            6.0
+          ],
+          "default": 0.0
+        }
+      ]
+    },
+    {
+      "effectKey": "equalizer",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "bandCount",
+          "kind": "int",
+          "range": null,
+          "default": 10
+        },
+        {
+          "jsonKey": "bands",
+          "kind": "doubleList",
+          "range": [
+            -12.0,
+            12.0
+          ],
+          "default": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "jsonKey": "presetId",
+          "kind": "nullableLong",
+          "range": null,
+          "default": null
+        }
+      ]
+    },
+    {
+      "effectKey": "dynamicEq",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "bandCount",
+          "kind": "int",
+          "range": null,
+          "default": 3
+        },
+        {
+          "jsonKey": "freqs",
+          "kind": "intList",
+          "range": [
+            20.0,
+            20000.0
+          ],
+          "default": [
+            60,
+            150,
+            400
+          ]
+        },
+        {
+          "jsonKey": "qs",
+          "kind": "floatList",
+          "range": [
+            0.5,
+            8.0
+          ],
+          "default": [
+            1.0,
+            1.0,
+            1.5
+          ]
+        },
+        {
+          "jsonKey": "gains",
+          "kind": "floatList",
+          "range": [
+            -12.0,
+            12.0
+          ],
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "jsonKey": "thresholds",
+          "kind": "floatList",
+          "range": [
+            -80.0,
+            0.0
+          ],
+          "default": [
+            -20.0,
+            -20.0,
+            -20.0
+          ]
+        },
+        {
+          "jsonKey": "attacks",
+          "kind": "floatList",
+          "range": [
+            1.0,
+            100.0
+          ],
+          "default": [
+            10.0,
+            10.0,
+            10.0
+          ]
+        },
+        {
+          "jsonKey": "releases",
+          "kind": "floatList",
+          "range": [
+            10.0,
+            500.0
+          ],
+          "default": [
+            100.0,
+            100.0,
+            100.0
+          ]
+        },
+        {
+          "jsonKey": "filterTypes",
+          "kind": "intList",
+          "range": null,
+          "default": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "effectKey": "convolver",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "kernelFile",
+          "kind": "string",
+          "range": null,
+          "default": ""
+        },
+        {
+          "jsonKey": "crossChannel",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.0
+          ],
+          "default": 0.0
+        }
+      ]
+    },
+    {
+      "effectKey": "fieldSurround",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "widening",
+          "kind": "float",
+          "range": [
+            0.0,
+            8.0
+          ],
+          "default": 0.0
+        },
+        {
+          "jsonKey": "midImage",
+          "kind": "float",
+          "range": [
+            1.0,
+            2.0
+          ],
+          "default": 1.5
+        },
+        {
+          "jsonKey": "depth",
+          "kind": "int",
+          "range": [
+            200.0,
+            950.0
+          ],
+          "default": 200
+        }
+      ]
+    },
+    {
+      "effectKey": "diffSurround",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "delay",
+          "kind": "float",
+          "range": [
+            1.0,
+            20.0
+          ],
+          "default": 5.0
+        },
+        {
+          "jsonKey": "reverse",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "wetDryMix",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.0
+          ],
+          "default": 1.0
+        },
+        {
+          "jsonKey": "lpCutoff",
+          "kind": "int",
+          "range": [
+            0.0,
+            20000.0
+          ],
+          "default": 0
+        }
+      ]
+    },
+    {
+      "effectKey": "stereoImager",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "lowWidth",
+          "kind": "float",
+          "range": [
+            0.0,
+            2.0
+          ],
+          "default": 1.0
+        },
+        {
+          "jsonKey": "midWidth",
+          "kind": "float",
+          "range": [
+            0.0,
+            2.0
+          ],
+          "default": 1.0
+        },
+        {
+          "jsonKey": "highWidth",
+          "kind": "float",
+          "range": [
+            0.0,
+            2.0
+          ],
+          "default": 1.0
+        },
+        {
+          "jsonKey": "lowCrossover",
+          "kind": "int",
+          "range": [
+            80.0,
+            400.0
+          ],
+          "default": 200
+        },
+        {
+          "jsonKey": "highCrossover",
+          "kind": "int",
+          "range": [
+            2000.0,
+            8000.0
+          ],
+          "default": 4000
+        }
+      ]
+    },
+    {
+      "effectKey": "headphoneSurround",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "quality",
+          "kind": "int",
+          "range": [
+            0.0,
+            4.0
+          ],
+          "default": 0
+        }
+      ]
+    },
+    {
+      "effectKey": "reverb",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "roomSize",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.0
+          ],
+          "default": 0.0
+        },
+        {
+          "jsonKey": "width",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.0
+          ],
+          "default": 0.0
+        },
+        {
+          "jsonKey": "damp",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.0
+          ],
+          "default": 0.5
+        },
+        {
+          "jsonKey": "wet",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.0
+          ],
+          "default": 0.0
+        },
+        {
+          "jsonKey": "dry",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.0
+          ],
+          "default": 1.0
+        }
+      ]
+    },
+    {
+      "effectKey": "dynamicSystem",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "presetId",
+          "kind": "nullableLong",
+          "range": null,
+          "default": null
+        },
+        {
+          "jsonKey": "device",
+          "kind": "int",
+          "range": null,
+          "default": 0
+        },
+        {
+          "jsonKey": "strength",
+          "kind": "float",
+          "range": [
+            1.0,
+            8.0
+          ],
+          "default": 1.0
+        },
+        {
+          "jsonKey": "xLow",
+          "kind": "int",
+          "range": [
+            0.0,
+            2400.0
+          ],
+          "default": 100
+        },
+        {
+          "jsonKey": "xHigh",
+          "kind": "int",
+          "range": [
+            0.0,
+            12000.0
+          ],
+          "default": 5600
+        },
+        {
+          "jsonKey": "yLow",
+          "kind": "int",
+          "range": [
+            0.0,
+            200.0
+          ],
+          "default": 40
+        },
+        {
+          "jsonKey": "yHigh",
+          "kind": "int",
+          "range": [
+            0.0,
+            300.0
+          ],
+          "default": 80
+        },
+        {
+          "jsonKey": "sideGainLow",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.0
+          ],
+          "default": 0.5
+        },
+        {
+          "jsonKey": "sideGainHigh",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.0
+          ],
+          "default": 0.5
+        }
+      ]
+    },
+    {
+      "effectKey": "psychoacousticBass",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "cutoff",
+          "kind": "int",
+          "range": [
+            60.0,
+            150.0
+          ],
+          "default": 80
+        },
+        {
+          "jsonKey": "intensity",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.0
+          ],
+          "default": 0.5
+        },
+        {
+          "jsonKey": "harmonicOrder",
+          "kind": "int",
+          "range": [
+            2.0,
+            5.0
+          ],
+          "default": 3
+        },
+        {
+          "jsonKey": "originalLevel",
+          "kind": "float",
+          "range": [
+            0.0,
+            1.0
+          ],
+          "default": 1.0
+        }
+      ]
+    },
+    {
+      "effectKey": "bass",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "mode",
+          "kind": "int",
+          "range": null,
+          "default": 0
+        },
+        {
+          "jsonKey": "frequency",
+          "kind": "int",
+          "range": [
+            15.0,
+            150.0
+          ],
+          "default": 60
+        },
+        {
+          "jsonKey": "gain",
+          "kind": "float",
+          "range": [
+            0.5,
+            10.0
+          ],
+          "default": 0.5
+        },
+        {
+          "jsonKey": "antiPop",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        }
+      ]
+    },
+    {
+      "effectKey": "bassMono",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "mode",
+          "kind": "int",
+          "range": null,
+          "default": 0
+        },
+        {
+          "jsonKey": "frequency",
+          "kind": "int",
+          "range": [
+            15.0,
+            150.0
+          ],
+          "default": 60
+        },
+        {
+          "jsonKey": "gain",
+          "kind": "float",
+          "range": [
+            0.5,
+            10.0
+          ],
+          "default": 0.5
+        },
+        {
+          "jsonKey": "antiPop",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        }
+      ]
+    },
+    {
+      "effectKey": "clarity",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "mode",
+          "kind": "int",
+          "range": null,
+          "default": 0
+        },
+        {
+          "jsonKey": "gain",
+          "kind": "float",
+          "range": [
+            0.0,
+            4.5
+          ],
+          "default": 0.5
+        }
+      ]
+    },
+    {
+      "effectKey": "cure",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "crossfeedPreset",
+          "kind": "int",
+          "range": null,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "effectKey": "tubeSimulator",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        }
+      ]
+    },
+    {
+      "effectKey": "analogX",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        },
+        {
+          "jsonKey": "mode",
+          "kind": "int",
+          "range": null,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "effectKey": "speakerCorrection",
+      "fields": [
+        {
+          "jsonKey": "enable",
+          "kind": "bool",
+          "range": null,
+          "default": false
+        }
+      ]
+    }
+  ]
+}
