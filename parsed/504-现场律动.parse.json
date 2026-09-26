@@ -72,8 +72,9 @@
     }
   ],
   "mapping": {
-    "confidence": "partial",
+    "confidence": "approx",
     "groups": [
+      "convolver",
       "diffSurround",
       "equalizer",
       "masterLimiter",
@@ -81,6 +82,7 @@
       "stereoImager"
     ],
     "group_confidence": {
+      "convolver": "approx",
       "diffSurround": "verified",
       "equalizer": "verified",
       "masterLimiter": "verified",
@@ -90,6 +92,9 @@
     "decisions": {
       "reverb": [
         "id63 Mverb -> reverb: roomSize=DECAY=0.5, damp=1-DAMPINGFREQ=1, wet=MIX=0.2, dry=1-MIX=0.8, width=1.0(立体声湿声)"
+      ],
+      "convolver": [
+        "id2 StudioIr -> convolver: kernelFile=742156792c2f7c863b9d5cec1cd0622546a1f877.wav（QQ .enc 为真立体声 IR，已降为立体声）"
       ],
       "masterLimiter": [
         "id4 Amplifier: Gain=-4.6576 dB"
@@ -105,23 +110,13 @@
         "id13 IirEQ10: 10 段增益按频率升序映射"
       ]
     },
-    "unmapped": [
-      {
-        "id": 2,
-        "class": "StudioIrEffect",
-        "params": {
-          "IR File": "irs\\742156792c2f7c863b9d5cec1cd0622546a1f877.enc",
-          "Trim": -100.0,
-          "Fade": 0.0
-        },
-        "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/742156792c2f7c863b9d5cec1cd0622546a1f877.enc 不存在或未解密，convolver 无法启用"
-      }
-    ]
+    "unmapped": []
   },
   "warnings": [
     "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）",
-    "diffSurround delay(ms) = 26.1224 超过上限 20，已钳到 20",
-    "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\742156792c2f7c863b9d5cec1cd0622546a1f877.enc\", \"Trim\": -100.0, \"Fade\": 0.0}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/742156792c2f7c863b9d5cec1cd0622546a1f877.enc 不存在或未解密，convolver 无法启用"
+    "id2 StudioIr: Trim=-100 未映射（convolver 无对应项）",
+    "id2 StudioIr: Fade=0 未映射（convolver 无对应项）",
+    "diffSurround delay(ms) = 26.1224 超过上限 20，已钳到 20"
   ],
   "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\504-现场律动.parse.json"
 }

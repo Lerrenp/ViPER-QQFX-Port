@@ -1,13 +1,13 @@
 {
-  "generatedAt": 1790435965311,
+  "generatedAt": 1790438199431,
   "schema": "tools/v4a_schema.json",
   "aep_dir": "aep",
   "count": 51,
   "presets_produced": 34,
   "confidence": {
     "verified": 2,
-    "approx": 13,
-    "partial": 19,
+    "approx": 14,
+    "partial": 18,
     "skipped": 17
   },
   "validation": {
@@ -1226,8 +1226,9 @@
         "DelayEffect",
         "IirEQ10Effect"
       ],
-      "confidence": "partial",
+      "confidence": "approx",
       "mapped_groups": [
+        "convolver",
         "diffSurround",
         "equalizer",
         "masterLimiter",
@@ -1235,19 +1236,16 @@
         "stereoImager"
       ],
       "approx_groups": [
+        "convolver",
         "reverb"
       ],
       "approximation_warnings": [
         "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）",
+        "id2 StudioIr: Trim=-100 未映射（convolver 无对应项）",
+        "id2 StudioIr: Fade=0 未映射（convolver 无对应项）",
         "diffSurround delay(ms) = 26.1224 超过上限 20，已钳到 20"
       ],
-      "unmapped": [
-        {
-          "id": 2,
-          "class": "StudioIrEffect",
-          "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/742156792c2f7c863b9d5cec1cd0622546a1f877.enc 不存在或未解密，convolver 无法启用"
-        }
-      ],
+      "unmapped": [],
       "validation": "pass",
       "preset": "presets/504-现场律动.json",
       "parsed": "parsed/504-现场律动.parse.json",
