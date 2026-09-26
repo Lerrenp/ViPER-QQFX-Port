@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2.1,
-  "name": "现场环绕",
-  "createdAt": 1790438576639,
+  "name": "流动低音",
+  "createdAt": 1790438576637,
   "masterLimiter": {
     "threshold": 1.0,
-    "outputVolume": 0.5011872336272722,
+    "outputVolume": 1.0,
     "channelPan": 0.0
   },
   "playbackGainControl": {
@@ -233,7 +233,7 @@
   },
   "convolver": {
     "enable": true,
-    "kernelFile": "6f7ed6744ad0f47c6bf73d001b65c1531b47a388.wav",
+    "kernelFile": "4d11b1cd25bd08e131e79b2b1736b71c6f18828b.wav",
     "crossChannel": 0.0
   },
   "fieldSurround": {

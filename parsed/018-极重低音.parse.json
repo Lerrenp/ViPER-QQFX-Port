@@ -22,33 +22,28 @@
     }
   ],
   "mapping": {
-    "confidence": "partial",
+    "confidence": "approx",
     "groups": [
+      "convolver",
       "masterLimiter"
     ],
     "group_confidence": {
+      "convolver": "approx",
       "masterLimiter": "verified"
     },
     "decisions": {
+      "convolver": [
+        "id2 StudioIr -> convolver: kernelFile=fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.wav（QQ .enc 为真立体声 IR，已降为立体声）"
+      ],
       "masterLimiter": [
         "id4 Amplifier: Gain=+4.0000 dB"
       ]
     },
-    "unmapped": [
-      {
-        "id": 2,
-        "class": "StudioIrEffect",
-        "params": {
-          "IR File": "irs\\fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.enc",
-          "Trim": -100.0,
-          "Fade": 0.0
-        },
-        "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.enc 不存在或未解密，convolver 无法启用"
-      }
-    ]
+    "unmapped": []
   },
   "warnings": [
-    "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.enc\", \"Trim\": -100.0, \"Fade\": 0.0}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/fae6b7a7ebcd6c4bfda2ff6807f0a5ca71048be0.enc 不存在或未解密，convolver 无法启用"
+    "id2 StudioIr: Trim=-100 未映射（convolver 无对应项）",
+    "id2 StudioIr: Fade=0 未映射（convolver 无对应项）"
   ],
   "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\018-极重低音.parse.json"
 }

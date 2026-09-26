@@ -97,24 +97,24 @@ schema 遍历。逐字节验证与 hex 证据见 [docs/分析报告.md](docs/分
 | 指标 | 值 |
 |---|---|
 | 输入文件 | 51 |
-| 产出预设（`presets/*.json`） | **34**（校验全部 pass） |
-| 不产出预设（全 skipped） | 17 |
-| 置信级分布 | **verified 2 / approx 14 / partial 18 / skipped 17** |
+| 产出预设（`presets/*.json`） | **36**（校验全部 pass） |
+| 不产出预设（全 skipped） | 15 |
+| 置信级分布 | **verified 2 / approx 21 / partial 13 / skipped 15** |
 
 - **verified 2**：`500-全景环绕.aep`（旧版，节点 11/12/13）与 `500-全景环绕.new.aep`（节点 4/11/12/13）。
-- **approx 14**：12 个 `[63]` 房间/空间系列 + `501-超重低音`（仅 approx 规则命中，无 skipped 节点）
-  + `504-现场律动`（id2 IR 解密成功后 `convolver` 命中，且无 skipped 节点）。
-- **partial 18**：既有 verified/approx 命中、又含 skipped 节点的文件（如 019-摇滚、020-中国风、
-  996/997/998 等）。
-- **skipped 17**：无任何可映射节点，不落盘（仅在 `manifest.json` 记录 `reason`）：
-  004/010/013/062/064/502/503/505/506/600/601/602/807/808/809/995/999。
+- **approx 21**：12 个 `[63]` 房间/空间系列 + `501-超重低音` + `504-现场律动`，
+  以及 7 个 id2 IR 解密成功后 `convolver` 命中的文件（007/008/010/011/015/017/018，均无 skipped 节点）。
+- **partial 13**：既有 verified/approx 命中、又含 skipped 节点的文件（如 001-差分环绕、002-3D人声、
+  009-民谣、012-复合低音、013-超高保真、014-留声机、019-摇滚、020-中国风、996/997/998 等）。
+- **skipped 15**：无任何可映射节点，不落盘（仅在 `manifest.json` 记录 `reason`）：
+  004/062/064/502/503/505/506/600/601/602/807/808/809/995/999。
 
-各 V4A 组被产出的预设数：`masterLimiter 16, reverb 13, stereoImager 7, dynamicEq 6, equalizer 3,
-diffSurround 3, bass 1, convolver 1`。`unmapped` 节点按**含该节点的文件数**：id2:11、id9:8、id7:2、id16:4、id19:4、id3:1、id14:3、
+各 V4A 组被产出的预设数：`masterLimiter 16, reverb 13, convolver 12, stereoImager 7, dynamicEq 6, equalizer 3,
+diffSurround 3, bass 1`。`unmapped` 节点按**含该节点的文件数**：id9:8、id7:2、id16:4、id19:4、id3:1、id14:3、
 id15:3、id18:3、id21:3、id28:2，其余 id5/22/31/40/55/56/58/59/60/62/69/70/71/73/74/75 各 1
 （个别文件会重复出现同一节点，如 id3 在单个文件中出现 6 次，按文件数计为 1）。
 
-### 1.7 id2 `StudioIr` 的 IR 解密（结论：算法已完全破解）
+### 1.7 id2 `StudioIr` 的 IR 解密（结论：算法完全破解，14 个 kernel 全部补齐）
 
 `id2` 的 `IR File` 指向 `irs\<sha1>.enc` 加密 IR。公开仓库 `audioeffect-qm/qmae/decrypt.py`
 只用一段 128 字节 XOR 密钥表无限循环，长文件在 `0x8000` 之后损坏（作者注明 "structure unclear"）。
@@ -151,8 +151,14 @@ id15:3、id18:3、id21:3、id28:2，其余 id5/22/31/40/55/56/58/59/60/62/69/70/
 - `tools/decrypt_ir.py` 已内嵌完整算法，可解密任意 `.enc`。参考仓库 19 个 `.enc` 中，
   全部浮点 IR（001/007/008/009/010/012-2/013/015/017/504/0045）解密后 **0 个非有限值**。
 
-- 本地语料库只含 1 个 `.enc`；其余 **12 个 id2 预设（11 个不同 hash）**引用的 `.enc` 实体不存在
-  （客户端按需下载），下载到后可用 `tools/decrypt_ir.py` 同样解密。
+- **12 个缺失核已从 CDN 补齐**：本地语料库原本只含 1 个 `.enc`；其余 12 个 id2 预设（11 个不同
+  hash）的 `.enc` 已按 `aep/recommendbase.json` 的 `effectIRLinks` 从腾讯 CDN
+  （`https://dldir1.qq.com/music/clntupate/ss2/irs/<sha1>.enc`）下载并解密。共产出 **14 个 kernel**
+  （含 2 个被 id7 `Sampler` 引用、非卷积用的 IR：`679a…`、`de36ef…`），全部通过硬判据
+  （float 有限 / `|x|≤8` / `data` 长度一致 / 无满幅段），**0 失败**。清单见
+  [docs/IR解密分析.md](docs/IR解密分析.md) 第 7 节。`.enc` 原文件不纳入仓库。
+
+- **convolver 已启用 12 个预设**：001/007/008/009/010/011/012/013/015/017/018/504。
 
 > **convolver kernel 安装**：把 `kernels/<sha1>.wav` 放入 V4A app 的 Kernel 目录后，预设内
 > `convolver.kernelFile` 即可引用同名文件。当前 IR 为 4 声道，V4A 卷积器按立体声处理（下混）。
@@ -191,7 +197,7 @@ ViPER-QQFX-Port/
 │   ├── 001-差分环绕.json ... 998-设备音效.json
 │   └── QQ音乐-全景环绕.json   # 手工验证版（对照 build_preset.py，已通过新校验器）
 ├── parsed/                  # 解析 dump（34 个 <名>.parse.json + 历史 parsed_500-全景环绕.json）
-└── kernels/                 # 解密后的卷积 IR WAV（如 504 的 742156...wav，见 1.7）
+└── kernels/                 # 14 个解密后的卷积/采样 IR WAV（见 1.7）
 ```
 
 > `500-全景环绕` 的两个版本：`aep/500-全景环绕.aep` 是语料中的**旧版**（1276B，节点 11/12/13，
@@ -284,7 +290,7 @@ python tools/gen_v4a_schema.py \
 | 滤波器→dynamicEq 为近似 | id51/50/33/34/35/24 用 `dynamicEq`（threshold=−80 恒生效）近似静态滤波器；V4A 无带通类型（id31 跳过），id35 的 Q 由频率边缘推算 |
 | id63 MVerb→reverb 为近似 | 用 `roomSize←DECAY / damp←1−DAMPINGFREQ / wet←MIX / dry←1−MIX / width=1.0`；`SIZE/DENSITY/BANDWIDTHFREQ/PREDELAY/EARLYMIX/GAIN` 无对应 |
 | id57 SuperBass→bass 为近似 | V4A `bass` 为动态低音/次谐波结构，与 QQ SuperBass 算法不同 |
-| id2 StudioIr→convolver | `.enc` 已可完整解密（见 1.7）；IR 为 4 声道，V4A 卷积器按立体声处理（下混）；本地 12 个 id2 预设中仅 504 的 `.enc` 存在 |
+| id2 StudioIr→convolver | `.enc` 已可完整解密（见 1.7）；12 个缺失核已从 CDN 补齐，共 14 个 kernel；IR 为 2/4 声道，V4A 卷积器按立体声处理（下混） |
 | 大量节点不映射 | id9 `Exciter`、id14/15/16/18/19 DFX 系列、id21/59 人声、id22 `HyperBass`、3D/5.1/人声分离/QTSEffect/PitchShifter/Chaos/Rotator/Sampler 等无合理对应，原因见 1.6 与各 `<名>.parse.json` |
 | `Gain` 浮点噪声 | `10^(G/20)` 由 float32 `Gain` 计算，如 `1.2999999583` 而非精确 `1.3`（差 ~4e-8，可忽略） |
 | 空内置名回退 | 050-061 房间系列 `.aep` 内置效果名为空，预设名回退为文件名主干 |

@@ -38,33 +38,23 @@
   "mapping": {
     "confidence": "partial",
     "groups": [
+      "convolver",
       "masterLimiter"
     ],
     "group_confidence": {
+      "convolver": "approx",
       "masterLimiter": "verified"
     },
     "decisions": {
+      "convolver": [
+        "id2 StudioIr -> convolver: kernelFile=b7c9156c947c4af96e2edde9abf58b3a1a29e932.wav（QQ .enc 为真立体声 IR，已降为立体声）",
+        "id2 StudioIr -> convolver: kernelFile=d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.wav（QQ .enc 为真立体声 IR，已降为立体声）"
+      ],
       "masterLimiter": [
         "id4 Amplifier: Gain=-5.8978 dB"
       ]
     },
     "unmapped": [
-      {
-        "id": 2,
-        "class": "StudioIrEffect",
-        "params": {
-          "IR File": "irs\\b7c9156c947c4af96e2edde9abf58b3a1a29e932.enc"
-        },
-        "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/b7c9156c947c4af96e2edde9abf58b3a1a29e932.enc 不存在或未解密，convolver 无法启用"
-      },
-      {
-        "id": 2,
-        "class": "StudioIrEffect",
-        "params": {
-          "IR File": "irs\\d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.enc"
-        },
-        "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.enc 不存在或未解密，convolver 无法启用"
-      },
       {
         "id": 22,
         "class": "HyperBassEffect",
@@ -78,8 +68,6 @@
     ]
   },
   "warnings": [
-    "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\b7c9156c947c4af96e2edde9abf58b3a1a29e932.enc\"}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/b7c9156c947c4af96e2edde9abf58b3a1a29e932.enc 不存在或未解密，convolver 无法启用",
-    "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.enc\"}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.enc 不存在或未解密，convolver 无法启用",
     "未映射节点 id=22(HyperBassEffect) 参数={\"Selectivity\": 120.0, \"Gain\": 1.2000000476837158, \"Ratio\": 1.5}：HyperBass（Selectivity/Gain/Ratio），算法结构无对应"
   ],
   "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\012-复合低音.parse.json"

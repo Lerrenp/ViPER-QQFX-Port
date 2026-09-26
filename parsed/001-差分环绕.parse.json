@@ -32,25 +32,22 @@
   "mapping": {
     "confidence": "partial",
     "groups": [
+      "convolver",
       "masterLimiter"
     ],
     "group_confidence": {
+      "convolver": "approx",
       "masterLimiter": "verified"
     },
     "decisions": {
+      "convolver": [
+        "id2 StudioIr -> convolver: kernelFile=8da782aafdc5174e9b8e838c57e2a31d2db9f6a3.wav（QQ .enc 为真立体声 IR，已降为立体声）"
+      ],
       "masterLimiter": [
         "id4 Amplifier: Gain=-5.3626 dB"
       ]
     },
     "unmapped": [
-      {
-        "id": 2,
-        "class": "StudioIrEffect",
-        "params": {
-          "IR File": "irs\\8da782aafdc5174e9b8e838c57e2a31d2db9f6a3.enc"
-        },
-        "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/8da782aafdc5174e9b8e838c57e2a31d2db9f6a3.enc 不存在或未解密，convolver 无法启用"
-      },
       {
         "id": 9,
         "class": "ExciterEffect",
@@ -65,7 +62,6 @@
     ]
   },
   "warnings": [
-    "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\8da782aafdc5174e9b8e838c57e2a31d2db9f6a3.enc\"}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/8da782aafdc5174e9b8e838c57e2a31d2db9f6a3.enc 不存在或未解密，convolver 无法启用",
     "未映射节点 id=9(ExciterEffect) 参数={\"MixBack\": -9.0, \"Frequency\": 614.400390625, \"ClipBoost\": 0.0, \"Harmonics\": 5.0}：Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
   ],
   "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\001-差分环绕.parse.json"

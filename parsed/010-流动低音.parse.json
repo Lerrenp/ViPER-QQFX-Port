@@ -1,0 +1,32 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\010-流动低音.aep",
+  "file_size": 212,
+  "magic": "QMAEP",
+  "name": "流动低音",
+  "nodes": [
+    {
+      "id": 2,
+      "class": "StudioIrEffect",
+      "params": {
+        "IR File": "irs\\4d11b1cd25bd08e131e79b2b1736b71c6f18828b.enc"
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "approx",
+    "groups": [
+      "convolver"
+    ],
+    "group_confidence": {
+      "convolver": "approx"
+    },
+    "decisions": {
+      "convolver": [
+        "id2 StudioIr -> convolver: kernelFile=4d11b1cd25bd08e131e79b2b1736b71c6f18828b.wav（QQ .enc 为真立体声 IR，已降为立体声）"
+      ]
+    },
+    "unmapped": []
+  },
+  "warnings": [],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\010-流动低音.parse.json"
+}

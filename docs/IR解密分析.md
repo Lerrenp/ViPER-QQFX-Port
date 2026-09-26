@@ -9,6 +9,8 @@
 `libSuperSound2.dll` 中一个二次取模公式查一张 256 字节常量表生成，按 0x80000 字节分块。
 公开仓库 `audioeffect-qm/qmae/decrypt.py` 只截取了公式在 `i<0x8000` 时的「128 字节循环」
 近似，故长文件后段损坏；本文给出完整算法后，本地及参考仓库全部浮点 IR 均 0 损坏。
+并已据此从 CDN 补齐全部缺失 `.enc`，产出 **14 个 kernel（全部通过校验，0 失败）**，
+使 **12 个预设启用 `convolver`**（见 §7）。
 
 ## 1. 明文/容器格式
 
@@ -176,6 +178,41 @@ python tools/decrypt_ir.py -i <input.enc> -o <output.wav>
 python tools/decrypt_ir.py -i <hash>.enc -o kernels/<hash>.wav
 python tools/batch_convert.py
 ```
+
+### 7.1 补齐结果（已完成：14/14 下载并解密，0 失败）
+
+14 个 `.enc` 直链全部可下载（无 404）。每个解密后按硬判据校验，全部通过并写入 `kernels/`：
+
+| hash（.wav） | 调用方 | 格式 | 时长 | 校验 |
+|---|---|---|---|---|
+| `8da782aa…b9f6a3` | id2 → 001-差分环绕 | float32 / 2ch / 44.1k | 0.406 s | OK（peak 1.12，含尾部 `SyLp` 块） |
+| `2f823376…811bb0` | id2 → 007-录音棚环绕 | float32 / 2ch / 44.1k | 0.186 s | OK |
+| `36af30f9…c006198` | id2 → 008-小编制 | float32 / 2ch / 44.1k | 0.371 s | OK |
+| `43e714f5…9b7605` | id2 → 009-民谣 | float32 / 2ch / 44.1k | 0.001 s | OK |
+| `4d11b1cd…18828b` | id2 → 010-流动低音 | float32 / 2ch / 44.1k | 0.371 s | OK |
+| `6f7ed674…47a388` | id2 → 011-现场环绕 | pcm16 / 2ch / 44.1k | 0.743 s | OK |
+| `d8d31861…bbee41` | id2 → 012-复合低音、013-超高保真 | float32 / 2ch / 44.1k | 0.012 s | OK |
+| `b7c9156c…a29e932` | （012 另一 IR，未被 convolver 选中） | pcm32 / 2ch / 44.1k | 0.023 s | OK |
+| `f11a9f4c…841767` | id2 → 015-清澈旋律 | float32 / 2ch / 44.1k | 0.371 s | OK |
+| `c2e6f778…a12f2` | id2 → 017-震撼低音 | float32 / 2ch / 44.1k | 0.093 s | OK |
+| `fae6b7a7…48be0` | id2 → 018-极重低音 | pcm24 / 2ch / 48k | 0.044 s | OK |
+| `74215679…6a1f877` | id2 → 504-现场律动 | float32 / 4ch / 44.1k | 2.226 s | OK（见 §5） |
+| `679a81d9…a622fa` | id7 `Sampler`（004/014，非卷积） | pcm16 / 2ch / 44.1k | 2.439 s | OK |
+| `de36ef18…fc5f7` | id7 `Sampler`（014，非卷积） | pcm16 / 2ch / 44.1k | 5.647 s | OK |
+
+校验口径：解密输出为合法 RIFF/WAVE 且 `data` 长度可解析不越界；float32 全部有限、`|x|≤8`；
+无 RMS 满幅段（分段 >0.9）。所有文件均满足，**0 失败**，故全部产出 kernel、无跳过。
+
+> 说明：`679a…`/`de36ef…` 是 id7 `Sampler`（采样器）的音乐素材，不是卷积 IR，但同属 `.enc`
+> 加密封装，解密校验通过后一并保留；`b7c9156c…` 是 012 的第二条 IR，`convert_aep` 取先命中的一条
+> 作为 `convolver.kernelFile`。`.enc` 原文件仅存系统临时目录，未纳入仓库。
+
+### 7.2 最终结果
+
+- kernel 总数：**14**（全部校验通过，0 失败）。
+- `convolver` 启用预设数：**12**（001/007/008/009/010/011/012/013/015/017/018/504）。
+- 批量转码：`presets` **36** 个，`validate_preset.py` 全量 **37/37 pass**（36 生成 + 1 手工），
+  `manifest.json` 校验 `pass 36 / fail 0`。
 
 > 注：元数据中另有 4 个 `.irs` 链接（`dlied5sdk.myapp.com/...t_sound_recommendEffectBase/`），
 > 是另一类未加密 IR 资产，不在 `.enc` 范畴。

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "民谣",
-  "createdAt": 1790438199372,
+  "createdAt": 1790438576635,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 0.7346280265701671,
@@ -232,8 +232,8 @@
     ]
   },
   "convolver": {
-    "enable": false,
-    "kernelFile": "",
+    "enable": true,
+    "kernelFile": "43e714f5c19994239908b83b3c494225079b7605.wav",
     "crossChannel": 0.0
   },
   "fieldSurround": {

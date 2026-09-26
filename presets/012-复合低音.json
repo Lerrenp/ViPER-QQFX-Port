@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "复合低音",
-  "createdAt": 1790438199376,
+  "createdAt": 1790438576641,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 0.5071174409583493,
@@ -232,8 +232,8 @@
     ]
   },
   "convolver": {
-    "enable": false,
-    "kernelFile": "",
+    "enable": true,
+    "kernelFile": "d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.wav",
     "crossChannel": 0.0
   },
   "fieldSurround": {

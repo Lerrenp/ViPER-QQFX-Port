@@ -20,31 +20,25 @@
     }
   ],
   "mapping": {
-    "confidence": "partial",
+    "confidence": "approx",
     "groups": [
+      "convolver",
       "masterLimiter"
     ],
     "group_confidence": {
+      "convolver": "approx",
       "masterLimiter": "verified"
     },
     "decisions": {
+      "convolver": [
+        "id2 StudioIr -> convolver: kernelFile=6f7ed6744ad0f47c6bf73d001b65c1531b47a388.wav（QQ .enc 为真立体声 IR，已降为立体声）"
+      ],
       "masterLimiter": [
         "id4 Amplifier: Gain=-6.0000 dB"
       ]
     },
-    "unmapped": [
-      {
-        "id": 2,
-        "class": "StudioIrEffect",
-        "params": {
-          "IR File": "irs\\6f7ed6744ad0f47c6bf73d001b65c1531b47a388.enc"
-        },
-        "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/6f7ed6744ad0f47c6bf73d001b65c1531b47a388.enc 不存在或未解密，convolver 无法启用"
-      }
-    ]
+    "unmapped": []
   },
-  "warnings": [
-    "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\6f7ed6744ad0f47c6bf73d001b65c1531b47a388.enc\"}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/6f7ed6744ad0f47c6bf73d001b65c1531b47a388.enc 不存在或未解密，convolver 无法启用"
-  ],
+  "warnings": [],
   "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\011-现场环绕.parse.json"
 }

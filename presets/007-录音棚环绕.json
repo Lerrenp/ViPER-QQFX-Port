@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "录音棚环绕",
-  "createdAt": 1790438199369,
+  "createdAt": 1790438576632,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 0.7498942093324559,
@@ -232,8 +232,8 @@
     ]
   },
   "convolver": {
-    "enable": false,
-    "kernelFile": "",
+    "enable": true,
+    "kernelFile": "2f823376fa7e63ef5a9b70f7443c19793811bb0e.wav",
     "crossChannel": 0.0
   },
   "fieldSurround": {

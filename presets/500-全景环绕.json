@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "全景环绕",
-  "createdAt": 1790438199415,
+  "createdAt": 1790438576688,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 1.0,

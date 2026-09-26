@@ -40,16 +40,21 @@
     }
   ],
   "mapping": {
-    "confidence": "partial",
+    "confidence": "approx",
     "groups": [
+      "convolver",
       "dynamicEq",
       "masterLimiter"
     ],
     "group_confidence": {
+      "convolver": "approx",
       "dynamicEq": "approx",
       "masterLimiter": "verified"
     },
     "decisions": {
+      "convolver": [
+        "id2 StudioIr -> convolver: kernelFile=36af30f920f0e3f00232ff24b1b7847b2c006198.wav（QQ .enc 为真立体声 IR，已降为立体声）"
+      ],
       "dynamicEq": [
         "id24 SuperEQ: FFT 图形 EQ -> dynamicEq 峰值频段（Q 取 1.0 近似，start_f/octave/window_bits 未映射）",
         "dynamicEq: 10 频段（threshold=-80 恒生效，type 0=peak/1=low shelf/2=high shelf）"
@@ -58,20 +63,10 @@
         "id4 Amplifier: Gain=-2.9014 dB"
       ]
     },
-    "unmapped": [
-      {
-        "id": 2,
-        "class": "StudioIrEffect",
-        "params": {
-          "IR File": "irs\\36af30f920f0e3f00232ff24b1b7847b2c006198.enc"
-        },
-        "reason": "id2 StudioIr 需要 .enc 解密后的 IR：kernels/36af30f920f0e3f00232ff24b1b7847b2c006198.enc 不存在或未解密，convolver 无法启用"
-      }
-    ]
+    "unmapped": []
   },
   "warnings": [
-    "id24 SuperEQ freq = 16 低于下限 20，已钳到 20",
-    "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\36af30f920f0e3f00232ff24b1b7847b2c006198.enc\"}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/36af30f920f0e3f00232ff24b1b7847b2c006198.enc 不存在或未解密，convolver 无法启用"
+    "id24 SuperEQ freq = 16 低于下限 20，已钳到 20"
   ],
   "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\008-小编制.parse.json"
 }

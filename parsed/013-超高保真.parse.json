@@ -1,0 +1,56 @@
+{
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\013-超高保真.aep",
+  "file_size": 512,
+  "magic": "QMAEP",
+  "name": "超高保真",
+  "nodes": [
+    {
+      "id": 2,
+      "class": "StudioIrEffect",
+      "params": {
+        "IR File": "irs\\d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.enc"
+      }
+    },
+    {
+      "id": 9,
+      "class": "ExciterEffect",
+      "params": {
+        "MixBack": -14.181381225585938,
+        "Frequency": 614.400390625,
+        "ClipBoost": 0.0,
+        "Harmonics": 5.0
+      }
+    }
+  ],
+  "mapping": {
+    "confidence": "partial",
+    "groups": [
+      "convolver"
+    ],
+    "group_confidence": {
+      "convolver": "approx"
+    },
+    "decisions": {
+      "convolver": [
+        "id2 StudioIr -> convolver: kernelFile=d8d31861ef720e7ebe5d30fad4ba2dea68bbee41.wav（QQ .enc 为真立体声 IR，已降为立体声）"
+      ]
+    },
+    "unmapped": [
+      {
+        "id": 9,
+        "class": "ExciterEffect",
+        "params": {
+          "MixBack": -14.181381225585938,
+          "Frequency": 614.400390625,
+          "ClipBoost": 0.0,
+          "Harmonics": 5.0
+        },
+        "reason": "Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+      }
+    ]
+  },
+  "warnings": [
+    "未映射节点 id=9(ExciterEffect) 参数={\"MixBack\": -14.181381225585938, \"Frequency\": 614.400390625, \"ClipBoost\": 0.0, \"Harmonics\": 5.0}：Exciter 激励器（MixBack/Frequency/ClipBoost/Harmonics）；V4A spectrumExtension 仅 2.2k+ 高频谐波激励且频段不匹配，无合理对应"
+  ],
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\013-超高保真.parse.json"
+}
