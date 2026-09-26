@@ -12,6 +12,10 @@ batch_convert.py
 零映射文件（无任何可映射节点，如空节点 809/999 或全为 skipped 类型）不产出预设/ dump，
 只在 manifest 中记录 confidence=skipped 及原因。
 
+此外有两张人工维护的例外表（见文件内 SKIP_SOURCES / OUT_NAME_OVERRIDE）：
+  SKIP_SOURCES    按源文件名跳过（新旧语料重复时只保留新版），记 skipped + reason；
+  OUT_NAME_OVERRIDE 按源文件名覆盖产物命名（让新版产物沿用用户熟知的正式名）。
+
 用法:
   python batch_convert.py [--aep-dir aep] [--presets-dir presets] [--parsed-dir parsed]
                           [--manifest manifest.json] [--pattern "*.aep"] [--limit N]
@@ -33,6 +37,18 @@ REPO = os.path.dirname(HERE)
 CONF_ORDER = (convert_aep.CONF_VERIFIED, convert_aep.CONF_APPROX,
               convert_aep.CONF_PARTIAL, convert_aep.CONF_SKIPPED)
 
+# 源文件跳过表（按 .aep 文件名）：命中则不产预设/dump，仅在 manifest 记 skipped + reason。
+# 用途：同一效果存在新旧两份语料时，旧版不再重复产出，避免同名效果多份冗余预设。
+SKIP_SOURCES = {
+    "500-全景环绕.aep": "旧版预设（无 Gain 节点），已由新版取代；语料保留仅供参考",
+}
+
+# 产物命名覆盖表（按 .aep 文件名 -> 输出名主干）：
+# 新版语料沿用用户熟知的正式名，避免产物名带 ".new" 后缀。
+OUT_NAME_OVERRIDE = {
+    "500-全景环绕.new.aep": "QQ音乐-全景环绕",
+}
+
 
 def _write_json(path, obj):
     os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
@@ -43,7 +59,8 @@ def _write_json(path, obj):
 
 def process_one(aep_path, presets_dir, parsed_dir, schema, registry, kernels_dir):
     """转换单个文件（按需落盘）并做 schema 校验，返回 manifest 条目。"""
-    stem = os.path.splitext(os.path.basename(aep_path))[0]
+    base = os.path.basename(aep_path)
+    stem = OUT_NAME_OVERRIDE.get(base, os.path.splitext(base)[0])
     out_preset = os.path.join(presets_dir, stem + ".json")
     out_parse = os.path.join(parsed_dir, stem + ".parse.json")
     res = convert_aep.build(aep_path, schema, registry, kernels_dir=kernels_dir)
@@ -64,6 +81,15 @@ def process_one(aep_path, presets_dir, parsed_dir, schema, registry, kernels_dir
         "preset": None,
         "parsed": None,
     }
+
+    if base in SKIP_SOURCES:
+        # 人工跳过：不产预设/dump，清理同名旧产物，仅记 manifest（reason 注明取代关系）
+        entry["confidence"] = convert_aep.CONF_SKIPPED
+        entry["reason"] = SKIP_SOURCES[base]
+        for pth in (out_preset, out_parse):
+            if os.path.exists(pth):
+                os.remove(pth)
+        return entry
 
     if not res["has_mapping"]:
         nodes_desc = ", ".join("id%d(%s)" % (i, registry.get(i, "id%d" % i)) for i in res["node_ids"])

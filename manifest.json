@@ -1,19 +1,19 @@
 {
-  "generatedAt": 1790443125415,
+  "generatedAt": 1790444080431,
   "schema": "tools/v4a_schema.json",
   "aep_dir": "aep",
   "count": 51,
-  "presets_produced": 36,
+  "presets_produced": 35,
   "confidence": {
-    "verified": 2,
+    "verified": 1,
     "approx": 21,
     "partial": 13,
-    "skipped": 15
+    "skipped": 16
   },
   "validation": {
-    "pass": 36,
+    "pass": 35,
     "fail": 0,
-    "skipped_no_preset": 15
+    "skipped_no_preset": 16
   },
   "entries": [
     {
@@ -1030,7 +1030,7 @@
         "DelayEffect",
         "IirEQ10Effect"
       ],
-      "confidence": "verified",
+      "confidence": "skipped",
       "mapped_groups": [
         "diffSurround",
         "equalizer",
@@ -1041,10 +1041,10 @@
         "diffSurround delay(ms) = 26.1224 超过上限 20，已钳到 20"
       ],
       "unmapped": [],
-      "validation": "pass",
-      "preset": "presets/500-全景环绕.json",
-      "parsed": "parsed/500-全景环绕.parse.json",
-      "validation_errors": []
+      "validation": "skipped",
+      "preset": null,
+      "parsed": null,
+      "reason": "旧版预设（无 Gain 节点），已由新版取代；语料保留仅供参考"
     },
     {
       "source": "aep/500-全景环绕.new.aep",
@@ -1074,8 +1074,8 @@
       ],
       "unmapped": [],
       "validation": "pass",
-      "preset": "presets/500-全景环绕.new.json",
-      "parsed": "parsed/500-全景环绕.new.parse.json",
+      "preset": "presets/QQ音乐-全景环绕.json",
+      "parsed": "parsed/QQ音乐-全景环绕.parse.json",
       "validation_errors": []
     },
     {

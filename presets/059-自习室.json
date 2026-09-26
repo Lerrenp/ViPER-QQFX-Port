@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "059-自习室",
-  "createdAt": 1790443125391,
+  "createdAt": 1790444080409,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 1.0,

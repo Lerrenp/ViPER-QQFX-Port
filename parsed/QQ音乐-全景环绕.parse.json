@@ -1,9 +1,16 @@
 {
-  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\500-全景环绕.aep",
-  "file_size": 1276,
+  "source": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\aep\\500-全景环绕.new.aep",
+  "file_size": 1372,
   "magic": "QMAEP",
   "name": "全景环绕",
   "nodes": [
+    {
+      "id": 4,
+      "class": "AmplifierEffect",
+      "params": {
+        "Gain": 2.278866767883301
+      }
+    },
     {
       "id": 11,
       "class": "StereoEnhancerEffect",
@@ -45,14 +52,19 @@
     "groups": [
       "diffSurround",
       "equalizer",
+      "masterLimiter",
       "stereoImager"
     ],
     "group_confidence": {
       "diffSurround": "verified",
       "equalizer": "verified",
+      "masterLimiter": "verified",
       "stereoImager": "verified"
     },
     "decisions": {
+      "masterLimiter": [
+        "id4 Amplifier: Gain=+2.2789 dB"
+      ],
       "stereoImager": [
         "id11 StereoEnhancer: Width=130% -> width=1.3000"
       ],
@@ -69,5 +81,5 @@
   "warnings": [
     "diffSurround delay(ms) = 26.1224 超过上限 20，已钳到 20"
   ],
-  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\500-全景环绕.parse.json"
+  "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\QQ音乐-全景环绕.parse.json"
 }

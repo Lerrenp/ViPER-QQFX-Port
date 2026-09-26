@@ -97,20 +97,22 @@ schema 遍历。逐字节验证与 hex 证据见 [docs/分析报告.md](docs/分
 | 指标 | 值 |
 |---|---|
 | 输入文件 | 51 |
-| 产出预设（`presets/*.json`） | **36**（校验全部 pass） |
-| 不产出预设（全 skipped） | 15 |
-| 置信级分布 | **verified 2 / approx 21 / partial 13 / skipped 15** |
+| 产出预设（`presets/*.json`） | **35**（校验全部 pass） |
+| 不产出预设（全 skipped） | 16 |
+| 置信级分布 | **verified 1 / approx 21 / partial 13 / skipped 16** |
 
-- **verified 2**：`500-全景环绕.aep`（旧版，节点 11/12/13）与 `500-全景环绕.new.aep`（节点 4/11/12/13）。
+- **verified 1**：`500-全景环绕.new.aep`（新版，节点 4/11/12/13）。
+  旧版 `500-全景环绕.aep`（节点 11/12/13）仍映射但被人工跳过（见下），不再重复产出预设。
 - **approx 21**：12 个 `[63]` 房间/空间系列 + `501-超重低音` + `504-现场律动`，
   以及 7 个 id2 IR 解密成功后 `convolver` 命中的文件（007/008/010/011/015/017/018，均无 skipped 节点）。
 - **partial 13**：既有 verified/approx 命中、又含 skipped 节点的文件（如 001-差分环绕、002-3D人声、
   009-民谣、012-复合低音、013-超高保真、014-留声机、019-摇滚、020-中国风、996/997/998 等）。
-- **skipped 15**：无任何可映射节点，不落盘（仅在 `manifest.json` 记录 `reason`）：
-  004/062/064/502/503/505/506/600/601/602/807/808/809/995/999。
+- **skipped 16**：无任何可映射节点，不落盘（仅在 `manifest.json` 记录 `reason`）：
+  004/062/064/502/503/505/506/600/601/602/807/808/809/995/999，另加人工跳过的旧版
+  `500-全景环绕.aep`（旧版预设已被新版取代，语料保留仅供参考）。
 
-各 V4A 组被产出的预设数：`masterLimiter 16, reverb 13, convolver 12, stereoImager 7, dynamicEq 6, equalizer 3,
-diffSurround 3, bass 1`。`unmapped` 节点按**含该节点的文件数**：id9:8、id7:2、id16:4、id19:4、id3:1、id14:3、
+各 V4A 组被产出的预设数：`masterLimiter 16, reverb 13, convolver 12, stereoImager 6, dynamicEq 6, equalizer 2,
+diffSurround 2, bass 1`。`unmapped` 节点按**含该节点的文件数**：id9:8、id7:2、id16:4、id19:4、id3:1、id14:3、
 id15:3、id18:3、id21:3、id28:2，其余 id5/22/31/40/55/56/58/59/60/62/69/70/71/73/74/75 各 1
 （个别文件会重复出现同一节点，如 id3 在单个文件中出现 6 次，按文件数计为 1）。
 
@@ -205,18 +207,18 @@ ViPER-QQFX-Port/
 │   ├── convert_aep.py           # 单文件转换 CLI（build/convert + 映射规则/置信级）
 │   ├── batch_convert.py         # 批量转换 CLI + manifest 汇总
 │   └── decrypt_ir.py            # QQ .enc IR 解密器（完整算法，见 1.7）
-├── presets/                 # 预设成品（34 个由批量生成 + 1 个手工对照）
+├── presets/                 # 预设成品（35 个，全部由批量生成）
 │   ├── 001-差分环绕.json ... 998-设备音效.json
-│   └── QQ音乐-全景环绕.json   # 手工验证版（对照 build_preset.py，已通过新校验器）
-├── parsed/                  # 解析 dump（34 个 <名>.parse.json + 历史 parsed_500-全景环绕.json）
+│   └── QQ音乐-全景环绕.json   # 新版 500 的流水线产物（输出名覆盖，已通过校验器）
+├── parsed/                  # 解析 dump（35 个 <名>.parse.json）
 └── kernels/                 # 双速率 kernel（441/ 与 48k/ 两套，可读命名）+ kernel_index.json
 ```
 
 > `500-全景环绕` 的两个版本：`aep/500-全景环绕.aep` 是语料中的**旧版**（1276B，节点 11/12/13，
 > 无 Gain）；`aep/500-全景环绕.new.aep` 是工作区根目录的**新版**（1372B，节点 4/11/12/13，
-> 多一个 `Gain≈+2.27887 dB` 节点）。手工成品 `presets/QQ音乐-全景环绕.json` 按**新版**整理；
-> 批量转码会另外生成 `presets/500-全景环绕.json`（旧版）与 `presets/500-全景环绕.new.json`（新版），
-> 三者并存、各按来源标注，不去重。
+> 多一个 `Gain≈+2.27887 dB` 节点）。批量转码**只产出一份**：新版经输出名覆盖落为
+> `presets/QQ音乐-全景环绕.json`（保留用户熟知名）；旧版在 `tools/batch_convert.py` 的
+> `SKIP_SOURCES` 表中跳过，仅在 `manifest.json` 记 `skipped` + reason，语料保留仅供参考。
 >
 > 完整中间产物（DLL 字符串/反汇编中转文件、临时逆向脚本等）保留在 `workspace/output/逆向/`，
 > 未纳入本仓库。
@@ -250,7 +252,7 @@ python tools/convert_aep.py aep/500-全景环绕.new.aep -o out/全景环绕.jso
 ```bash
 python tools/batch_convert.py
 # 扫 aep/*.aep -> presets/<名>.json + parsed/<名>.parse.json -> manifest.json
-# 存在可映射节点的文件才落盘；全 skipped（零映射）只记 manifest（reason）
+# 存在可映射节点的文件才落盘；全 skipped（零映射或人工跳过）只记 manifest（reason）
 ```
 
 可选 `--aep-dir/--presets-dir/--parsed-dir/--manifest/--pattern/--limit/--kernels-dir/--dry-run`。
