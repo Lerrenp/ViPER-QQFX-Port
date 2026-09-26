@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "053-音乐厅",
-  "createdAt": 1790435323317,
+  "createdAt": 1790435965277,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 1.0,
@@ -264,7 +264,7 @@
   "reverb": {
     "enable": true,
     "roomSize": 0.5,
-    "width": 0.0,
+    "width": 1.0,
     "damp": 1.0,
     "wet": 0.3499999940395355,
     "dry": 0.6500000059604645

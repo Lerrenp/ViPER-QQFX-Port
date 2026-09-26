@@ -84,6 +84,7 @@ schema 遍历。逐字节验证与 hex 证据见 [docs/分析报告.md](docs/分
 > （越高越亮、阻尼越少），故 V4A `damp = 1 − DAMPINGFREQ`；`Decay` 为反馈增益（=衰减时间），
 > 对应 V4A/Freeverb 的 `roomSize`；`MIX` 为干湿交叉淡入，故 `wet=MIX, dry=1−MIX`。
 > `SIZE/DENSITY/BANDWIDTHFREQ/PREDELAY/EARLYMIX/GAIN` 在 V4A reverb 中无对应项，记 warning。
+> `reverb.width` 取 1.0：MVerb 湿声为立体声，V4A Freeverb `width=1` 为不交叉立体声湿声（`width=0` 会退化为单声道湿声）。
 
 ### 1.5 语料节点构成（`aep/` 51 个文件 smoke test）
 
@@ -108,8 +109,9 @@ schema 遍历。逐字节验证与 hex 证据见 [docs/分析报告.md](docs/分
   004/010/013/062/064/502/503/505/506/600/601/602/807/808/809/995/999。
 
 各 V4A 组被产出的预设数：`masterLimiter 16, reverb 13, stereoImager 7, dynamicEq 6, equalizer 3,
-diffSurround 3, bass 1`。`unmapped` 节点按文件数：id2:12、id9:8、id7:4、id16:4、id19:4、id3:6、id14:3、
-id15:3、id18:3、id21:3、id28:2，其余 id5/22/31/40/55/56/58/59/60/62/69/70/71/73/74/75 各 1。
+diffSurround 3, bass 1`。`unmapped` 节点按**含该节点的文件数**：id2:12、id9:8、id7:2、id16:4、id19:4、id3:1、id14:3、
+id15:3、id18:3、id21:3、id28:2，其余 id5/22/31/40/55/56/58/59/60/62/69/70/71/73/74/75 各 1
+（个别文件会重复出现同一节点，如 id3 在单个文件中出现 6 次，按文件数计为 1）。
 
 ### 1.7 id2 `StudioIr` 的 IR 解密尝试（结论：无可用 kernel）
 
@@ -246,7 +248,7 @@ python tools/gen_v4a_schema.py \
 | `Q` 未映射（id13） | V4A 10 段 EQ 为固定 Q 最小相位 IIR，无 Q 入参 |
 | `Center≠100` | V4A `stereoImager` 只缩放 side，mid 增益不可表达，转换时记 warning |
 | 滤波器→dynamicEq 为近似 | id51/50/33/34/35/24 用 `dynamicEq`（threshold=−80 恒生效）近似静态滤波器；V4A 无带通类型（id31 跳过），id35 的 Q 由频率边缘推算 |
-| id63 MVerb→reverb 为近似 | 用 `roomSize←DECAY / damp←1−DAMPINGFREQ / wet←MIX / dry←1−MIX`；`SIZE/DENSITY/BANDWIDTHFREQ/PREDELAY/EARLYMIX/GAIN` 无对应，`reverb.width` 保持默认 0 |
+| id63 MVerb→reverb 为近似 | 用 `roomSize←DECAY / damp←1−DAMPINGFREQ / wet←MIX / dry←1−MIX / width=1.0`；`SIZE/DENSITY/BANDWIDTHFREQ/PREDELAY/EARLYMIX/GAIN` 无对应 |
 | id57 SuperBass→bass 为近似 | V4A `bass` 为动态低音/次谐波结构，与 QQ SuperBass 算法不同 |
 | id2 StudioIr 不映射 | `.enc` IR 解密后可用数据仅约 46 ms（0x8000 后损坏），本期无可用 kernel，见 1.7 |
 | 大量节点不映射 | id9 `Exciter`、id14/15/16/18/19 DFX 系列、id21/59 人声、id22 `HyperBass`、3D/5.1/人声分离/QTSEffect/PitchShifter/Chaos/Rotator/Sampler 等无合理对应，原因见 1.6 与各 `<名>.parse.json` |

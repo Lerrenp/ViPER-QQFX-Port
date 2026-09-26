@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "058-工作室",
-  "createdAt": 1790435323325,
+  "createdAt": 1790435965286,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 1.0,
@@ -264,7 +264,7 @@
   "reverb": {
     "enable": true,
     "roomSize": 0.5,
-    "width": 0.0,
+    "width": 1.0,
     "damp": 1.0,
     "wet": 0.20000000298023224,
     "dry": 0.7999999970197678

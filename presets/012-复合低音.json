@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "复合低音",
-  "createdAt": 1790435323299,
+  "createdAt": 1790435965257,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 0.5071174409583493,

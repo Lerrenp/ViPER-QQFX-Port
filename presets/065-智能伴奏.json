@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "065-智能伴奏",
-  "createdAt": 1790435323332,
+  "createdAt": 1790435965293,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 1.0,

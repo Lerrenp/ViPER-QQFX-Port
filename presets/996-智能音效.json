@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "智能音效(Lite)",
-  "createdAt": 1790435323343,
+  "createdAt": 1790435965305,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 0.485890022378105,

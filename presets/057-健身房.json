@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "057-健身房",
-  "createdAt": 1790435323324,
+  "createdAt": 1790435965284,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 1.0,
@@ -264,7 +264,7 @@
   "reverb": {
     "enable": true,
     "roomSize": 0.5,
-    "width": 0.0,
+    "width": 1.0,
     "damp": 1.0,
     "wet": 0.25,
     "dry": 0.75

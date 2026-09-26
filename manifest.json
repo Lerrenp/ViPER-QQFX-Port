@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1790435323348,
+  "generatedAt": 1790435965311,
   "schema": "tools/v4a_schema.json",
   "aep_dir": "aep",
   "count": 51,
@@ -667,7 +667,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -692,7 +692,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -717,7 +717,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -742,7 +742,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -767,7 +767,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -792,7 +792,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -817,7 +817,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -842,7 +842,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -867,7 +867,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -892,7 +892,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -917,7 +917,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -942,7 +942,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
       ],
       "unmapped": [],
       "validation": "pass",
@@ -1238,7 +1238,7 @@
         "reverb"
       ],
       "approximation_warnings": [
-        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）",
+        "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）",
         "diffSurround delay(ms) = 26.1224 超过上限 20，已钳到 20"
       ],
       "unmapped": [

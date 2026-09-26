@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2.1,
   "name": "059-自习室",
-  "createdAt": 1790435323327,
+  "createdAt": 1790435965287,
   "masterLimiter": {
     "threshold": 1.0,
     "outputVolume": 1.0,
@@ -264,7 +264,7 @@
   "reverb": {
     "enable": true,
     "roomSize": 0.3499999940395355,
-    "width": 0.0,
+    "width": 1.0,
     "damp": 0.06999999284744263,
     "wet": 0.3700000047683716,
     "dry": 0.6299999952316284

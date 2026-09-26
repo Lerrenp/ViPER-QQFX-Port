@@ -316,19 +316,21 @@ def build(aep_path, schema, registry, now_ms=None, dump_path=None, kernels_dir=D
             preset["reverb"].update({
                 "enable": True,
                 "roomSize": room,
-                "width": preset["reverb"]["width"],   # MVerb 无 width，保持默认 0
+                # MVerb 湿声为立体声（左右 tank 延迟线不同）；V4A Freeverb width=0 会让湿声
+                # 左右交叉退化为单声道，width=1 才是不交叉立体声，与 MVerb 行为一致。
+                "width": 1.0,
                 "damp": damp,
                 "wet": wet,
                 "dry": dry,
             })
             note("reverb", CONF_APPROX,
-                 "id63 Mverb -> reverb: roomSize=DECAY=%g, damp=1-DAMPINGFREQ=%g, wet=MIX=%g, dry=1-MIX=%g"
+                 "id63 Mverb -> reverb: roomSize=DECAY=%g, damp=1-DAMPINGFREQ=%g, wet=MIX=%g, dry=1-MIX=%g, width=1.0(立体声湿声)"
                  % (room, damp, wet, dry))
             no_map = [k for k in ("SIZE", "DENSITY", "BANDWIDTHFREQ", "PREDELAY", "EARLYMIX", "GAIN")
                       if k in params]
             if no_map:
-                warnings.append("id63 Mverb: %s 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；"
-                                "V4A reverb.width 亦无对应，保持默认 0）" % ",".join(no_map))
+                warnings.append("id63 Mverb: %s 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，"
+                                "V4A reverb 无该维度）" % ",".join(no_map))
 
         elif nid in ID_EQ_FILTERS:
             if nid == 24:

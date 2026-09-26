@@ -89,7 +89,7 @@
     },
     "decisions": {
       "reverb": [
-        "id63 Mverb -> reverb: roomSize=DECAY=0.5, damp=1-DAMPINGFREQ=1, wet=MIX=0.2, dry=1-MIX=0.8"
+        "id63 Mverb -> reverb: roomSize=DECAY=0.5, damp=1-DAMPINGFREQ=1, wet=MIX=0.2, dry=1-MIX=0.8, width=1.0(立体声湿声)"
       ],
       "masterLimiter": [
         "id4 Amplifier: Gain=-4.6576 dB"
@@ -119,7 +119,7 @@
     ]
   },
   "warnings": [
-    "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）",
+    "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）",
     "diffSurround delay(ms) = 26.1224 超过上限 20，已钳到 20",
     "未映射节点 id=2(StudioIrEffect) 参数={\"IR File\": \"irs\\\\742156792c2f7c863b9d5cec1cd0622546a1f877.enc\", \"Trim\": -100.0, \"Fade\": 0.0}：id2 StudioIr 需要 .enc 解密后的 IR：kernels/742156792c2f7c863b9d5cec1cd0622546a1f877.enc 不存在或未解密，convolver 无法启用"
   ],

@@ -30,13 +30,13 @@
     },
     "decisions": {
       "reverb": [
-        "id63 Mverb -> reverb: roomSize=DECAY=0.5, damp=1-DAMPINGFREQ=1, wet=MIX=0.25, dry=1-MIX=0.75"
+        "id63 Mverb -> reverb: roomSize=DECAY=0.5, damp=1-DAMPINGFREQ=1, wet=MIX=0.25, dry=1-MIX=0.75, width=1.0(立体声湿声)"
       ]
     },
     "unmapped": []
   },
   "warnings": [
-    "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 只缩放早期反射几何；V4A reverb.width 亦无对应，保持默认 0）"
+    "id63 Mverb: SIZE,DENSITY,BANDWIDTHFREQ,PREDELAY,EARLYMIX,GAIN 在 V4A reverb 中无可对应项，未映射（SIZE 缩放全部延迟线/扩散几何，V4A reverb 无该维度）"
   ],
   "suggested_dump_path": "D:\\AI-Agent\\ZCode\\workspace\\ViPER-QQFX-Port\\parsed\\057-健身房.parse.json"
 }
