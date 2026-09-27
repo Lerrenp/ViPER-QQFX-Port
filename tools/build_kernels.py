@@ -27,8 +27,8 @@ id2 时被覆盖的前者加 "_备选"）；id7 采样素材加 "采样素材_" 
               本语料实测全部不激活（仅 018/504 显式 Trim=-100，亦在区间外）。
   5. 重采样 : 原生采样率即 .enc 内 WAV 头声明率（11/12 为 44100，018 为 48000，
               帧数多为 2 的幂，系按 44.1k 制作）。双版本各自从原生率重采样
-              （加窗 sinc，近似 SS2 的 SoundTouch 路径 0x10048fc3），原生匹配的
-              版本直接透传不经重采样。
+              （加窗 sinc + 降采样抗混叠 + 逐点归一，近似 SS2 的 SoundTouch
+              路径 0x10048fc3），原生匹配的版本直接透传不经重采样。
   6. 通道归一: 4ch true-stereo [LL,LR,RL,RR] → 取对角 L=ch0, R=ch3
               （V4A app utils/WavDecoder.kt:93-95 拒绝 >2ch；DSP Convolver.cpp
               仅支持 1/2 路）。位深统一 float32。
@@ -160,26 +160,36 @@ def apply_trim_fade(chans, rate, trim_db, fade_ms):
 
 
 # ---------- 重采样（加窗 sinc，近似 SS2 的 SoundTouch 路径） ----------
-# 注意：降采样（48k→44.1k）时本实现未加低通截止，>Nyquist/2 的成分会混叠；
-# 对音频 IR 实测影响可忽略（能量集中在低频），作为对 SoundTouch 的近似已在
-# docs/SS2引擎分析.md 声明。若需广播级质量可换 soxr/scipy.resample_poly。
+# 每个输出点位于 pos = base + frac，抽头 t 的源位置是 base+t，到它的距离是
+# frac - t；权重 = cutoff·sinc(cutoff·x)·sinc(x/(K/2+1))（Lanczos 式加窗）。
+# 降采样时 cutoff = rate_out/rate_in 先限带到目标奈奎斯特（抗混叠）；升采样
+# cutoff = 1。最后按权重和逐点归一，保证任意相位下直流增益恰为 1（也消除
+# 边缘截断偏差）。
 def resample(chans, rate_in, rate_out):
     if rate_in == rate_out:
         return chans
     import numpy as np
-    out_n = int(math.floor(len(chans[0]) * rate_out / rate_in))
+    ratio = rate_in / float(rate_out)                   # >1 为降采样
+    cutoff = min(1.0, 1.0 / ratio)
     K = RESAMPLER_TAPS
+    half = K // 2
     outs = []
     for c in chans:
         src = np.asarray(c, dtype=np.float64)
-        idx = np.arange(out_n) * (rate_in / float(rate_out))
-        base = np.floor(idx).astype(np.int64)
+        n = len(src)
+        out_n = int(math.floor(n * rate_out / rate_in))
+        pos = np.arange(out_n) * ratio
+        base = np.floor(pos).astype(np.int64)
+        frac = pos - base
         out = np.zeros(out_n)
-        for t in range(-K // 2 + 1, K // 2 + 1):
-            j = np.clip(base + t, 0, len(src) - 1)
-            x = (idx + t) - j                                   # 到采样点的距离
-            w = np.sinc(x) * np.sinc(x / (K // 2 + 1.0))        # 加窗 sinc
+        wsum = np.zeros(out_n)
+        for t in range(-half + 1, half + 1):
+            x = frac - t                                # 输出点到抽头 base+t 的距离
+            w = cutoff * np.sinc(cutoff * x) * np.sinc(x / (half + 1.0))
+            j = np.clip(base + t, 0, n - 1)
             out += src[j] * w
+            wsum += w
+        out /= wsum
         outs.append(out.tolist())
     return outs
 
